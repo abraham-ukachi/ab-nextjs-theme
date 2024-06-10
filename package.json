@@ -4,22 +4,17 @@
   "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
   "main": "index.ts",
   "types": "types/index.d.ts",
-
   "homepage": "https://github.com/abraham-ukachi/ab-nextjs-theme",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abraham-ukachi/ab-nextjs-theme.git"
   },
-
   "bugs": {
     "url": "https://github.com/abraham-ukachi/ab-nextjs-theme/issues"
   },
-
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .ts,.tsx --fix"
   },
-
   "keywords": [
     "react",
     "nextjs",
@@ -29,12 +24,20 @@
     "ab-nextjs-theme",
     "ab-elements"
   ],
-
   "author": {
     "name": "Abraham Ukachi",
     "url": "https://github.com/abraham-ukachi",
     "email": "abraham.ukachi@laplateforme.io"
   },
-
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.3"
+  },
+  "dependencies": {
+    "ab-nextjs-animations": "^0.2.0",
+    "ab-nextjs-fonts": "^0.2.1"
+  }
 }
