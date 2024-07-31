@@ -78,7 +78,7 @@ export interface CoreColors {
   tertiaty: string;
   error: string;
   neutral: string;
-  ['neutral-variant']|neutralVariant?: string;
+  neutralVariant?: string;
 }
 
 
