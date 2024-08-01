@@ -61,7 +61,7 @@ A list of all the supported **tailwind theme** and their current status:
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Colors`* | **colors.ts** | *In progress* |
+| 1 | *`Colors`* | **colors.ts** | [Done](./colors.ts) |
 | 2 | *`Typography`* | **typography.ts** | Pending |
 | 3 | *`Styles`* | **styles.ts** | Pending |
 
