@@ -77,7 +77,7 @@ A list of all the supported **css theme** and their current status:
 
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
-| 1 | *`Colors`* | **css/colors.css** | *In progress* |
+| 1 | *`Colors`* | **css/colors.css** | [Done](./css/colors.css)\* |
 | 2 | *`Typography`* | **css/typography.css** | Pending |
 | 3 | *`Styles`* | **css/styles.css** | Pending |
 
@@ -127,12 +127,12 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 
 
 ### Theme
-
 > The Ab Theme consists of three parts, namely Classic, Light and Dark Theme.
 
 | Name | Classic ⭐️ | Light ☀️ | Dark 🌑 | Role |
 |:-----|:-----------|:---------|:---------|:------------|
 | *`primary`* | **#FCFCFC** | **#8B5000** | **#FFB86B** | Primary |
+| *`surfaceTint`* | **-** | **-** | **-** | Surface Tint |
 | *`onPrimary`* | **#201A17** | **#FFFFFF** | **#4A2800** | On Primary |
 | *`primaryContainer`* | **#FFDCBA** | **#FFDCBA** | **#6A3C00** | Primary Container |
 | *`onPrimaryContainer`* | **#2D1600** | **#2D1600** | **#FFDCBA** | On Primary Container |
@@ -145,8 +145,8 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 | *`tertiaryContainer`* | **#004F50** | **#14FBFB** | **#004F50** | Tertiary Container |
 | *`onTertiaryContainer`* | **#14FBFB** | **#002020** | **#14FBFB** | On Tertiary Container |
 | *`error`* | **#680003** | **#BA1B1B** | **#FFB4A9** | Error |
-| *`errorContainer`* | **#BA1B1B** | **#FFDAD4** | **#930006** | Error Container |
 | *`onError`* | **#FF897A** | **#FFFFFF** | **#680003** | On Error |
+| *`errorContainer`* | **#BA1B1B** | **#FFDAD4** | **#930006** | Error Container |
 | *`onErrorContainer`* | **#FFDAD4** | **#410001** | **#FFDAD4** | On Error Container |
 | *`background`* | **#A67C52** | **#FCFCFC** | **#201A17** | Background |
 | *`onBackground`* | **#2D1600** | **#201A17** | **#ECE0DB** | On Background |
@@ -155,14 +155,149 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 | *`surfaceVariant`* | **#755028** | **#F2DFD1** | **#51453A** | Surface Variant |
 | *`onSurfaceVariant`* | **#D9AB7F** | **#51453A** | **#D4C3B5** | On Surface Variant |
 | *`outline`* | **#392E24** | **#837569** | **#9E8E81** | Outline |
-| *`inverseOnSurface`* | **#2D1600** | **#FAEEE8** | **#201A17** | Inverse On Surface |
+| *`outlineVariant`* | **-** | **-** | **-** | Outline Variant |
+| *`shadow`* | **-** | **-** | **-** | Shadow |
+| *`scrim`* | **-** | **-** | **-** | Scrim |
 | *`inverseSurface`* | **#A67C52** | **#362F2B** | **#ECE0DB** | Inverse Surface |
-| *`primaryInverse`* | **#A67C52** | **#FFB86B** | **#8B5000** | Primary Inverse |
+| *`inverseOnSurface`* | **#2D1600** | **#FAEEE8** | **#201A17** | Inverse On Surface |
+| *`inversePrimary`* | **#A67C52** | **#FFB86B** | **#8B5000** | Inverse Primary |
+| *`primaryFixed`* | **-** | **-** | **-** | Primary Fixed |
+| *`onPrimaryFixed`* | **-** | **-** | **-** | On Primary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Primary Fixed Dim |
+| *`onPrimaryFixedVariant`* | **-** | **-** | **-** | On Primary Fixed Variant |
+| *`secondaryFixed`* | **-** | **-** | **-** | Secondary Fixed |
+| *`onSecondaryFixed`* | **-** | **-** | **-** | On Secondary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Secondary Fixed Dim |
+| *`onSecondaryFixedVariant`* | **-** | **-** | **-** | On Secondary Fixed Variant |
+| *`tertiaryFixed`* | **-** | **-** | **-** | Tertiary Fixed |
+| *`onTertiaryFixed`* | **-** | **-** | **-** | On Tertiary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Tertiary Fixed Dim |
+| *`onTertiaryFixedVariant`* | **-** | **-** | **-** | On Tertiary Fixed Variant |
+| *`surfaceDim`* | **-** | **-** | **-** | Surface Dim |
+| *`surfaceBright`* | **-** | **-** | **-** | Surface Bright |
+| *`surfaceContainerLowest`* | **-** | **-** | **-** | Surface Container Lowest |
+| *`surfaceContainerLow`* | **-** | **-** | **-** | Surface Container Low |
+| *`surfaceContainer`* | **-** | **-** | **-** | Surface Container |
+| *`surfaceContainerHigh`* | **-** | **-** | **-** | Surface Container High |
+| *`surfaceContainerHighest`* | **-** | **-** | **-** | Surface Container Highest |
 
 > NOTE: The Classic Theme ⭐️ was manually created for the `AbTheme`, This is an addition to the [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) requirements from [Material Design 3](https://m3.material.io/).
-> *`primaryInverse`* was used in the **`colors.xml`** file, which differs from the **Inverse Primary** "Role" mentioned in the [Baseline color scheme tokens](https://m3.material.io/styles/color/the-color-system/tokens) page.
 
 
+#### Medium Contast
+
+| Name | Classic ⭐️ | Light ☀️ | Dark 🌑 | Role |
+|:-----|:-----------|:--------|:--------|:-----|
+| *`primary`* | **-** | **-** | **-** | Primary |
+| *`surfaceTint`* | **-** | **-** | **-** | Surface Tint |
+| *`onPrimary`* | **-** | **-** | **-** | On Primary |
+| *`primaryContainer`* | **-** | **-** | **-** | Primary Container |
+| *`onPrimaryContainer`* | **-** | **-** | **-**  | On Primary Container |
+| *`secondary`* | **-** | **-** | **-** | Secondary |
+| *`onSecondary`* | **-** | **-** | **-** | On Secondary |
+| *`secondaryContainer`* | **-** | **-** | **-** | Secondary Container |
+| *`onSecondaryContainer`* | **-** | **-** | **-** | On Secondary Container |
+| *`tertiary`* | **-** | **-** | **-** | Tertiary |
+| *`onTertiary`* | **-** | **-** | **-** | On Tertiary |
+| *`tertiaryContainer`* | **-** | **-** | **-** | Tertiary Container |
+| *`onTertiaryContainer`* | **-** | **-** | **-** | On Tertiary Container |
+| *`error`* | **-** | **-** | **-** | Error |
+| *`onError`* | **-** | **-** | **-** | On Error |
+| *`errorContainer`* | **-** | **-** | **-** | Error Container |
+| *`onErrorContainer`* | **-** | **-** | **-** | On Error Container |
+| *`background`* | **-** | **-** | **-** | Background |
+| *`onBackground`* | **-** | **-** | **-** | On Background |
+| *`surface`* | **-** | **-** | **-** | Surface |
+| *`onSurface`* | **-** | **-** | **-** | On Surface |
+| *`surfaceVariant`* | **-** | **-** | **-** | Surface Variant |
+| *`onSurfaceVariant`* | **-** | **-** | **-** | On Surface Variant |
+| *`outline`* | **-** | **-** | **-** | Outline |
+| *`outlineVariant`* | **-** | **-** | **-** | Outline Variant |
+| *`shadow`* | **-** | **-** | **-** | Shadow |
+| *`scrim`* | **-** | **-** | **-** | Scrim |
+| *`inverseSurface`* | **-** | **-** | **-** | Inverse Surface |
+| *`inverseOnSurface`* | **-** | **-** | **-** | Inverse On Surface |
+| *`inversePrimary`* | **-** | **-** | **-** | Inverse Primary |
+| *`primaryFixed`* | **-** | **-** | **-** | Primary Fixed |
+| *`onPrimaryFixed`* | **-** | **-** | **-** | On Primary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Primary Fixed Dim |
+| *`onPrimaryFixedVariant`* | **-** | **-** | **-** | On Primary Fixed Variant |
+| *`secondaryFixed`* | **-** | **-** | **-** | Secondary Fixed |
+| *`onSecondaryFixed`* | **-** | **-** | **-** | On Secondary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Secondary Fixed Dim |
+| *`onSecondaryFixedVariant`* | **-** | **-** | **-** | On Secondary Fixed Variant |
+| *`tertiaryFixed`* | **-** | **-** | **-** | Tertiary Fixed |
+| *`onTertiaryFixed`* | **-** | **-** | **-** | On Tertiary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Tertiary Fixed Dim |
+| *`onTertiaryFixedVariant`* | **-** | **-** | **-** | On Tertiary Fixed Variant |
+| *`surfaceDim`* | **-** | **-** | **-** | Surface Dim |
+| *`surfaceBright`* | **-** | **-** | **-** | Surface Bright |
+| *`surfaceContainerLowest`* | **-** | **-** | **-** | Surface Container Lowest |
+| *`surfaceContainerLow`* | **-** | **-** | **-** | Surface Container Low |
+| *`surfaceContainer`* | **-** | **-** | **-** | Surface Container |
+| *`surfaceContainerHigh`* | **-** | **-** | **-** | Surface Container High |
+| *`surfaceContainerHighest`* | **-** | **-** | **-** | Surface Container Highest |
+
+> NOTE: 
+
+
+#### High Contrast
+
+| Name | Classic ⭐️ | Light ☀️ | Dark 🌑 | Role |
+|:-----|:-----------|:--------|:--------|:-----|
+| *`primary`* | **-** | **-** | **-** | Primary |
+| *`surfaceTint`* | **-** | **-** | **-** | Surface Tint |
+| *`onPrimary`* | **-** | **-** | **-** | On Primary |
+| *`primaryContainer`* | **-** | **-** | **-** | Primary Container |
+| *`onPrimaryContainer`* | **-** | **-** | **-**  | On Primary Container |
+| *`secondary`* | **-** | **-** | **-** | Secondary |
+| *`onSecondary`* | **-** | **-** | **-** | On Secondary |
+| *`secondaryContainer`* | **-** | **-** | **-** | Secondary Container |
+| *`onSecondaryContainer`* | **-** | **-** | **-** | On Secondary Container |
+| *`tertiary`* | **-** | **-** | **-** | Tertiary |
+| *`onTertiary`* | **-** | **-** | **-** | On Tertiary |
+| *`tertiaryContainer`* | **-** | **-** | **-** | Tertiary Container |
+| *`onTertiaryContainer`* | **-** | **-** | **-** | On Tertiary Container |
+| *`error`* | **-** | **-** | **-** | Error |
+| *`onError`* | **-** | **-** | **-** | On Error |
+| *`errorContainer`* | **-** | **-** | **-** | Error Container |
+| *`onErrorContainer`* | **-** | **-** | **-** | On Error Container |
+| *`background`* | **-** | **-** | **-** | Background |
+| *`onBackground`* | **-** | **-** | **-** | On Background |
+| *`surface`* | **-** | **-** | **-** | Surface |
+| *`onSurface`* | **-** | **-** | **-** | On Surface |
+| *`surfaceVariant`* | **-** | **-** | **-** | Surface Variant |
+| *`onSurfaceVariant`* | **-** | **-** | **-** | On Surface Variant |
+| *`outline`* | **-** | **-** | **-** | Outline |
+| *`outlineVariant`* | **-** | **-** | **-** | Outline Variant |
+| *`shadow`* | **-** | **-** | **-** | Shadow |
+| *`scrim`* | **-** | **-** | **-** | Scrim |
+| *`inverseSurface`* | **-** | **-** | **-** | Inverse Surface |
+| *`inverseOnSurface`* | **-** | **-** | **-** | Inverse On Surface |
+| *`inversePrimary`* | **-** | **-** | **-** | Inverse Primary |
+| *`primaryFixed`* | **-** | **-** | **-** | Primary Fixed |
+| *`onPrimaryFixed`* | **-** | **-** | **-** | On Primary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Primary Fixed Dim |
+| *`onPrimaryFixedVariant`* | **-** | **-** | **-** | On Primary Fixed Variant |
+| *`secondaryFixed`* | **-** | **-** | **-** | Secondary Fixed |
+| *`onSecondaryFixed`* | **-** | **-** | **-** | On Secondary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Secondary Fixed Dim |
+| *`onSecondaryFixedVariant`* | **-** | **-** | **-** | On Secondary Fixed Variant |
+| *`tertiaryFixed`* | **-** | **-** | **-** | Tertiary Fixed |
+| *`onTertiaryFixed`* | **-** | **-** | **-** | On Tertiary Fixed |
+| *`primaryFixedDim`* | **-** | **-** | **-** | Tertiary Fixed Dim |
+| *`onTertiaryFixedVariant`* | **-** | **-** | **-** | On Tertiary Fixed Variant |
+| *`surfaceDim`* | **-** | **-** | **-** | Surface Dim |
+| *`surfaceBright`* | **-** | **-** | **-** | Surface Bright |
+| *`surfaceContainerLowest`* | **-** | **-** | **-** | Surface Container Lowest |
+| *`surfaceContainerLow`* | **-** | **-** | **-** | Surface Container Low |
+| *`surfaceContainer`* | **-** | **-** | **-** | Surface Container |
+| *`surfaceContainerHigh`* | **-** | **-** | **-** | Surface Container High |
+| *`surfaceContainerHighest`* | **-** | **-** | **-** | Surface Container Highest |
+
+> NOTE: 
+
+---
 
 #### Custom
 
@@ -177,7 +312,9 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 | Tone | Primary | Secondary | Tertiary | Error | Neutral | Neutral Variant |
 |:----|:-----|:------|:------|:-------|:--------|:--------|
 | **0** | #000000 | #000000 | #000000 | #000000 | #000000 | #000000 |
+| **5** | - | - | - | - | - | - |
 | **10** | #2d1600 | #231b00 | #002020 | #410001 | #201a17 | #231a11 |
+| **15** | - | - | - | - | - | - |
 | **20** | #4a2800 | #3a3000 | #003738 | #680003 | #362f2b | #392e24 |
 | **30** | #6a3c00 | #554600 | #004f50 | #930006 | #4d4541 | #51453a |
 | **40** | #8b5000 | #715d00 | #006a6b | #ba1b1b | #655d59 | #695c51 |
@@ -187,6 +324,7 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 | **80** | #ffb86b | #eac400 | #02dcdc | #ffb4a9 | #d0c4bf | #d4c3b5 |
 | **90** | #ffdcba | #ffe15e | #14fbfb | #ffdad4 | #ece0db | #f2dfd1 |
 | **95** | #ffeedf | #fff0bb | #a9ffff | #ffede9 | #faeee8 | #ffeddf |
+| **98** | - | - | - | - | - | - |
 | **99** | #fcfcfc | #fffbf7 | #efffff | #fcfcfc | #fcfcfc | #fcfcfc |
 | **100** | #ffffff | #ffffff | #ffffff | #ffffff | #ffffff | #ffffff |
 
@@ -278,6 +416,13 @@ To learn more about **`abElements`**, take a look at the following resources:
 
 You can check out [the abElements GitHub repository](https://github.com/abraham-ukachi/ab-elements-app) for more details.
 
+
+
+## TODOs
+
+- [ ] Update/sync the [Theme](#Theme) with the current [material-theme.json](./material-theme.json) data.
+- [ ] Update/sync the [Medium Contrast](#Medium-Contrast) with the current [material-theme.json](./material-theme.json) data.
+- [ ] Update/sync the [High Contrast](#High-Contrast) with the current [material-theme.json](./material-theme.json) data.
 
 ## License
 
