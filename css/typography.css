@@ -1,0 +1,617 @@
+/* 
+* @license MIT
+* ~~~~~~~~~~~~
+* ab-nextjs-theme 
+* ~~~~~~~~~~~~ 
+* Copyright (c) 2024 Abraham Ukachi. The abElements Project.
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the 'Software'), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions: 
+*  
+* The above copyright notice and this permission notice shall be included in all 
+* copies or substantial portions of the Software. 
+*
+* THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @project: ab-nextjs-theme
+* @name: Color - Theme
+* @file: color.css
+* @type: CSS Stylesheet
+* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+*
+* Example usage:
+*   1+|> // Import the colors in a CSS file (e.g. `globals.css`)
+*    -|> @import '/path/to/colors.css';
+*    -|> 
+*
+*
+*/
+
+
+
+/*
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* MOTTO: We'll always do more 😜!!!
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+
+/* TODO 1: Create a Classic Theme (e.g. [data-theme="classic"]) */
+/* TODO 2: Use the built-in tw `theme()` function to get the colors for the themes 
+ *         (e.g. theme('colors.primary') or theme('colors.dark.primary')
+ */
+
+
+/* ==== abElements COLOR - THEME STYLES ==== */
+
+
+/* TODO: import the classic colors here */
+/** example:
+ *
+ * @import './classic.css';
+ * @import './classic-mc.css';
+ * @import './classic-hc.css';
+ */
+
+/* import the light colors */
+@import './light.css';
+@import './light-mc.css';
+@import './light-hc.css';
+
+/* import the dark colors */
+@import './dark.css';
+@import './dark-mc.css';
+@import './dark-hc.css';
+
+
+
+
+
+
+
+/* Default Theme */
+[data-theme] {
+
+  /* Seed */
+  --seed-color: #778D79;
+
+  /* Key Colors */
+   --key-primary-color: #A67C52; /* Melanin */ 
+   --key-secondary-color: #FFD700; /* Gold */
+   --key-tertiary-color: #21FFFF; /* Cyan */
+   --key-neutral-color: #211A16; /* Mud */
+   --key-neutral-variant-color: #988F88;
+   
+  /* Accessibility Colors */
+  --a11y-primary-light-color: #D9AB7F; /* Primary Light Color */
+  --a11y-primary-dark-color: #755028; /* Primary Dark Color */
+  --a11y-secondary-light-color: #FFFF52; /* Secondary Light Color */
+  --a11y-secondary-dark-color: #C7A600; /* Secondary Dark Color */
+  --a11y-text-on-primary-color: #2D1600; /* Text On Primary Color */
+  --a11y-text-on-secondary-color: #000000; /* Text On Secondary Color */
+
+
+
+  /* Seed
+  --seed-color: #778D79;
+
+  /* Key Colors 
+   --key-primary-color: #778D79; 
+   --key-secondary-color: #829683; 
+   --key-tertiary-color: #6d98a2; 
+   --key-neutral-color: #8f918d; 
+   --key-neutral-variant-color: #8b938a;
+
+  /* Accessibility Colors 
+  --a11y-primary-light-color: #D9AB7F; /* Primary Light Color
+  --a11y-primary-dark-color: #755028; /* Primary Dark Color 
+  --a11y-secondary-light-color: #FFFF52; /* Secondary Light Color 
+  --a11y-secondary-dark-color: #C7A600; /* Secondary Dark Color 
+  --a11y-text-on-primary-color: #2D1600; /* Text On Primary Color 
+  --a11y-text-on-secondary-color: #000000; /* Text On Secondary Color 
+  */
+
+  
+  /*
+   * Let's have some fun and set some "constant variables",
+   * just like in python or bash ;) 
+   * /
+   
+  
+  /* Icon Opacity for Default Theme */
+  --opacity-icon-disabled: 0.34;
+  --opacity-icon-inactive: 0.68;
+  --opacity-icon-active: 0.98;
+
+  /* Text Opacity for Default Theme */
+  --opacity-text-disabled: 0.34;
+  --opacity-text-inactive: 0.68;
+  --opacity-text-active: 1;
+
+
+  /* Material Design Icon Opacity for Default Theme */
+  --opacity-md-disabled: 0.34;
+  --opacity-md-inactive: 0.68;
+  --opacity-md-active: 0.98;
+
+
+  /* Material Icon Opacity for Classic Theme */
+  --opacity-md-icon-disabled: 0.34;
+  --opacity-md-icon-inactive: 0.54;
+  --opacity-md-icon-active: 0.94;
+
+  /* Black & White - Color Filters */
+  /* NOTE: Filters below were auto-generated on *https://codepen.io/sosuke/pen/Pjoqqp */
+  --filter-color-black: invert(0%) sepia(100%) saturate(20%) hue-rotate(283deg) brightness(96%) contrast(101%);
+  --filter-color-white: invert(100%) sepia(1%) saturate(0%) hue-rotate(284deg) brightness(105%) contrast(100%);
+
+}
+
+
+/* Create Light Specific Colors */
+/* :root { */
+
+  /* Light Primary Colors 
+  --primary-color-light: #066D37;
+  --on-primary-color-light: #FFFFFF;
+  --primary-container-color-light: #9DF6B1;
+  --on-primary-container-color-light: #00210C;
+  --primary-fixed-color-light: #9DF6B1;
+  --on-primary-fixed-color-light: #00210C;
+  --on-primary-fixed-variant-color-light: #005227;
+  --primary-fixed-dim-color-light: #81D997;
+
+  /* Light Secondary Colors 
+  --secondary-color-light: #506352;
+  --on-secondary-color-light: #FFFFFF;
+  --secondary-container-color-light: #D3E8D3;
+  --on-secondary-container-color-light: #0E1F12;
+  --secondary-fixed-color-light: #D3E8D3;
+  --on-secondary-fixed-color-light: #0E1F12;
+  --on-secondary-fixed-variant-color-light: #394B3B;
+  --secondary-fixed-dim-color-light: #B7CCB7;
+
+  /* Light Tertiary Colors 
+  --tertiary-color-light: #3A656E;
+  --on-tertiary-color-light: #FFFFFF;
+  --tertiary-container-color-light: #BDEAF5;
+  --on-tertiary-container-color-light: #0E1F12;
+  --tertiary-fixed-color-light: #BDEAF5;
+  --on-tertiary-fixed-color-light: #001F25;
+  --on-tertiary-fixed-variant-color-light: #204D56;
+  --tertiary-fixed-dim-color-light: #A2CED9;
+  
+  /* Light Error Colors 
+  --error-color-light: #BA1A1A; 
+  --error-container-color-light: #FFDAD6; 
+  --on-error-color-light: #FFFFFF; 
+  --on-error-container-color-light: #410002; 
+  
+  /* Light Background Colors 
+  --background-color-light: #FCFDF7; 
+  --on-background-color-light: #191C19; 
+  
+  /* Light Surface Colors 
+  --surface-color-light: #F9FAF4; 
+  --on-surface-color-light: #191C19;  
+  --surface-variant-color-light: #DDE5DA;
+  --on-surface-variant-color-light: #414941; 
+  --surface-dim-color-light: #D9DBD5;
+  --surface-bright-color-light: #F9FAF4;
+  --surface-tint-color-light: #066D37;
+  --surface-container-color-light: #EDEEE9;
+  --surface-container-highest-color-light: #E2E3DE;
+  --surface-container-high-color-light: #E7E9E3;
+  --surface-container-low-color-light: #F3F4EF;
+  --surface-container-lowest-color-light: #FFFFFF;
+
+  /* Light Outline Colors
+  --outline-color-light: #717970;
+  --outline-variant-color-light: #C1C9BF;
+
+  --inverse-on-surface-color-light: #F0F1EC; 
+  --inverse-surface-color-light: #2E312E;
+  --primary-inverse-color-light: #191C19;
+
+
+  /* Other Light Colors 
+  --shadow-color-light: #000000;
+  --scrim-color-light: #000000;
+
+  */
+
+
+  /* --- DARK COLORS --- */
+
+  /* Dark Primary Colors 
+  --primary-color-dark: #81D997;
+  --on-primary-color-dark: #003919;
+  --primary-container-color-dark: #005227;
+  --on-primary-container-color-dark: #9DF6B1;
+  --primary-fixed-color-dark: #9DF6B1;
+  --on-primary-fixed-color-dark: #00210C;
+  --on-primary-fixed-variant-color-dark: #005227;
+  --primary-fixed-dim-color-dark: #81D997;
+
+  /* Dark Secondary Colors 
+  --secondary-color-dark: #B7CCB7;
+  --on-secondary-color-dark: #233426;
+  --secondary-container-color-dark: #394B3B;
+  --on-secondary-container-color-dark: #D3E8D3;
+  --secondary-fixed-color-dark: #D3E8D3;
+  --on-secondary-fixed-color-dark: #0E1F12;
+  --on-secondary-fixed-variant-color-dark: #394B3B;
+  --secondary-fixed-dim-color-dark: #B7CCB7;
+
+  /* Dark Tertiary Colors 
+  --tertiary-color-dark: #A2CED9;
+  --on-tertiary-color-dark: #01363F;
+  --tertiary-container-color-dark: #204D56;
+  --on-tertiary-container-color-dark: #BDEAF5;
+  --tertiary-fixed-color-dark: #BDEAF5;
+  --on-tertiary-fixed-color-dark: #001F25;
+  --on-tertiary-fixed-variant-color-dark: #204D56;
+  --tertiary-fixed-dim-color-dark: #A2CED9;
+  
+  /* Dark Error Colors 
+  --error-color-dark: #FFB4AB;
+  --error-container-color-dark: #93000A;
+  --on-error-color-dark: #690005;
+  --on-error-container-color-dark: #FFDAD6;
+  
+  /* Dark Background Colors 
+  --background-color-dark: #191C19;
+  --on-background-color-dark: #E2E3DE;
+  
+  /* Dark Surface Color 
+  --surface-color-dark: #111411;
+  --on-surface-color-dark: #C5C7C2;
+  --surface-variant-color-dark: #414941;
+  --on-surface-variant-color-dark: #C1C9BF;
+  --surface-dim-color-dark: #111411;
+  --surface-bright-color-dark: #373A36;
+  --surface-tint-color-dark: #81D997;
+  --surface-container-color-dark: #1D201D;
+  --surface-container-highest-color-dark: #333532;
+  --surface-container-high-color-dark: #282B27;
+  --surface-container-low-color-dark: #191C19;
+  --surface-container-lowest-color-dark: #0C0F0C;
+
+  /* Dark Outline Colors 
+  --outline-color-dark: #8B938A;
+  --outline-variant-color-dark: #414941;
+  
+  --inverse-on-surface-color-dark: #191C19;
+  --inverse-surface-color-dark: #E2E3DE;
+  --primary-inverse-color-dark: #066D37;
+
+  /* Other Dark Colors 
+  --shadow-color-dark: #000000;
+  --scrim-color-dark: #000000;
+  */
+/* } */
+
+
+
+
+
+
+
+/* Light Theme */
+[data-theme="light"], .light {
+  
+  /* Light Primary Colors 
+  --primary-color: var(--primary-color-light);
+  --on-primary-color: var(--on-primary-color-light); 
+  --primary-container-color: var(--primary-container-color-light); 
+  --on-primary-container-color: var(--on-primary-container-color-light); 
+  --primary-fixed-color: var(--primary-fixed-color-light);
+  --on-primary-fixed-color: var(--on-primary-fixed-color-light);
+  --on-primary-fixed-variant-color: var(--on-primary-fixed-variant-color-light);
+  --primary-fixed-dim-color: var(--primary-fixed-dim-color-light);
+  
+  /* Light Secondary Colors 
+  --secondary-color: var(--secondary-color-light); 
+  --on-secondary-color: var(--on-secondary-color-light); 
+  --secondary-container-color: var(--secondary-container-color-light); 
+  --on-secondary-container-color: var(--on-secondary-container-color-light);  
+  --secondary-fixed-color: var(--secondary-fixed-color-light);
+  --on-secondary-fixed-color: var(--on-secondary-fixed-color-light);
+  --on-secondary-fixed-variant-color: var(--on-secondary-fixed-variant-color-light);
+  --secondary-fixed-dim-color: var(--secondary-fixed-dim-color-light);
+
+  /* Light Tertiary Colors 
+  --tertiary-color: var(--tertiary-color-light); 
+  --on-tertiary-color: var(--on-tertiary-color-light); 
+  --tertiary-container-color: var(--tertiary-container-color-light); 
+  --on-tertiary-container-color: var(--on-tertiary-container-color-light);  
+  --tertiary-fixed-color: var(--tertiary-fixed-color-light);
+  --on-tertiary-fixed-color: var(--on-tertiary-fixed-color-light);
+  --on-tertiary-fixed-variant-color: var(--on-tertiary-fixed-variant-color-light);
+  --tertiary-fixed-dim-color: var(--tertiary-fixed-dim-color-light);
+
+  /* Light Error Colors 
+  --error-color: var(--error-color-light); 
+  --error-container-color: var(--error-container-color-light); 
+  --on-error-color: var(--on-error-color-light); 
+  --on-error-container-color: var(--on-error-container-color-light); 
+  
+  /* Light Background Colors 
+  --background-color: var(--background-color-light); 
+  --on-background-color: var(--on-background-color-light); 
+  
+  /* Light Surface Colors 
+  --surface-color: var(--surface-color-light); 
+  --on-surface-color: var(--on-surface-color-light);  
+  --surface-variant-color: var(--surface-variant-color-light);
+  --on-surface-variant-color: var(--on-surface-variant-color-light); 
+  --surface-dim-color: var(--surface-dim-color-light);
+  --surface-bright-color: var(--surface-bright-color-light);
+  --surface-tint-color: var(--surface-tint-color-light);
+  --surface-container-color: var(--surface-container-color-light);
+  --surface-container-highest-color: var(--surface-container-highest-color-light);
+  --surface-container-high-color: var(--surface-container-high-color-light);
+  --surface-container-low-color: var(--surface-container-low-color-light);
+  --surface-container-lowest-color: var(--surface-container-lowest-color-light);
+
+  /* Light Outline Colors 
+  --outline-color: var(--outline-color-light);
+  --outline-variant-color: var(--outline-variant-color-light);
+
+  --inverse-on-surface-color: var(--inverse-on-surface-color-light);
+  --inverse-surface-color: var(--inverse-surface-color-light);
+  --primary-inverse-color: var(--primary-inverse-color-light); 
+
+  /* Other Light Colors 
+  --shadow-color: var(--shadow-color-light);
+  --scrim-color: var(--scrim-color-light);
+  */
+
+
+  /* Icon Opacity for Light Theme */
+  --opacity-icon-disabled: 0.26;
+  --opacity-icon-inactive: 0.54;
+  --opacity-icon-active: 0.68;
+
+  /* Text Opacity for Light Theme */
+  --opacity-text-disabled: 0.34;
+  --opacity-text-inactive: 0.68;
+  --opacity-text-active: 0.9;
+
+
+  --opacity-md-icon-disabled: 0.2;
+  --opacity-md-icon-inactive: 0.4;
+  --opacity-md-icon-active: 0.9;
+
+  
+  /* Material Icon Opacity for Light Theme */
+  --opacity-md-icon-disabled: 0.26;
+  --opacity-md-icon-inactive: 0.3;
+  --opacity-md-icon-active: 0.8;
+
+  /* opacity: var(--opacity-md-dark-active, 0.68); */
+  /* opacity: var(--opacity-md-dark-inactive, 0.26); */
+  /* opacity: var(--opacity-md-light-active, 0.8); */
+  /* opacity: var(--opacity-md-light-inactive, 0.3); */
+
+  /* Social Footer Logo Filter for Classic Theme */
+  --social-footer-logo-filter: var(--filter-color-black);
+}
+
+
+/* Dark Theme */
+[data-theme="dark"], .dark {
+  /* Dark Primary Colors 
+  --primary-color: var(--primary-color-dark);
+  --on-primary-color: var(--on-primary-color-dark); 
+  --primary-container-color: var(--primary-container-color-dark); 
+  --on-primary-container-color: var(--on-primary-container-color-dark); 
+  --primary-fixed-color: var(--primary-fixed-color-dark);
+  --on-primary-fixed-color: var(--on-primary-fixed-color-dark);
+  --on-primary-fixed-variant-color: var(--on-primary-fixed-variant-color-dark);
+  --primary-fixed-dim-color: var(--primary-fixed-dim-color-dark);
+  
+  /* Dark Secondary Colors
+  --secondary-color: var(--secondary-color-dark); 
+  --on-secondary-color: var(--on-secondary-color-dark); 
+  --secondary-container-color: var(--secondary-container-color-dark); 
+  --on-secondary-container-color: var(--on-secondary-container-color-dark);  
+  --secondary-fixed-color: var(--secondary-fixed-color-dark);
+  --on-secondary-fixed-color: var(--on-secondary-fixed-color-dark);
+  --on-secondary-fixed-variant-color: var(--on-secondary-fixed-variant-color-dark);
+  --secondary-fixed-dim-color: var(--secondary-fixed-dim-color-dark);
+
+  /* Dark Tertiary Colors
+  --tertiary-color: var(--tertiary-color-dark); 
+  --on-tertiary-color: var(--on-tertiary-color-dark); 
+  --tertiary-container-color: var(--tertiary-container-color-dark); 
+  --on-tertiary-container-color: var(--on-tertiary-container-color-dark);  
+  --tertiary-fixed-color: var(--tertiary-fixed-color-dark);
+  --on-tertiary-fixed-color: var(--on-tertiary-fixed-color-dark);
+  --on-tertiary-fixed-variant-color: var(--on-tertiary-fixed-variant-color-dark);
+  --tertiary-fixed-dim-color: var(--tertiary-fixed-dim-color-dark);
+
+  /* Dark Error Colors 
+  --error-color: var(--error-color-dark); 
+  --error-container-color: var(--error-container-color-dark); 
+  --on-error-color: var(--on-error-color-dark); 
+  --on-error-container-color: var(--on-error-container-color-dark); 
+  
+  /* Dark Background Colors
+  --background-color: var(--background-color-dark); 
+  --on-background-color: var(--on-background-color-dark); 
+  
+  /* Dark Surface Colors 
+  --surface-color: var(--surface-color-dark); 
+  --on-surface-color: var(--on-surface-color-dark);  
+  --surface-variant-color: var(--surface-variant-color-dark);
+  --on-surface-variant-color: var(--on-surface-variant-color-dark); 
+  --surface-dim-color: var(--surface-dim-color-dark);
+  --surface-bright-color: var(--surface-bright-color-dark);
+  --surface-tint-color: var(--surface-tint-color-dark);
+  --surface-container-color: var(--surface-container-color-dark);
+  --surface-container-highest-color: var(--surface-container-highest-color-dark);
+  --surface-container-high-color: var(--surface-container-high-color-dark);
+  --surface-container-low-color: var(--surface-container-low-color-dark);
+  --surface-container-lowest-color: var(--surface-container-lowest-color-dark);
+
+  /* Dark Outline Colors
+  --outline-color: var(--outline-color-dark);
+  --outline-variant-color: var(--outline-variant-color-dark);
+
+  --inverse-on-surface-color: var(--inverse-on-surface-color-dark);
+  --inverse-surface-color: var(--inverse-surface-color-dark);
+  --primary-inverse-color: var(--primary-inverse-color-dark); 
+
+  /* Other Dark Colors
+  --shadow-color: var(--shadow-color-dark);
+  --scrim-color: var(--scrim-color-dark);
+  */
+
+
+  /* Icon Opacity for Dark Theme */
+  --opacity-icon-disabled: 0.3;
+  --opacity-icon-inactive: 0.68;
+  --opacity-icon-active: 0.8;
+
+  /* Text Opacity for Dark Theme */
+  --opacity-text-disabled: 0.28;
+  --opacity-text-inactive: 0.54;
+  --opacity-text-active: 0.86;
+
+  /* Material Icon Opacity for Dark Theme */
+  --opacity-md-icon-disabled: 0.18;
+  --opacity-md-icon-inactive: 0.26;
+  --opacity-md-icon-active: 0.68;
+
+  /* Social Footer Logo Filter for Classic Theme */
+  --social-footer-logo-filter: var(--filter-color-white);
+}
+
+
+/* == MATERIAL ICONS == */
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark, 
+.material-icons-round.md-dark,
+[data-theme="light"] .material-icons,
+[data-theme="light"] .material-icons-round {
+  color: var(--material-icon-color, rgba(0, 0, 0, 0.68)); 
+  fill: var(--material-icon-color, rgba(0, 0, 0, 0.68)); 
+} /* b4: 0.54 */
+
+.material-icons.md-dark.md-inactive,
+.material-icons-round.md-dark.md-inactive { 
+  color: var(--material-icon-color, rgba(0, 0, 0, 0.26));
+  fill: var(--material-icon-color, rgba(0, 0, 0, 0.26));
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light, 
+.material-icons-round.md-light,
+[data-theme="dark"] .material-icons,
+[data-theme="dark"] .material-icons-round { 
+  color: var(--material-icon-color, rgba(255, 255, 255, 0.8));
+  fill: var(--material-icon-color, rgba(255, 255, 255, 0.8));
+
+  /* opacity: var(--opacity-md-light-active, 0.8); */
+  /* opacity: var(--opacity-md-light-inactive, 0.3); */
+}
+
+.material-icons.md-light.md-inactive,
+.material-icons-round.md-light.md-inactive { 
+  color: var(--material-icon-color, rgba(255, 255, 255, 0.3));
+  fill: var(--material-icon-color, rgba(255, 255, 255, 0.3));
+
+  /* opacity: var(--opacity-md-light-inactive, 0.3); */
+}
+
+/* == END of MATERIAL ICONS == */
+
+
+
+
+
+
+
+/* ====<< OTHER COLORS STYLES >>==== */
+
+/* Error Color */
+.error {
+  color: var(--md-sys-color-error); /* var(--error-color); */
+  fill: var(--md-sys-color-error); /* var(--error-color); */
+}
+
+/* ====>> END of OTHER COLOR STYLES <<==== */
+
+
+
+
+
+
+
+/* Overriding Browser's Default TEXT HIGHTLIGHT COLOR... */
+
+/* For Brave / Chrome browsers*/
+::selection {
+  background: var(--md-sys-color-surface-variant); /* b4: secondary-color */
+  color: var(--md-sys-color-on-surface-variant); /* b4: on-secondary-color */
+}
+
+/* For Firefox browsers */
+::-moz-selection {
+  background: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px var(--md-sys-color-secondary-container) inset !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-secondary-container) !important;
+}
+
+
+
+/* 
+ * --> Wide - Layout <--
+ * Phone: ? (Responsive)
+ * Dimension: 460px+ (width)
+ *
+ * ***************************************
+ * when the viewport is bigger than 460px,
+ * layout changes to wide-layout.
+ * ***************************************
+ */
+@media (min-width: 460px) {}
+
+
+
+/* 
+ * --> Tablet - Device <--
+ * Phone: ? (Responsive)
+ * Width: 768px <-to-> 1024px
+ */
+@media (min-width: 768px) and (max-width: 1024px) {}
+
+
+/* 
+ * --> Laptop - Device <--
+ * Phone: ? (Responsive)
+ * Width: 1024px <-to-> 2560px
+ */
+@media (min-width: 1024px) and (max-width: 2560px) {}
+
+/* ==== END of COLOR - THEME STYLES ==== */
