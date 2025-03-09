@@ -1,9 +1,9 @@
 /* 
 * @license MIT
 * ~~~~~~~~~~~~
-* ab-nextjs-theme
+* ab-nextjs-theme 
 * ~~~~~~~~~~~~
-* Copyright (c) 2024 Abraham Ukachi. The abElements Contributors.
+* Copyright (c) 2024 Abraham Ukachi. The abElements Project.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the 'Software'), to deal
@@ -24,9 +24,9 @@
 * SOFTWARE.
 *
 * @project: ab-nextjs-theme
-* @name: Typography - Theme - abElements
-* @file: typography.ts
-* @type: Javascript
+* @name: Typography - Theme
+* @file: typography.js
+* @type: JavaScript File
 * @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
 *
 * Example usage:
@@ -36,17 +36,10 @@
 */
 
 
-import type { 
-  FontFamily,
-  FontSize,
-  Typography,
 
-} from "./types";
+// Font Families
+const fontFamily = {
 
-
-
-/* Create a default font family */
-const fontFamily: FontFamily = {
   sans: [ 'Inter' ],
   'sans-extralight': [ 'Inter-ExtraLight' ],
   'sans-light': [ 'Inter-Light' ],
@@ -94,7 +87,7 @@ const fontFamily: FontFamily = {
 // Font Sizes
 // WARNING: The caption size was created for testing purposes only
 // TODO: Remove caption font size
-const fontSize: FontSize = {
+const fontSize = {
   caption: [ '0.75rem', {
     lineHeight: '1rem',
     letterSpacing: '0.03333em',
@@ -108,14 +101,13 @@ const fontSize: FontSize = {
 
 
 /**
- * Create a color palette for this `abElements` project as `abTypography`
+ * Create a color palette for this `ab-elements` project as `abColors`
  */
-const abTypography: Typography = {
+const abTypography = {
   fontFamily,
   fontSize,
 };
 
 
 // export `abTypography` as default
-export default abTypography;
-// module.exports = abTypography;
+module.exports = abTypography;
