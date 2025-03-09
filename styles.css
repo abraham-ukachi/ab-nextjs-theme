@@ -48,7 +48,7 @@
 
 /* Importing the default color, typography and styles */
 
-@import './css/color.css';
+@import './css/colors.css';
 @import './css/typography.css';
 @import './css/styles.css';
 
