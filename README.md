@@ -62,7 +62,7 @@ A list of all the supported **tailwind theme** and their current status:
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
 | 1 | *`Colors`* | **colors.ts** | [Done](./colors.ts) |
-| 2 | *`Typography`* | **typography.ts** | Pending |
+| 2 | *`Typography`* | **typography.ts** | [Done](./typography.ts) |
 | 3 | *`Styles`* | **styles.ts** | Pending |
 
 > NOTE:
@@ -78,7 +78,7 @@ A list of all the supported **css theme** and their current status:
 | No. | Name | File | Status |
 |:----|:-----|:-----|:-------|
 | 1 | *`Colors`* | **css/colors.css** | [Done](./css/colors.css)\* |
-| 2 | *`Typography`* | **css/typography.css** | Pending |
+| 2 | *`Typography`* | **css/typography.css** | [Done](./css/typography.css)\* |
 | 3 | *`Styles`* | **css/styles.css** | Pending |
 
 > NOTE:
