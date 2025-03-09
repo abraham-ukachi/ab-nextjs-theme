@@ -195,6 +195,36 @@ export interface Colors extends SchemeColors {
 
 
 
+//////////////////////////////
+/// TYPOGRAPHY - interface ///
+//////////////////////////////
+
+
+// Font Family - interface
+export interface FontFamily {
+  sans: string[];
+  serif: string[];
+  mono: string[];
+  roboto: string[];
+  [key: string]: string[];
+}
+
+
+
+// Font Size - interface
+export interface FontSize {
+  caption: string[];
+  [key: string]: string[];
+}
+
+// Typography - interface
+export interface Typography {
+  fontFamily: FontFamily;
+  fontSize: FontSize;
+}
+
+
+
 
 
 ////////////////////////////
@@ -203,7 +233,7 @@ export interface Colors extends SchemeColors {
 
 export interface Theme {
   colors: Colors;
-  typography: any;
+  typography: Typography;
   styles: any;
 }
 
