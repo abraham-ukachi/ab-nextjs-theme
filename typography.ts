@@ -37,56 +37,72 @@
 
 
 import type { 
-  Palettes,
-  CoreTypography,
-  SchemeTypography,
+  FontFamily,
+  FontSize,
   Typography,
 
 } from "./types";
 
 
-// import the `material-theme.json` file as `mt`
-import mt from "./material-theme.json"
+
+/* Create a default font family */
+const fontFamily: FontFamily = {
+  sans: [ 'Inter' ],
+  'sans-extralight': [ 'Inter-ExtraLight' ],
+  'sans-light': [ 'Inter-Light' ],
+  'sans-regular': [ 'Inter-Regular' ],
+  'sans-medium': [ 'Inter-Medium' ],
+  'sans-semibold': [ 'Inter-SemiBold' ],
+  'sans-bold': [ 'Inter-Bold' ],
+  'sans-extrabold': [ 'Inter-ExtraBold' ],
+  'sans-black': [ 'Inter-Black' ],
 
 
-// Palettes
+  serif: [ 'QuickSand' ],
+  'serif-light': [ 'QuickSand-Light' ],
+  'serif-regular': [ 'QuickSand-Regular' ],
+  'serif-medium': [ 'QuickSand-Medium' ],
+  'serif-semibold': [ 'QuickSand-SemiBold' ],
+  'serif-bold': [ 'QuickSand-Bold' ],
 
-const palettes: Palettes = {
-  primary: mt.palettes.primary,
-  secondary: mt.palettes.secondary,
-  tertiary: mt.palettes.tertiary,
-  error: mt.palettes.error,
-  neutral: mt.palettes.neutral,
-  neutralVariant: mt.palettes['neutral-variant'],
+  mono: [ 'ZillaSlab' ],
+  'mono-light': [ 'ZillaSlab-Light' ],
+  'mono-regular': [ 'ZillaSlab-Regular' ],
+  'mono-bold': [ 'ZillaSlab-Bold' ],
+
+  roboto: [ 'Roboto' ],
+  'roboto-light': [ 'Roboto-Light' ],
+  'roboto-regular': [ 'Roboto-Regular' ],
+  'roboto-bold': [ 'Roboto-Bold' ],
+  'roboto-medium': [ 'Roboto-Medium' ],
+  'roboto-bold': [ 'Roboto-Bold' ],
+  'roboto-black': [ 'Roboto-Black' ],
+
+
+  mulish: [ 'Mulish' ],
+  'mulish-extralight': [ 'Mulish-ExtraLight' ],
+  'mulish-light': [ 'Mulish-Light' ],
+  'mulish-regular': [ 'Mulish-Regular' ],
+  'mulish-medium': [ 'Mulish-Medium' ],
+  'mulish-semibold': [ 'Mulish-SemiBold' ],
+  'mulish-bold': [ 'Mulish-Bold' ],
+  'mulish-extrabold': [ 'Mulish-ExtraBold' ],
+  'mulish-black': [ 'Mulish-Black' ],
 };
 
 
-// Core Typography
-const coreTypography: CoreTypography = {
-  primary: mt.coreTypography.primary,
-  secondary: mt.coreTypography.secondary,
-  tertiary: mt.coreTypography.tertiary,
-  error: mt.coreTypography.error,
-  neutral: mt.coreTypography.neutral,
+// Font Sizes
+// WARNING: The caption size was created for testing purposes only
+// TODO: Remove caption font size
+const fontSize: FontSize = {
+  caption: [ '0.75rem', {
+    lineHeight: '1rem',
+    letterSpacing: '0.03333em',
+    fontWeight: '400',
+  } ],
 };
 
 
-// TODO: Create a Classic - Scheme
-
-// Light - Scheme
-const lightScheme: SchemeTypography = {...mt.schemes.light};
-// Light Medium Contrast - Scheme
-const lightMediumContrastScheme: SchemeTypography = {...mt.schemes['light-medium-contrast']};
-// Light High Contrast - Scheme
-const lightHighContrastScheme: SchemeTypography = {...mt.schemes['light-high-contrast']};
-
-
-// Dark - Scheme
-const darkScheme: SchemeTypography = {...mt.schemes.dark};
-// Dark Medium Contrast - Scheme
-const darkMediumContrastScheme: SchemeTypography = {...mt.schemes['dark-medium-contrast']};
-// Dark High Contrast - Scheme
-const darkHighContrastScheme: SchemeTypography = {...mt.schemes['dark-high-contrast']};
 
 
 
@@ -95,32 +111,11 @@ const darkHighContrastScheme: SchemeTypography = {...mt.schemes['dark-high-contr
  * Create a color palette for this `abElements` project as `abTypography`
  */
 const abTypography: Typography = {
-  ...lightScheme, // default
-  
-  // seed
-  seed: mt.seed,
-  // core colors
-  core: coreTypography,
-  
-
-  // TODO: create classic - Mode
-
-  // light mode + medium & high contrasts
-  light: lightScheme,
-  lightM: lightMediumContrastScheme,
-  lightH: lightHighContrastScheme,
-
-  // dark mode + medium & high contrasts
-  dark: darkScheme,
-  darkM: darkMediumContrastScheme,
-  darkH: darkHighContrastScheme,
-
-  
-  // palettes
-  palettes,
+  fontFamily,
+  fontSize,
 };
 
 
 // export `abTypography` as default
-export default ab;
+export default abTypography;
 // module.exports = abTypography;
