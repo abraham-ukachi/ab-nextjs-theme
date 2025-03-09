@@ -65,6 +65,9 @@
 
 
 
+/* Import material-icons from `ab-nextjs-icons` */
+@import 'ab-nextjs-icons/css/material-icons.css';
+
 
 
 
@@ -72,6 +75,211 @@
 
 
 /* ==== abElements TYPOGRAPHY - THEME STYLES ==== */
+
+
+
+/* 
+ * --> Narrow - Device <--
+ * Phone: ? (Responsive)
+ * Dimension: ~460px (width)
+ *
+ * ***************************************
+ * when the viewport is lesser than 460px,
+ * layout changes to a narrow-layout.
+ * ***************************************
+ */
+
+/* Applying the Inter, 'Inter-Regular', system-ui, etc
+ * font to all key elements by default... */
+body, h1, h2, h3, p, button, span, input, textarea {
+  font-family: Inter, 'Inter-Regular', system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* Body & paragraph */
+body, p {
+  font-size: 16px; /* b4: 24px */
+  line-height: 24px; /* b4: 30px */
+  letter-spacing: 0.20px;
+  word-spacing: 1.5px;
+}
+
+
+/* H1 - default text styles */
+h1 {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  margin: 24px 0;
+}
+
+/* H2 - default text styles */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: 0.8px;
+  word-spacing: normal;
+  margin: 20px 0;
+}
+
+/* H2 - app title */
+h2.app-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  opacity: var(--opacity-text-active);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* H3 - default text styles */
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.7px;
+  word-spacing: normal;
+  margin: 16px 0;
+}
+
+/* H3 - app subtitle */
+h3.app-subtitle {
+  margin: 0;
+  font-size: 12px;
+  opacity: var(--opacity-text-inactive);
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+}
+
+h3.app-subtitle span {
+  font-weight: 600;
+  opacity: var(--opacity-text-active);
+  color: var(--app-subtitle-accent, var(--secondary-color)); 
+}
+
+/* Button - default text styles */
+button {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+/* Span - default text styles */
+span {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+
+/* Form */
+form {
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+
+/* SPAN Caption */
+span.caption {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Input & Label Styles */
+input, label, textarea {
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 1.4px;
+}
+
+/* Label Styles */
+label {
+  /* font-size: 14px; */
+  text-transform: capitalize;
+  opacity: var(--opacity-text-inactive);
+
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+
+/* Password Input */
+input[type="password"] {
+  letter-spacing: 4px;
+}
+
+/* Submit Input && Button */
+input[type="submit"], button[type="submit"] {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Links as BUTTON */
+a[role="button"] {
+  width: var(--button-width, fit-content);
+  height: var(--button-height, auto);
+  padding: 8px 16px;
+  min-width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  user-select: none;
+  box-sizing: border-box;
+  margin: var(--button-margin, 12px 0);
+}
+
+/* Caption - Text */
+.txt.caption {
+ font-size: 12px;
+ line-height: 18px;
+ letter-spacing: normal;
+ word-spacing: normal;
+}
+
+/* UPPERCASE - TEXT */
+.txt.upper {
+  text-transform: uppercase;
+}
+
+/* lowercase - text */
+.txt.lower {
+  text-transform: lowercase;
+}
+
+/* Capitalize - Text */
+.txt.capitalize {
+  text-transform: capitalize;
+}
+
+/* Disabled - Text */
+.txt.md-disabled {
+  opacity: var(--opacity-text-disabled);
+}
+
+/* Inactive - Text */
+.txt.md-inactive {
+  opacity: var(--opacity-text-inactive);
+}
+
+/* Active - Text */
+.txt.md-active {
+  opacity: var(--opacity-text-active);
+}
+
 
 
 
@@ -86,7 +294,77 @@
  * layout changes to wide-layout.
  * ***************************************
  */
-@media (min-width: 460px) {}
+@media (min-width: 460px) {
+  
+  /* ==== TYPOGRAPHY === */
+
+  /* Body & paragraph */
+  body, p {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  /* H1 - default text styles */
+  h1 {
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  /* H2 - default text styles */
+  h2 {
+    font-size: 34px;
+    line-height: 40px; 
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  /* H2 - app title */
+  h2.app-title {
+    font-size: 20px;
+  }
+
+  /* Button - default text styles */
+  button {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
+  /* Span - default text styles */
+  span {
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+  }
+
+  /* SPAN Caption */
+  span.caption {
+    font-size: 16px;
+  }
+
+
+  /* Display Title */
+  .display-title {
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+
+  /* Display Subtitle */
+  .display-subtitle {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+
+}
 
 
 
