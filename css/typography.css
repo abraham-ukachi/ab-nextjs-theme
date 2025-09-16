@@ -46,6 +46,7 @@
 */
 
 /* Import the colors dependencies */
+
 /* @import './colors.css'; */
 
 
@@ -54,12 +55,16 @@
 
 /* Import the Zilla Slab - Font */
 @import 'ab-nextjs-fonts/zilla-slab/styles.css';
+
 /* Import the Mulish - Font */
 @import 'ab-nextjs-fonts/mulish/styles.css';
+
 /* Import the Inter - Font */
 @import 'ab-nextjs-fonts/inter/styles.css';
+
 /* Import the Roboto - Font */
 @import 'ab-nextjs-fonts/roboto/styles.css';
+
 /* Import the quicksand - Font */
 @import 'ab-nextjs-fonts/quicksand/styles.css';
 
@@ -92,7 +97,7 @@
 /* Applying the Inter, 'Inter-Regular', system-ui, etc
  * font to all key elements by default... */
 body, h1, h2, h3, p, button, span, input, textarea {
-  font-family: Inter, 'Inter-Regular', system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-family: Inter, Inter-Regular, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
 
@@ -206,7 +211,6 @@ label {
   /* font-size: 14px; */
   text-transform: capitalize;
   opacity: var(--opacity-text-inactive);
-
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
@@ -294,8 +298,7 @@ a[role="button"] {
  * layout changes to wide-layout.
  * ***************************************
  */
-@media (min-width: 460px) {
-  
+@media (width >= 460px) {
   /* ==== TYPOGRAPHY === */
 
   /* Body & paragraph */
@@ -373,7 +376,7 @@ a[role="button"] {
  * Phone: ? (Responsive)
  * Width: 768px <-to-> 1024px
  */
-@media (min-width: 768px) and (max-width: 1024px) {}
+@media (width >= 768px) and (width <= 1024px) {}
 
 
 /* 
@@ -381,6 +384,6 @@ a[role="button"] {
  * Phone: ? (Responsive)
  * Width: 1024px <-to-> 2560px
  */
-@media (min-width: 1024px) and (max-width: 2560px) {}
+@media (width >= 1024px) and (width <= 2560px) {}
 
 /* ==== END of TYPOGRAPHY - THEME STYLES ==== */

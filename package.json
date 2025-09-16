@@ -1,6 +1,6 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
   "main": "index.ts",
   "types": "types/index.d.ts",
@@ -13,7 +13,9 @@
     "url": "https://github.com/abraham-ukachi/ab-nextjs-theme/issues"
   },
   "scripts": {
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "lint": "pnpm lint:ts && pnpm lint:css",
+    "lint:ts": "eslint . --ext .ts,.tsx --fix",
+    "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --fix"
   },
   "keywords": [
     "react",
@@ -34,7 +36,10 @@
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
     "eslint": "^8",
-    "eslint-config-next": "^14.2.3"
+    "eslint-config-next": "^14.2.3",
+    "stylelint": "^16.24.0",
+    "stylelint-config-css-modules": "^4.5.1",
+    "stylelint-config-standard": "^39.0.0"
   },
   "dependencies": {
     "ab-nextjs-animations": "^0.2.0",
