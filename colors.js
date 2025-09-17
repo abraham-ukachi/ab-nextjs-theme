@@ -114,4 +114,4 @@ const abColors = {
 
 
 // export `abColors` as default
-module.exports = abColors;
+export default abColors;

@@ -75,7 +75,6 @@ const fontFamily: FontFamily = {
   'roboto-regular': [ 'Roboto-Regular' ],
   'roboto-bold': [ 'Roboto-Bold' ],
   'roboto-medium': [ 'Roboto-Medium' ],
-  'roboto-bold': [ 'Roboto-Bold' ],
   'roboto-black': [ 'Roboto-Black' ],
 
 

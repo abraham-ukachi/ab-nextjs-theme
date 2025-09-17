@@ -68,7 +68,6 @@ const fontFamily = {
   'roboto-regular': [ 'Roboto-Regular' ],
   'roboto-bold': [ 'Roboto-Bold' ],
   'roboto-medium': [ 'Roboto-Medium' ],
-  'roboto-bold': [ 'Roboto-Bold' ],
   'roboto-black': [ 'Roboto-Black' ],
 
 
@@ -110,4 +109,4 @@ const abTypography = {
 
 
 // export `abTypography` as default
-module.exports = abTypography;
+export default abTypography;
