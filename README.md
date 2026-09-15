@@ -31,6 +31,8 @@
 
 > IMPORTANT: This is a work in progress and subject to major changes until version 1.0.
 
+> Tooling target: **Next.js 16.3.4** / React 19 (local `chore/upgrade-next-16`).
+
 
 🎨 This is a lightweight collection of client React components as theme abElements created by [Abraham Ukachi](https://github.com/abraham-ukachi), and optimized for [Next.js](https://nextjs.org/docs) applications 😎. 
 
