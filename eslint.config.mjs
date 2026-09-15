@@ -1,45 +1,30 @@
-import eslintPluginJs from '@eslint/js';
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
-// ESLint v9 flat config for a TypeScript + React codebase (library)
-// - Minimal, avoids Next.js-specific rules to keep it compatible outside a Next app
-// - Adds a few useful TypeScript rules; expand as needed
-export default [
-  // Global ignores
+/** @type {import("eslint").Linter.Config[]} */
+const eslintConfig = [
   {
     ignores: [
-      '**/node_modules/**',
-      '**/.next/**',
-      '**/dist/**',
-      '**/build/**',
-      '**/coverage/**'
+      "node_modules/**",
+      "trash/**",
+      "backups/**",
+      "demo/**",
+      "**/.next/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/coverage/**",
     ],
   },
-
-  // Base JS recommended rules
-  eslintPluginJs.configs.recommended,
-
-  // TypeScript/TSX files
+  ...nextVitals,
+  ...nextTs,
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: { jsx: true },
-        // Enable type-aware linting. If you prefer faster linting, you can remove "project".
-        project: ['./tsconfig.json'],
-      },
-    },
-    plugins: {
-      '@typescript-eslint': tsPlugin,
-    },
     rules: {
-      // A small set of sensible defaults. Add more as preferred.
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-      '@typescript-eslint/consistent-type-imports': 'warn',
+      "@next/next/no-html-link-for-pages": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "prefer-const": "error",
     },
   },
 ];
+
+export default eslintConfig;
