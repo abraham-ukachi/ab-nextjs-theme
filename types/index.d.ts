@@ -237,4 +237,8 @@ export interface Theme {
   styles: any;
 }
 
+declare const abTheme: Theme;
+
+export default abTheme;
+
 
