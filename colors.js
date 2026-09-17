@@ -3,7 +3,7 @@
 * ~~~~~~~~~~~~
 * ab-nextjs-theme
 * ~~~~~~~~~~~~
-* Copyright (c) 2024 Abraham Ukachi. The abElements Contributors.
+* Copyright (c) 2026 Abraham Ukachi. The abElements Contributors.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the 'Software'), to deal
