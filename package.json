@@ -51,9 +51,9 @@
     }
   },
   "dependencies": {
-    "ab-nextjs-animations": "file:../ab-nextjs-animations",
-    "ab-nextjs-fonts": "file:../ab-nextjs-fonts",
-    "ab-nextjs-icons": "file:../ab-nextjs-icons"
+    "ab-nextjs-animations": "^0.2.1",
+    "ab-nextjs-fonts": "^0.2.3",
+    "ab-nextjs-icons": "^0.1.4"
   },
   "devDependencies": {
     "@types/node": "^20",
