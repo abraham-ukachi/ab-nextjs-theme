@@ -17,7 +17,10 @@
     "lint": "pnpm lint:ts && pnpm lint:css",
     "lint:ts": "eslint . --fix",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --fix",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check:publish": "node scripts/check-publish-deps.mjs",
+    "prepack": "node scripts/check-publish-deps.mjs",
+    "prepublishOnly": "node scripts/check-publish-deps.mjs"
   },
   "keywords": [
     "react",

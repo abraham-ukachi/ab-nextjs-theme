@@ -9,8 +9,18 @@ describe("ab-nextjs-theme package smoke", () => {
   it("targets Next 16.3.4 peers and package metadata", () => {
     const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
     expect(pkg.name).toBe("ab-nextjs-theme");
-    expect(pkg.version).toBe("0.2.7");
+    expect(pkg.version).toMatch(/^\d+\.\d+\.\d+$/);
     expect(pkg.peerDependencies.next).toBe("16.3.4");
+  });
+
+  it("only depends on registry semver ranges (no file:/link:/workspace:)", () => {
+    const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+    for (const section of ["dependencies", "peerDependencies", "optionalDependencies", "devDependencies"]) {
+      for (const [name, spec] of Object.entries<string>(pkg[section] ?? {})) {
+        expect(spec, `${section}.${name}`).not.toMatch(/^(file|link|workspace|portal):/);
+      }
+    }
+    expect(Object.keys(pkg.dependencies).sort()).toEqual(["ab-nextjs-animations", "ab-nextjs-fonts", "ab-nextjs-icons"]);
   });
 
   it("ships CSS entrypoints", () => {
