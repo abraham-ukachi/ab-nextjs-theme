@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,7 +11,7 @@ describe("ab-nextjs-theme package smoke", () => {
     const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
     expect(pkg.name).toBe("ab-nextjs-theme");
     expect(pkg.version).toMatch(/^\d+\.\d+\.\d+$/);
-    expect(pkg.peerDependencies.next).toBe("16.3.4");
+    expect(pkg.peerDependencies.next).toBe("^16.3.4");
   });
 
   it("only depends on registry semver ranges (no file:/link:/workspace:)", () => {
@@ -28,6 +29,11 @@ describe("ab-nextjs-theme package smoke", () => {
       const css = readFileSync(join(root, rel), "utf8");
       expect(css.length).toBeGreaterThan(0);
     }
+  });
+
+  it("only references CSS assets that ship inside the package", () => {
+    const out = execFileSync(process.execPath, [join(root, "scripts/check-css-assets.mjs")], { encoding: "utf8" });
+    expect(out).toContain("all CSS url() references resolve inside the package");
   });
 
   it("exports default theme with colors", async () => {

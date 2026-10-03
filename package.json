@@ -1,10 +1,26 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
   "type": "module",
   "main": "index.ts",
   "types": "types/index.d.ts",
+  "files": [
+    "index.ts",
+    "index.css",
+    "styles.css",
+    "colors.ts",
+    "colors.js",
+    "typography.ts",
+    "typography.js",
+    "material-theme.json",
+    "css",
+    "assets",
+    "types",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "homepage": "https://github.com/abraham-ukachi/ab-nextjs-theme",
   "repository": {
     "type": "git",
@@ -18,9 +34,9 @@
     "lint:ts": "eslint . --fix",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --fix",
     "test": "vitest run",
-    "check:publish": "node scripts/check-publish-deps.mjs",
-    "prepack": "node scripts/check-publish-deps.mjs",
-    "prepublishOnly": "node scripts/check-publish-deps.mjs"
+    "check:publish": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
+    "prepack": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
+    "prepublishOnly": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs"
   },
   "keywords": [
     "react",
@@ -38,7 +54,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "next": "16.3.4",
+    "next": "^16.3.4",
     "react": "^19",
     "react-dom": "^19"
   },
