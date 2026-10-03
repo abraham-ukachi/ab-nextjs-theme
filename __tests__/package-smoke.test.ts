@@ -10,7 +10,7 @@ describe("ab-nextjs-theme package smoke", () => {
     const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
     expect(pkg.name).toBe("ab-nextjs-theme");
     expect(pkg.version).toMatch(/^\d+\.\d+\.\d+$/);
-    expect(pkg.peerDependencies.next).toBe("16.3.4");
+    expect(pkg.peerDependencies.next).toBe("^16.3.4");
   });
 
   it("only depends on registry semver ranges (no file:/link:/workspace:)", () => {
