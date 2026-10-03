@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.9...v0.2.10) (2026-10-03)
+
+* Publish to npm automatically from GitHub Actions with Trusted Publishing (OIDC + provenance, no NPM_TOKEN)
+* Ship only package files via `files`; `next` peer is now `^16.3.4`
+
 ### [0.2.9](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.8...v0.2.9) (2026-10-03)
 
 ### [0.2.8](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.7...v0.2.8) (2026-09-17)
