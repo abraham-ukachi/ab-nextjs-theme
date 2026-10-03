@@ -15,6 +15,7 @@
     "typography.js",
     "material-theme.json",
     "css",
+    "assets",
     "types",
     "README.md",
     "LICENSE",
@@ -33,9 +34,9 @@
     "lint:ts": "eslint . --fix",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --fix",
     "test": "vitest run",
-    "check:publish": "node scripts/check-publish-deps.mjs",
-    "prepack": "node scripts/check-publish-deps.mjs",
-    "prepublishOnly": "node scripts/check-publish-deps.mjs"
+    "check:publish": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
+    "prepack": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
+    "prepublishOnly": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs"
   },
   "keywords": [
     "react",

@@ -760,10 +760,11 @@ aside > .Toasts {
 }
 
 
-/* Success - Toast Emoji */
+/* Success - Toast Emoji
+ * NOTE: no image is shipped; set `--toast-emoji-success-image` in your app (e.g. a GIF from your `public/` folder) */
 .toast-emoji.success,
 .toast-emoji.st {
-  --toast-emoji-image: url('../images/gifs/emoji_thumbs_up.gif');
+  --toast-emoji-image: var(--toast-emoji-success-image, none);
 }
 
 
@@ -982,13 +983,14 @@ span.app-logo {
   max-height: var(--app-logo-size-max, 512px);
   background-color: var(--app-logo-color, var(--on-background-color));
   opacity: var(--app-logo-opacity, inherit);
-  mask: url('../../assets/logos/ab-logo.svg') no-repeat 50% 50%;
+  mask: var(--app-logo-url, url('../assets/logos/ab-logo.svg')) no-repeat 50% 50%;
   mask-size: cover;
 }
 
-/* Outlined App Logo | SPAN */
+/* Outlined App Logo | SPAN
+ * NOTE: no outlined logo is shipped; set `--app-logo-outline-url` in your app (falls back to the filled logo) */
 span[data-type="outlined"].app-logo {
-  mask: url('../../assets/logos/ab-logo_outline.svg') no-repeat 50% 50%;
+  mask: var(--app-logo-outline-url, var(--app-logo-url, url('../assets/logos/ab-logo.svg'))) no-repeat 50% 50%;
 }
 
 /* --- Dividers --- 
@@ -1162,16 +1164,16 @@ span.spinner {
   height: var(--spinner-size, 48px);
   background-color: var(--spinner-color, var(--on-background-color));
   opacity: var(--spinner-opacity, inherit);
-  mask: var(--spinner-url, url("../spinners/3-dots-scale.svg")) no-repeat 50% 50%;
+  mask: var(--spinner-url, url("../assets/spinners/3-dots-scale.svg")) no-repeat 50% 50%;
   mask-size: cover;
 }
 
 span.spinner.dots-3 {
-  --spinner-url: url("../spinners/3-dots-scale.svg");
+  --spinner-url: url("../assets/spinners/3-dots-scale.svg");
 }
 
 span.spinner.dots-12 {
-  --spinner-url: url("../spinners/12-dots-scale-rotate.svg");
+  --spinner-url: url("../assets/spinners/12-dots-scale-rotate.svg");
 }
 
 
@@ -1185,16 +1187,11 @@ span.spinner.dots-12 {
 }
 
 [data-content] > .container[data-empty="true"] .doodle {
-  --empty-doodle-image: url('../images/lock.png');
-}
-
-
-[data-content] > .container[data-empty="true"] .doodle {
   width: var(--empty-doodle-size, 200px);
   height: var(--empty-doodle-size, 200px);
   background-color: inherit;
   margin-top: -48px;
-  background-image: var(--empty-doodle-image, url('../images/doodles/doodle.svg'));
+  background-image: var(--empty-doodle-image, none); /* NOTE: no doodle is shipped; set `--empty-doodle-image` in your app */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1205,7 +1202,7 @@ span.spinner.dots-12 {
   background-image: none;
   background-color: var(--empty-doodle-color, var(--on-background-color));
   opacity: var(--empty-doodle-opacity, var(--opacity-md-icon-inactive));
-  mask-image: var(--empty-doodle-image, url('../images/doodles/doodle-outline.svg'));
+  mask-image: var(--empty-doodle-image, none);
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: cover;
@@ -1217,7 +1214,7 @@ span.spinner.dots-12 {
   width: var(--ddd-size, 200px);
   height: var(--ddd-size, 200px);
   background-color: inherit;
-  background-image: var(--ddd-image-url, url('../images/3d/likes_woman_excited.png'));
+  background-image: var(--ddd-image-url, none); /* NOTE: no 3D image is shipped; set `--ddd-image-url` in your app */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
