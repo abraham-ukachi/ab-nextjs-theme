@@ -94,18 +94,10 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 
 ```css
 @import 'ab-nextjs-theme/styles.css';
+@import 'ab-nextjs-components/styles.css'; /* dialog, toast, logo, spinner, doodle — requires >= 0.1.8 */
 ```
 
-> NOTE: The theme ships its own small assets in `assets/` (the Ab logo and the `dots-3` / `dots-12` spinners from [svg-spinners](https://github.com/n3r4zzurr0/svg-spinners), MIT). Decorative images aren't shipped, so set them in your app if you want them:
-
-| Custom property | Used by | Default |
-| --- | --- | --- |
-| `--app-logo-url` | `span.app-logo` | the Ab logo |
-| `--app-logo-outline-url` | `span[data-type="outlined"].app-logo` | `--app-logo-url` |
-| `--spinner-url` | `span.spinner` | 3 dots spinner |
-| `--toast-emoji-success-image` | `.toast-emoji.success` | `none` |
-| `--empty-doodle-image` | `[data-empty="true"] .doodle` | `none` |
-| `--ddd-image-url` | `[data-empty="true"] .ddd` | `none` |
+> **Migration (0.3.0):** chrome CSS and assets no longer ship in this package. Import [`ab-nextjs-components`](https://github.com/abraham-ukachi/ab-nextjs-components) `styles.css` right after the theme import (components `>=0.1.8`). Apps on `^0.2.10` that skip that import silently lose dialog/toast/logo/spinner/doodle styles.
 
 
 ---

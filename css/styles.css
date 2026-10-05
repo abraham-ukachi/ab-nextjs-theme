@@ -46,10 +46,6 @@
 
 
 
-/* Chrome (dialog, toast, logo, spinner, doodle) moved to ab-nextjs-components/styles.css */
-
-
-
 /* ==== AB THEME STYLES ==== */
 
 
@@ -1387,7 +1383,7 @@ p.input-message.error {
 /* ===>>> End of Form ..+.. Input Default Styles  <<<=== */
 
 
-/* === Dialog Styles === */
+/* === Backdrop === */
 
 /* Backdrop */
 #backdrop, .Backdrop {
@@ -1568,9 +1564,6 @@ button.fab:focus-visible {
 
 
 
-
-/* Toast */
-#toast {}
 
 /* Default Links - A */
 a {
@@ -2339,11 +2332,6 @@ ul.chips > li.chip[data-selected="true"]:hover span {
     margin: 24px;
   }
   
-
-  /*** Doodle of Empty Container ***/
-
-
-
 
   button.fab {
     margin: 32px;

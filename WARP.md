@@ -55,7 +55,7 @@ Big-picture architecture
   - css/colors.css: Centralizes imports of the per-scheme files and defines base variables (seed, key colors, a11y colors, opacity constants). It also defines selectors:
     - .light / .dark classes: activate the scheme-specific tokens.
   - css/typography.css: Imports fonts (from ab-nextjs-fonts) and material icons (from ab-nextjs-icons), then sets default text styles and responsive variants.
-  - css/styles.css: Global utilities and application-level styles (layout helpers, dialogs, progress bar, visibility helpers) and [data-theme="light|dark"] adjustments for opacities and misc tokens.
+  - css/styles.css: Global utilities and application-level styles (layout helpers, menus, FAB, progress bar, visibility helpers) and [data-theme="light|dark"] adjustments for opacities and misc tokens. Dialog/toast/logo/spinner/doodle chrome ships in ab-nextjs-components (not this package).
   - styles.css (root): Aggregator that imports css/colors.css, css/typography.css, and css/styles.css. This is the single import most consumers should use.
 - Dependencies interplay
   - The CSS layer depends on ab-nextjs-fonts and ab-nextjs-icons (both listed in dependencies) via @import statements in css/typography.css.
@@ -65,6 +65,7 @@ How to consume the theme
 - Import the aggregated stylesheet in your Next.js app (e.g., app/globals.css):
 ```css path=null start=null
 @import 'ab-nextjs-theme/styles.css';
+@import 'ab-nextjs-components/styles.css'; /* chrome — requires >= 0.1.8 */
 ```
 - Activate a scheme via DOM class and/or data attribute
   - The M3 tokens are attached via .light or .dark classes.
