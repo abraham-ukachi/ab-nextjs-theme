@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.10...v0.3.0) (2026-10-05)
+
+### BREAKING CHANGES
+
+* Dialog, toast, logo, spinner, and doodle chrome CSS + assets moved to [`ab-nextjs-components`](https://github.com/abraham-ukachi/ab-nextjs-components) `>=0.1.8`. Apps on `^0.2.10` that only bump the theme would silently lose all chrome.
+* **Migration:** add this import right after the theme import:
+
+```css
+@import "ab-nextjs-theme/styles.css";
+@import "ab-nextjs-components/styles.css";
+```
+
 ### [0.2.10](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.9...v0.2.10) (2026-10-03)
 
 * Publish to npm automatically from GitHub Actions with Trusted Publishing (OIDC + provenance, no NPM_TOKEN)
