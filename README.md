@@ -38,6 +38,8 @@
 
 
 
+> **Note (chrome move):** Dialog, toast, logo, spinner, and doodle styles now ship in [`ab-nextjs-components`](https://github.com/abraham-ukachi/ab-nextjs-components) via `@import "ab-nextjs-components/styles.css"`. This package keeps colors, typography, layout tokens and remaining app-shell styles.
+
 ## Getting Started
 
 ### Installation
