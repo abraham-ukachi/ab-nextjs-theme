@@ -46,10 +46,6 @@
 
 
 
-/* TODO 1: Reduce the css rules below by moving / using them in their corresponding React components */
-
-
-
 /* ==== AB THEME STYLES ==== */
 
 
@@ -313,160 +309,6 @@ div.progress-bar.intermediate > span.progress-bar-value {
 
 
 
-/* Dialogs */
-#dialogs, .Dialogs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 101;
-  pointer-events: none;
-  box-sizing: border-box;
-  padding: var(--dialogs-padding, 24px);
-}
-
-
-/* Dialog */
-#dialog, .dialog {
-  width: 100%;
-  position: relative;
-  user-select: none;
-  pointer-events: auto;
-  background: var(--dialog-color-background, var(--background-color));
-  color: var(--dialog-color-on-background, var(--on-background-color));
-  box-sizing: border-box;
-  padding: var(--dialog-padding, 8px 16px);
-  border-radius: var(--dialog-border-radius, 12px);
-
-  /* opacity: 0; */
-  text-align: center;
-  max-width: 512px;
-
-  --fade-in-animation-delay: var(--dialog-animation-delay, 200ms);
-}
-
-/* Dialog Title */
-.dialog-title {
-  margin: 16px 0;
-}
-
-/* Dialog Message */
-.dialog-message, .dialog-msg {
-  opacity: var(--opacity-text-inactive);
-}
-
-/* Dialog Buttons */
-.dialog-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Each Dialog Button */
-a.dialog-button, a[role="button"].dialog-button {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 8px 0;
-  background: var(--dialog-button-background-color, inherit);
-  color: var(--dialog-button-text-color, inherit);
-  font-size: 20px;
-  line-height: 50px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  text-align: center;
-  align-items: center;
-}
-
-/* Dialog Button with default attribute */
-a.dialog-button[data-default], a[role="button"][data-default].dialog-button {
-  color: var(--dialog-button-color-default, var(--primary-color));
-}
-
-/* Hover on Dialog Button */
-a.dialog-button:hover, a[role="button"].dialog-button:hover {
-  background: var(--dialog-button-color-hover, var(--surface-variant-color));
-}
-
-a.dialog-button:focus, a[role="button"].dialog-button:focus {
-  outline: 3px solid;
-  outline-color: var(--tertiary-color);
-}
-
-
-/* dialog-list */
-ul.dialog-list {
-  width: var(--dialog-list-width, 100%);
-  height: var(--dialog-list-height, auto);
-  max-height: var(--dialog-list-max-height, 300px);
-  overflow: hidden auto;
-  margin: var(--dialog-list-margin, 2rem 0);
-}
-
-
-/* dialog-list-item */
-li.dialog-list-item {
-  position: relative;
-  box-sizing: border-box;
-  width: var(--dialog-list-item-width, 100%);
-  height: var(--dialog-list-item-height, auto);
-  padding: var(--dialog-list-item-padding, 0.75rem 1rem);
-  transform: scale(1);
-  transform-origin: left;
-  opacity: var(--opacity-dialog-list-item, 0.68);
-  user-select: none;
-  transition: all 0.2s ease-in-out;
-}
-
-li.dialog-list-item:hover {
-  opacity: var(--opacity-dialog-list-item-hover, 1);
-}
-
-
-li.dialog-list-item[data-shrinks]:active {
-  transform: scale(0.9);
-} 
-
-
-li.dialog-list-item .checkbox,
-li.dialog-list-item .radio {
-  width: var(--dialog-list-item-checkbox-size, 20px);
-  height: var(--dialog-list-item-checkbox-size, 20px);
-  outline: 2px solid var(--dialog-list-item-checkbox-outline-color, var(--outline-color));
-  margin-right: 1.25rem;
-  outline-offset: 3px;
-}
-
-li.dialog-list-item .checkbox {
-  border-radius: 10%;
-}
-
-li.dialog-list-item .radio {
-  border-radius: 50%;
-}
-
-
-/* [data-selected="true"] dialog list item */
-li.dialog-list-item[data-selected="true"] {
-  font-weight: bold; 
-  opacity: var(--opacity-dialog-list-item-selected, 1);
-}
-
-
-li.dialog-list-item[data-selected="true"] .checkbox,
-li.dialog-list-item[data-selected="true"] .radio {
-  outline-color: var(--dialog-list-item-checkbox-selected-border-color, var(--primary-color));
-  background: var(--dialog-list-item-checkbox-selected-background-color, var(--primary-color));
-}
-
-/* TODO: dialog-list-item-link */
-
-
-
-
-
-
-
-
 /* Screens */
 #screens {
   z-index: 100;
@@ -704,71 +546,6 @@ header.is-sticky > .app-bar.sticky {
 /* -- End of Views Container -- */
 
 
-/* === Toasts Styles === */
-
-/* All Toasts */
-#toasts,
-main > .Toasts,
-aside > .Toasts {
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end; /* b4: end */
-  pointer-events: none;
-  padding: 3rem 1rem;
-  box-sizing: border-box;
-
-  --fade-in-animation-duration: 700ms;
-}
-
-
-/* Toast */
-.toast {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--on-background-color);
-  color: var(--background-color);
-  padding: 0.5rem 1.25rem;
-  border-radius: 32px;
-  box-sizing: border-box;
-  font-size: 1rem;
-  margin: 0 auto;
-  opacity: var(--opacity-md-active);
-}
-
-
-/* Toast Emojis */
-.toast-emoji {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  margin-right: 0.25rem;
-}
-
-.toast-emoji:not([data-emoji-hidden]) {
-  background-image: var(--toast-emoji-image);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-
-
-/* Success - Toast Emoji
- * NOTE: no image is shipped; set `--toast-emoji-success-image` in your app (e.g. a GIF from your `public/` folder) */
-.toast-emoji.success,
-.toast-emoji.st {
-  --toast-emoji-image: var(--toast-emoji-success-image, none);
-}
-
-
-/* ==== End of Toasts Styles === */
 
 
 /* MAIN part of App Layout */
@@ -792,16 +569,6 @@ aside > .Toasts {
 
 .page:not([data-opened="true"]) {
   display: none !important;
-}
-
-
-/* App Logo of any ASIDE */
-aside > span.app-logo {
-  --app-logo-color: var(--outline-color);
-
-  opacity: var(--opacity-md-icon-disabled);
-
-  --app-logo-size: 50%;
 }
 
 
@@ -973,26 +740,6 @@ aside > span.app-logo {
 }
 
 
-/* App Logo | SPAN */
-span.app-logo {
-  display: block;
-  position: relative;
-  width: var(--app-logo-size, 32px);
-  height: var(--app-logo-size, 32px);
-  max-width: var(--app-logo-size-max, 512px);
-  max-height: var(--app-logo-size-max, 512px);
-  background-color: var(--app-logo-color, var(--on-background-color));
-  opacity: var(--app-logo-opacity, inherit);
-  mask: var(--app-logo-url, url('../assets/logos/ab-logo.svg')) no-repeat 50% 50%;
-  mask-size: cover;
-}
-
-/* Outlined App Logo | SPAN
- * NOTE: no outlined logo is shipped; set `--app-logo-outline-url` in your app (falls back to the filled logo) */
-span[data-type="outlined"].app-logo {
-  mask: var(--app-logo-outline-url, var(--app-logo-url, url('../assets/logos/ab-logo.svg'))) no-repeat 50% 50%;
-}
-
 /* --- Dividers --- 
  *
  * NOTE: To change the diviers position, 
@@ -1155,29 +902,6 @@ aside .pages-wrapper {
   user-select: none;
 }
 
-/* ==== SPINNERS ==== */
-
-span.spinner {
-  display: block;
-  position: relative;
-  width: var(--spinner-size, 48px);
-  height: var(--spinner-size, 48px);
-  background-color: var(--spinner-color, var(--on-background-color));
-  opacity: var(--spinner-opacity, inherit);
-  mask: var(--spinner-url, url("../assets/spinners/3-dots-scale.svg")) no-repeat 50% 50%;
-  mask-size: cover;
-}
-
-span.spinner.dots-3 {
-  --spinner-url: url("../assets/spinners/3-dots-scale.svg");
-}
-
-span.spinner.dots-12 {
-  --spinner-url: url("../assets/spinners/12-dots-scale-rotate.svg");
-}
-
-
-/* === END of SPINNERS === */
 
 
 
@@ -1185,42 +909,6 @@ span.spinner.dots-12 {
 [data-content] > .container[data-busy] {
 
 }
-
-[data-content] > .container[data-empty="true"] .doodle {
-  width: var(--empty-doodle-size, 200px);
-  height: var(--empty-doodle-size, 200px);
-  background-color: inherit;
-  margin-top: -48px;
-  background-image: var(--empty-doodle-image, none); /* NOTE: no doodle is shipped; set `--empty-doodle-image` in your app */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-
-[data-content] > .container[data-empty="true"] .doodle[data-mask] {
-  background-image: none;
-  background-color: var(--empty-doodle-color, var(--on-background-color));
-  opacity: var(--empty-doodle-opacity, var(--opacity-md-icon-inactive));
-  mask-image: var(--empty-doodle-image, none);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: cover;
-
-}
-
-
-[data-content] > .container[data-empty="true"] .ddd {
-  width: var(--ddd-size, 200px);
-  height: var(--ddd-size, 200px);
-  background-color: inherit;
-  background-image: var(--ddd-image-url, none); /* NOTE: no 3D image is shipped; set `--ddd-image-url` in your app */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-
 
 /** Empty Container Title */
 .container[data-empty="true"] h2, .container[data-empty="true"] [data-title] {
@@ -1695,7 +1383,7 @@ p.input-message.error {
 /* ===>>> End of Form ..+.. Input Default Styles  <<<=== */
 
 
-/* === Dialog Styles === */
+/* === Backdrop === */
 
 /* Backdrop */
 #backdrop, .Backdrop {
@@ -1707,94 +1395,6 @@ p.input-message.error {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-/* Dialogs */
-#dialogs, .Dialogs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 101;
-  pointer-events: none;
-  box-sizing: border-box;
-  padding: var(--dialogs-padding, 24px);
-}
-
-/* Dialog */
-#dialog, .dialog {
-  width: var(--dialog-width, 80%);
-  position: absolute;
-  user-select: none;
-  pointer-events: auto;
-  background: var(--dialog-color-background, var(--background-color));
-  color: var(--dialog-color-on-background, var(--on-background-color));
-  box-sizing: border-box;
-  padding: var(--dialog-padding, 8px 16px);
-  border-radius: var(--dialog-border-radius, 12px);
-
-  /* opacity: 0; */
-  text-align: center;
-  max-width: var(--dialog-max-width, 320px);
-  
-  --fade-in-animation-delay: var(--dialog-animation-delay, 200ms);
-}
-
-/* Dialog Title */
-.dialog-title {
-  margin: 16px 0;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 30px;
-  letter-spacing: 0.8px;
-  word-spacing: normal;
-}
-
-/* Dialog Message */
-.dialog-message, .dialog-msg {
-  opacity: var(--opacity-text-inactive);
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.20px;
-  word-spacing: 1.5px;
-}
-
-/* Dialog Buttons */
-.dialog-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Each Dialog Button */
-a.dialog-button, a[role="button"].dialog-button {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 8px 0;
-  background: var(--dialog-button-background-color, inherit);
-  color: var(--dialog-button-text-color, inherit);
-  font-size: 20px;
-  line-height: 50px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  text-align: center;
-  align-items: center;
-}
-
-/* Dialog Button with default attribute */
-a.dialog-button[data-default], a[role="button"][data-default].dialog-button {
-  color: var(--dialog-button-color-default, var(--primary-color));
-}
-
-/* Hover on Dialog Button */
-a.dialog-button:hover, a[role="button"].dialog-button:hover {
-  background: var(--dialog-button-color-hover, var(--surface-variant-color));
-}
-
-a.dialog-button:focus, a[role="button"].dialog-button:focus {
-  outline: 3px solid;
-  outline-color: var(--tertiary-color);
-}
-
-/* === End of Dialog Styles === */
 
 
 /* === Menu Styles === */
@@ -1965,9 +1565,6 @@ button.fab:focus-visible {
 
 
 
-/* Toast */
-#toast {}
-
 /* Default Links - A */
 a {
   color: var(--link-color, var(--primary-color));
@@ -2007,14 +1604,6 @@ a.nav-link {
 a.nav-link.icon-wrapper {
   opacity: var(--side-bar-logo-opacity, 0.98);
 }
-
-/* App Logo in an Nav Link */
-a.nav-link span.app-logo {
-  --app-logo-size: var(--side-bar-logo-size, 48px);
-  --app-logo-color: var(--side-bar-logo-color, var(--primary-color));
-  --app-logo-opacity: inherit;
-}
-
 
 /* Initials in Nav Link */
 a.nav-link span.initials, 
@@ -2056,12 +1645,6 @@ a.nav-link[data-active="true"] {
   color: var(--nav-icon-color-active, var(--primary-color));
 
   /* pointer-events: none; */
-}
-
-/* App Logo in an active Nav Link */
-a.nav-link[data-active="true"] span.app-logo {
-  background-color: var(--app-logo-color-active, var(--primary-color));
-  opacity: inherit;
 }
 
 /* Material Icons in Nav Link */
@@ -2750,30 +2333,6 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
   
 
-  /*** Doodle of Empty Container ***/
-  [data-content] > .container[data-empty="true"] .doodle {
-    width: var(--empty-doodle-size-bigger, 256px);
-    height: var(--empty-doodle-size-bigger, 256px);
-  }
-
-
-
-  /* Toasts */
-  #toasts {
-    padding: 3rem;
-  }
-
-
-  /* Toast Emojis */
-  .toast-emoji {
-    width: var(--toast-emoji-size, 32px);
-    height: var(--toast-emoji-size, 32px);
-  }
-
-  .toast-emoji:not([data-emoji-hidden], .success) {
-    transform: scale(1.2);
-  }
-
   button.fab {
     margin: 32px;
   }
@@ -2817,24 +2376,11 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
 
-  /* Toast */
-  #toasts .toast {
-    padding: 1rem 1.5rem;
-    border-radius: 48px;
-    font-size: 1.25rem;
-  }
-
-  #toasts .toast-emoji:not([data-emoji-hidden], .success) {
-    transform: scale(1.5);
-  }
 
   .app-layout[data-navbar-enabled="true"] {
     max-height: initial;
   }
 
-  #dialog, .dialog {
-    max-width: var(--dialog-max-width, 480px);
-  }
 
   /* === SPECIFIC VIEWPORTS ONLY === */
   [narrow-only] {
@@ -2955,33 +2501,6 @@ ul.chips > li.chip[data-selected="true"]:hover span {
  * Width: 768px <-to-> 1024px
  */
 @media (width >= 768px) and (width <= 1024px) {
-  /* Dialog */
-  .dialog {
-    text-align: left;
-  }
-
-  /* Divider of Dialog */
-  .dialog span.divider {
-    display: none;
-  }
-
-  /* Dialog Title */
-  .dialog-title {
-    font-size: 26px;
-    line-height: 32px;
-  }
-
-  /* Dialog Message */
-  .dialog-message, .dialog-msg {
-    font-size: 20px;
-    line-height: 32px;
-    margin: 12px 0;
-  }
-
-  /* Dialog Buttons */
-  .dialog-buttons {
-    flex-direction: row;
-  }
 
 }
 
@@ -2997,51 +2516,6 @@ ul.chips > li.chip[data-selected="true"]:hover span {
     width: 60%;
   }
 
-  /* Dialogs */
-  #dialogs, .Dialogs {
-    padding: var(--dialogs-container-padding, 24px 48px);
-  }
-
-  /* Dialog */
-  .dialog {
-    padding: 12px 24px;
-    text-align: left;
-  }
-
-  /* Divider of Dialog */
-  .dialog span.divider {
-    display: none;
-  }
-
-  /* Dialog Title */
-  .dialog-title {
-    font-size: 26px;
-    line-height: 32px;
-  }
-
-  /* Dialog Message */
-  .dialog-message, .dialog-msg {
-    font-size: 20px;
-    line-height: 26px;
-    margin: 12px 0;
-  }
-
-  /* Dialog Buttons */
-  .dialog-buttons {
-    flex-direction: row;
-  }
-
-
-  /* Toasts */
-  #toasts {
-    padding: 5rem;
-  }
-
-  /* Toast Emojis */
-  .toast-emoji {
-    width: var(--toast-emoji-size, 42px);
-    height: var(--toast-emoji-size, 42px);
-  }
 
 }
 

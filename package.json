@@ -1,7 +1,7 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.2.10",
-  "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
+  "version": "0.3.0",
+  "description": "\ud83c\udfa8 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications \ud83d\ude0e.",
   "type": "module",
   "main": "index.ts",
   "types": "types/index.d.ts",
@@ -15,7 +15,6 @@
     "typography.js",
     "material-theme.json",
     "css",
-    "assets",
     "types",
     "README.md",
     "LICENSE",
