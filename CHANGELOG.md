@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased (planned 0.3.1, Welcome v6, not bumped)
+
+* **New `css/ab-tokens.css`** (imported by `colors.css`): `--ab-*` tokens for abElements components ≥ 0.1.10
+  * ♿ **`--ab-color-bronze-text`** (God, §8): small bronze text that passes AA. Light `#8a6440` (5.03:1 on background, 4.56:1 on surface-container); dark `#d9ab7f` (8.9:1 / 7.86:1). The base `--ab-color-bronze` `#a67c52` stays for large text/UI (3.55:1)
+  * 🔤 **`--ab-font-title`** = Mulish (God, §8 Q6: Cyrillic) + `.font-title` / `.ab-title` utilities (weight 800). Global `h1–h3` are unchanged (still Inter)
+  * 🎨 aliases onto the live `--md-sys-color-*` palette (primary, surface, surface-container, outline-variant, …), `--ab-color-sage`, `--ab-focus-ring`, `--ab-font-body`, `--ab-font-mono`; `.text-bronze`
+* Release note: real Mulish ExtraBold needs **ab-nextjs-fonts ≥ 0.2.5** (bump the dependency range at release)
+* Tests: tokens present, aliases resolve in both palettes, AA contrast computed from the live palette
+
 ## [0.3.0](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.2.10...v0.3.0) (2026-10-05)
 
 ### BREAKING CHANGES
