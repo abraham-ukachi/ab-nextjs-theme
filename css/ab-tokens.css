@@ -1,0 +1,123 @@
+/* 
+* @license MIT
+* ~~~~~~~~~~~~
+* ab-nextjs-theme
+* ~~~~~~~~~~~~ 
+* Copyright (c) 2026 Abraham Ukachi. The abElements Project.
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the 'Software'), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions: 
+*  
+* The above copyright notice and this permission notice shall be included in all 
+* copies or substantial portions of the Software. 
+*
+* THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @project: ab-nextjs-theme
+* @name: Theme - abElements tokens (--ab-*)
+* @file: css/ab-tokens.css
+* @type: CSS Stylesheet (0.3.1, Welcome v6)
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
+*
+* Example usage:
+*   1+|> .eyebrow { color: var(--ab-color-bronze-text); }  -- ♿ small bronze text, AA in light + dark
+*    -|> h1.welcome-title { font-family: var(--ab-font-title); font-weight: 800; }  -- 🔤 Mulish, Cyrillic-ready
+*/
+
+/*
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* MOTTO: We'll always do more 😜!!!
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+/*
+ * 🧭 WHY THIS FILE
+ * - abElements components (≥ 0.1.10) read `--ab-*` custom properties.
+ * - These map onto the LIVE Material tokens (`--md-sys-color-*`, from light.css / dark.css).
+ *   ⚠️ The legacy `--primary-color` layer in colors.css is inside a comment (since 2024),
+ *   so it is NOT used here.
+ * - Declared on every themed scope, so values re-resolve wherever `.light` / `.dark` /
+ *   `[data-theme]` is applied (not only on <html>).
+ */
+
+/* 🌞 shared + light (default) */
+:root,
+.light,
+[data-theme='light'] {
+  /* 🥉 bronze brand accent: large text + UI only (3.55:1 on #fff8f5) */
+  --ab-color-bronze: #a67c52;
+
+  /* ♿ NEW: darker bronze for SMALL text in light mode (God, §8): 5.03:1 on #fff8f5, 4.56:1 on surface-container */
+  --ab-color-bronze-text: #8a6440;
+
+  /* 🌿 sage "live" / "free forever" dot (theme seed colour) */
+  --ab-color-sage: #778d79;
+
+  /* 🎨 aliases → live Material tokens */
+  --ab-color-primary: var(--md-sys-color-primary);
+  --ab-color-on-primary: var(--md-sys-color-on-primary);
+  --ab-color-background: var(--md-sys-color-background);
+  --ab-color-on-background: var(--md-sys-color-on-background);
+  --ab-color-surface: var(--md-sys-color-surface);
+  --ab-color-on-surface: var(--md-sys-color-on-surface);
+  --ab-color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  --ab-color-surface-container: var(--md-sys-color-surface-container);
+  --ab-color-surface-variant: var(--md-sys-color-surface-variant);
+  --ab-color-outline: var(--md-sys-color-outline);
+  --ab-color-outline-variant: var(--md-sys-color-outline-variant);
+
+  /* 💍 focus ring (visible on both themes) */
+  --ab-focus-ring: var(--md-sys-color-primary);
+
+  /* 🔤 NEW: title font = Mulish (God, §8 Q6: has Cyrillic; replaces Zilla Slab for titles) */
+  --ab-font-title: 'Mulish', 'Mulish-Bold', system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+
+  /* 🔤 body + mono stacks (same as the theme's global body font) */
+  --ab-font-body: inter, 'Inter-Regular', system-ui, blinkmacsystemfont, roboto, helvetica, arial, sans-serif;
+  --ab-font-mono: ui-monospace, sfmono-regular, menlo, consolas, 'Liberation Mono', monospace;
+}
+
+/* 🌙 dark */
+.dark,
+[data-theme='dark'] {
+  /* ♿ small bronze text in dark: #a67c52 is only 4.39:1 on dark surface-container → use the
+     theme's existing a11y light bronze (8.9:1 on #19120c, 7.86:1 on surface-container) */
+  --ab-color-bronze-text: #d9ab7f;
+
+  /* 🎨 aliases re-resolve against the dark Material tokens */
+  --ab-color-primary: var(--md-sys-color-primary);
+  --ab-color-on-primary: var(--md-sys-color-on-primary);
+  --ab-color-background: var(--md-sys-color-background);
+  --ab-color-on-background: var(--md-sys-color-on-background);
+  --ab-color-surface: var(--md-sys-color-surface);
+  --ab-color-on-surface: var(--md-sys-color-on-surface);
+  --ab-color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  --ab-color-surface-container: var(--md-sys-color-surface-container);
+  --ab-color-surface-variant: var(--md-sys-color-surface-variant);
+  --ab-color-outline: var(--md-sys-color-outline);
+  --ab-color-outline-variant: var(--md-sys-color-outline-variant);
+  --ab-focus-ring: var(--md-sys-color-primary);
+}
+
+/* 🔤 opt-in title utility (global h1–h3 stay Inter; changing every app's headings is God's call) */
+.font-title,
+.ab-title {
+  font-family: var(--ab-font-title);
+  font-weight: 800; /* 💪 real ExtraBold with ab-nextjs-fonts ≥ 0.2.5 (variable Mulish) */
+  letter-spacing: -0.01em; /* 📏 tighter display tracking */
+}
+
+/* ♿ small bronze text utility */
+.text-bronze {
+  color: var(--ab-color-bronze-text);
+}
