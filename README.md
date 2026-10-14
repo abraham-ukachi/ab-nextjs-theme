@@ -349,7 +349,7 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 > @import "ab-nextjs-theme/styles.css";   /* 🎨 then the theme */
 > ```
 >
-> `ab-nextjs-fonts` is an **optional** peer dependency (`^0.2.5`): without it, the font stacks fall back to system fonts.
+> `ab-nextjs-fonts` is an **optional** peer dependency (`^0.2.5`), so the theme no longer installs it for you. ⚠️ `ab-nextjs-theme/styles.css` still `@import`s the font stylesheets (`css/typography.css`), so an app that uses `styles.css` **must** install `ab-nextjs-fonts` itself. Only apps that use the tokens / JS without `styles.css` can skip it.
 
 ### Roboto
 
