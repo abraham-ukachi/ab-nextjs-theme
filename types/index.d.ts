@@ -28,7 +28,7 @@
 * @name: Types - Theme  
 * @file: index.d.ts
 * @type: TS Types 
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *
@@ -75,8 +75,11 @@ export interface Palettes {
 export interface CoreColors {
   primary: string;
   secondary: string;
-  tertiaty: string;
-  error: string;
+  tertiary: string; // ✏️ fixed spelling (was `tertiaty`)
+  /** @deprecated ⚠️ misspelled alias kept for type compatibility; use `tertiary` (removed in a future minor) */
+  tertiaty?: string;
+  // 🚨 optional: material-theme.json has no `error` core colour (runtime value is undefined)
+  error?: string;
   neutral: string;
   neutralVariant?: string;
 }
@@ -212,9 +215,17 @@ export interface FontFamily {
 
 
 // Font Size - interface
+// 🔡 Tailwind-style font size entry: [size, { lineHeight, letterSpacing, fontWeight }]
+export interface FontSizeMeta {
+  lineHeight?: string;
+  letterSpacing?: string;
+  fontWeight?: string;
+}
+export type FontSizeValue = string | FontSizeMeta;
+
 export interface FontSize {
-  caption: string[];
-  [key: string]: string[];
+  caption: FontSizeValue[];
+  [key: string]: FontSizeValue[];
 }
 
 // Typography - interface
@@ -233,8 +244,9 @@ export interface Typography {
 
 export interface Theme {
   colors: Colors;
-  typography: Typography;
-  styles: any;
+  // 🧪 not wired into `abTheme` yet (see index.ts TODOs), so optional
+  typography?: Typography;
+  styles?: any;
 }
 
 declare const abTheme: Theme;

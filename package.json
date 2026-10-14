@@ -1,6 +1,6 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "\ud83c\udfa8 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications \ud83d\ude0e.",
   "type": "module",
   "main": "index.ts",
@@ -33,6 +33,7 @@
     "lint:ts": "eslint . --fix",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --fix",
     "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.typecheck.json",
     "check:publish": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
     "prepack": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs",
     "prepublishOnly": "node scripts/check-publish-deps.mjs && node scripts/check-css-assets.mjs"
@@ -55,7 +56,9 @@
   "peerDependencies": {
     "next": "^16.3.4",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "ab-nextjs-fonts": "^0.2.5",
+    "ab-nextjs-animations": "^0.2.1"
   },
   "peerDependenciesMeta": {
     "next": {
@@ -66,15 +69,21 @@
     },
     "react-dom": {
       "optional": true
+    },
+    "ab-nextjs-fonts": {
+      "optional": true
+    },
+    "ab-nextjs-animations": {
+      "optional": true
     }
   },
   "dependencies": {
-    "ab-nextjs-animations": "^0.2.1",
-    "ab-nextjs-fonts": "^0.2.3",
     "ab-nextjs-icons": "^0.1.4"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "ab-nextjs-animations": "^0.2.1",
+    "ab-nextjs-fonts": "^0.2.4",
     "eslint": "^9.39.0",
     "eslint-config-next": "16.3.4",
     "next": "16.3.4",
