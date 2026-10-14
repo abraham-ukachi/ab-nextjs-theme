@@ -3,7 +3,7 @@
 * ~~~~~~~~~~~~
 * ab-nextjs-theme
 * ~~~~~~~~~~~~
-* Copyright (c) 2026 Abraham Ukachi. The abElements Contributors.
+* Copyright (c) 2026 Abraham Ukachi. The abElements Project.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the 'Software'), to deal
@@ -27,7 +27,7 @@
 * @name: Colors - Theme - abElements
 * @file: colors.ts
 * @type: Javascript
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> 
@@ -48,6 +48,10 @@ import type {
 // import the `material-theme.json` file as `mt`
 import mt from "./material-theme.json"
 
+// 🔍 typed views: the JSON has no `error` palette / core colour, reading it yields undefined (same as before)
+const mtPalettes: Record<string, Record<string, string> | undefined> = mt.palettes;
+const mtCore: Record<string, string | undefined> = mt.coreColors;
+
 
 // Palettes
 
@@ -55,7 +59,7 @@ const palettes: Palettes = {
   primary: mt.palettes.primary,
   secondary: mt.palettes.secondary,
   tertiary: mt.palettes.tertiary,
-  error: mt.palettes.error,
+  error: mtPalettes.error, // 🚨 undefined today (no error palette in material-theme.json)
   neutral: mt.palettes.neutral,
   neutralVariant: mt.palettes['neutral-variant'],
 };
@@ -66,7 +70,7 @@ const coreColors: CoreColors = {
   primary: mt.coreColors.primary,
   secondary: mt.coreColors.secondary,
   tertiary: mt.coreColors.tertiary,
-  error: mt.coreColors.error,
+  error: mtCore.error, // 🚨 undefined today
   neutral: mt.coreColors.neutral,
 };
 
