@@ -341,6 +341,16 @@ Import the main **`styles.css`** (from root folder) in your *`globals.css`*
 
 ## Typography
 
+> IMPORTANT: The theme only **names** the font families (e.g. `--ab-font-title: 'Mulish'`, Inter for body and h1–h3); it doesn't load any font files. Your app imports the fonts itself from [`ab-nextjs-fonts`](https://www.npmjs.com/package/ab-nextjs-fonts) (**>= 0.2.5** for the variable Mulish used by `.font-title` / `.ab-title`), e.g. in `app/globals.css`:
+>
+> ```css
+> @import "ab-nextjs-fonts/inter/styles.css";    /* 🔤 body + h1–h3 */
+> @import "ab-nextjs-fonts/mulish/styles.css";   /* 🔤 titles (.font-title / .ab-title) */
+> @import "ab-nextjs-theme/styles.css";   /* 🎨 then the theme */
+> ```
+>
+> `ab-nextjs-fonts` is an **optional** peer dependency (`^0.2.5`): without it, the font stacks fall back to system fonts.
+
 ### Roboto
 
 | Name | Type | Size | Character | Line | Paragraph |
