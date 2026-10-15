@@ -315,73 +315,76 @@
 
 
 /* Light Theme */
+
+/* 🩹 0.3.2: the section comments below were never closed, so every legacy alias (--primary-container-color, …)
+ *    was swallowed and AbButton "contained" rendered transparent. They are closed now, and each alias points
+ *    at the LIVE Material token (--md-sys-color-*, from light.css) because the old --*-color-light source values
+ *    (above, commented out) were never defined. */
 [data-theme="light"], .light {
-  /* Light Primary Colors 
-  --primary-color: var(--primary-color-light);
-  --on-primary-color: var(--on-primary-color-light); 
-  --primary-container-color: var(--primary-container-color-light); 
-  --on-primary-container-color: var(--on-primary-container-color-light); 
-  --primary-fixed-color: var(--primary-fixed-color-light);
-  --on-primary-fixed-color: var(--on-primary-fixed-color-light);
-  --on-primary-fixed-variant-color: var(--on-primary-fixed-variant-color-light);
-  --primary-fixed-dim-color: var(--primary-fixed-dim-color-light);
+  /* Light Primary Colors */
+  --primary-color: var(--md-sys-color-primary);
+  --on-primary-color: var(--md-sys-color-on-primary); 
+  --primary-container-color: var(--md-sys-color-primary-container); 
+  --on-primary-container-color: var(--md-sys-color-on-primary-container); 
+  --primary-fixed-color: var(--md-sys-color-primary-fixed);
+  --on-primary-fixed-color: var(--md-sys-color-on-primary-fixed);
+  --on-primary-fixed-variant-color: var(--md-sys-color-on-primary-fixed-variant);
+  --primary-fixed-dim-color: var(--md-sys-color-primary-fixed-dim);
   
-  /* Light Secondary Colors 
-  --secondary-color: var(--secondary-color-light); 
-  --on-secondary-color: var(--on-secondary-color-light); 
-  --secondary-container-color: var(--secondary-container-color-light); 
-  --on-secondary-container-color: var(--on-secondary-container-color-light);  
-  --secondary-fixed-color: var(--secondary-fixed-color-light);
-  --on-secondary-fixed-color: var(--on-secondary-fixed-color-light);
-  --on-secondary-fixed-variant-color: var(--on-secondary-fixed-variant-color-light);
-  --secondary-fixed-dim-color: var(--secondary-fixed-dim-color-light);
+  /* Light Secondary Colors */
+  --secondary-color: var(--md-sys-color-secondary); 
+  --on-secondary-color: var(--md-sys-color-on-secondary); 
+  --secondary-container-color: var(--md-sys-color-secondary-container); 
+  --on-secondary-container-color: var(--md-sys-color-on-secondary-container);  
+  --secondary-fixed-color: var(--md-sys-color-secondary-fixed);
+  --on-secondary-fixed-color: var(--md-sys-color-on-secondary-fixed);
+  --on-secondary-fixed-variant-color: var(--md-sys-color-on-secondary-fixed-variant);
+  --secondary-fixed-dim-color: var(--md-sys-color-secondary-fixed-dim);
 
-  /* Light Tertiary Colors 
-  --tertiary-color: var(--tertiary-color-light); 
-  --on-tertiary-color: var(--on-tertiary-color-light); 
-  --tertiary-container-color: var(--tertiary-container-color-light); 
-  --on-tertiary-container-color: var(--on-tertiary-container-color-light);  
-  --tertiary-fixed-color: var(--tertiary-fixed-color-light);
-  --on-tertiary-fixed-color: var(--on-tertiary-fixed-color-light);
-  --on-tertiary-fixed-variant-color: var(--on-tertiary-fixed-variant-color-light);
-  --tertiary-fixed-dim-color: var(--tertiary-fixed-dim-color-light);
+  /* Light Tertiary Colors */
+  --tertiary-color: var(--md-sys-color-tertiary); 
+  --on-tertiary-color: var(--md-sys-color-on-tertiary); 
+  --tertiary-container-color: var(--md-sys-color-tertiary-container); 
+  --on-tertiary-container-color: var(--md-sys-color-on-tertiary-container);  
+  --tertiary-fixed-color: var(--md-sys-color-tertiary-fixed);
+  --on-tertiary-fixed-color: var(--md-sys-color-on-tertiary-fixed);
+  --on-tertiary-fixed-variant-color: var(--md-sys-color-on-tertiary-fixed-variant);
+  --tertiary-fixed-dim-color: var(--md-sys-color-tertiary-fixed-dim);
 
-  /* Light Error Colors 
-  --error-color: var(--error-color-light); 
-  --error-container-color: var(--error-container-color-light); 
-  --on-error-color: var(--on-error-color-light); 
-  --on-error-container-color: var(--on-error-container-color-light); 
+  /* Light Error Colors */
+  --error-color: var(--md-sys-color-error); 
+  --error-container-color: var(--md-sys-color-error-container); 
+  --on-error-color: var(--md-sys-color-on-error); 
+  --on-error-container-color: var(--md-sys-color-on-error-container); 
   
-  /* Light Background Colors 
-  --background-color: var(--background-color-light); 
-  --on-background-color: var(--on-background-color-light); 
+  /* Light Background Colors */
+  --background-color: var(--md-sys-color-background); 
+  --on-background-color: var(--md-sys-color-on-background); 
   
-  /* Light Surface Colors 
-  --surface-color: var(--surface-color-light); 
-  --on-surface-color: var(--on-surface-color-light);  
-  --surface-variant-color: var(--surface-variant-color-light);
-  --on-surface-variant-color: var(--on-surface-variant-color-light); 
-  --surface-dim-color: var(--surface-dim-color-light);
-  --surface-bright-color: var(--surface-bright-color-light);
-  --surface-tint-color: var(--surface-tint-color-light);
-  --surface-container-color: var(--surface-container-color-light);
-  --surface-container-highest-color: var(--surface-container-highest-color-light);
-  --surface-container-high-color: var(--surface-container-high-color-light);
-  --surface-container-low-color: var(--surface-container-low-color-light);
-  --surface-container-lowest-color: var(--surface-container-lowest-color-light);
+  /* Light Surface Colors */
+  --surface-color: var(--md-sys-color-surface); 
+  --on-surface-color: var(--md-sys-color-on-surface);  
+  --surface-variant-color: var(--md-sys-color-surface-variant);
+  --on-surface-variant-color: var(--md-sys-color-on-surface-variant); 
+  --surface-dim-color: var(--md-sys-color-surface-dim);
+  --surface-bright-color: var(--md-sys-color-surface-bright);
+  --surface-tint-color: var(--md-sys-color-surface-tint);
+  --surface-container-color: var(--md-sys-color-surface-container);
+  --surface-container-highest-color: var(--md-sys-color-surface-container-highest);
+  --surface-container-high-color: var(--md-sys-color-surface-container-high);
+  --surface-container-low-color: var(--md-sys-color-surface-container-low);
+  --surface-container-lowest-color: var(--md-sys-color-surface-container-lowest);
 
-  /* Light Outline Colors 
-  --outline-color: var(--outline-color-light);
-  --outline-variant-color: var(--outline-variant-color-light);
+  /* Light Outline Colors */
+  --outline-color: var(--md-sys-color-outline);
+  --outline-variant-color: var(--md-sys-color-outline-variant);
+  --inverse-on-surface-color: var(--md-sys-color-inverse-on-surface);
+  --inverse-surface-color: var(--md-sys-color-inverse-surface);
+  --primary-inverse-color: var(--md-sys-color-inverse-primary); 
 
-  --inverse-on-surface-color: var(--inverse-on-surface-color-light);
-  --inverse-surface-color: var(--inverse-surface-color-light);
-  --primary-inverse-color: var(--primary-inverse-color-light); 
-
-  /* Other Light Colors 
-  --shadow-color: var(--shadow-color-light);
-  --scrim-color: var(--scrim-color-light);
-  */
+  /* Other Light Colors */
+  --shadow-color: var(--md-sys-color-shadow);
+  --scrim-color: var(--md-sys-color-scrim);
 
 
   /* Icon Opacity for Light Theme */
@@ -413,73 +416,76 @@
 
 
 /* Dark Theme */
+
+/* 🩹 0.3.2: the section comments below were never closed, so every legacy alias (--primary-container-color, …)
+ *    was swallowed and AbButton "contained" rendered transparent. They are closed now, and each alias points
+ *    at the LIVE Material token (--md-sys-color-*, from dark.css) because the old --*-color-dark source values
+ *    (above, commented out) were never defined. */
 [data-theme="dark"], .dark {
-  /* Dark Primary Colors 
-  --primary-color: var(--primary-color-dark);
-  --on-primary-color: var(--on-primary-color-dark); 
-  --primary-container-color: var(--primary-container-color-dark); 
-  --on-primary-container-color: var(--on-primary-container-color-dark); 
-  --primary-fixed-color: var(--primary-fixed-color-dark);
-  --on-primary-fixed-color: var(--on-primary-fixed-color-dark);
-  --on-primary-fixed-variant-color: var(--on-primary-fixed-variant-color-dark);
-  --primary-fixed-dim-color: var(--primary-fixed-dim-color-dark);
+  /* Dark Primary Colors */
+  --primary-color: var(--md-sys-color-primary);
+  --on-primary-color: var(--md-sys-color-on-primary); 
+  --primary-container-color: var(--md-sys-color-primary-container); 
+  --on-primary-container-color: var(--md-sys-color-on-primary-container); 
+  --primary-fixed-color: var(--md-sys-color-primary-fixed);
+  --on-primary-fixed-color: var(--md-sys-color-on-primary-fixed);
+  --on-primary-fixed-variant-color: var(--md-sys-color-on-primary-fixed-variant);
+  --primary-fixed-dim-color: var(--md-sys-color-primary-fixed-dim);
   
-  /* Dark Secondary Colors
-  --secondary-color: var(--secondary-color-dark); 
-  --on-secondary-color: var(--on-secondary-color-dark); 
-  --secondary-container-color: var(--secondary-container-color-dark); 
-  --on-secondary-container-color: var(--on-secondary-container-color-dark);  
-  --secondary-fixed-color: var(--secondary-fixed-color-dark);
-  --on-secondary-fixed-color: var(--on-secondary-fixed-color-dark);
-  --on-secondary-fixed-variant-color: var(--on-secondary-fixed-variant-color-dark);
-  --secondary-fixed-dim-color: var(--secondary-fixed-dim-color-dark);
+  /* Dark Secondary Colors */
+  --secondary-color: var(--md-sys-color-secondary); 
+  --on-secondary-color: var(--md-sys-color-on-secondary); 
+  --secondary-container-color: var(--md-sys-color-secondary-container); 
+  --on-secondary-container-color: var(--md-sys-color-on-secondary-container);  
+  --secondary-fixed-color: var(--md-sys-color-secondary-fixed);
+  --on-secondary-fixed-color: var(--md-sys-color-on-secondary-fixed);
+  --on-secondary-fixed-variant-color: var(--md-sys-color-on-secondary-fixed-variant);
+  --secondary-fixed-dim-color: var(--md-sys-color-secondary-fixed-dim);
 
-  /* Dark Tertiary Colors
-  --tertiary-color: var(--tertiary-color-dark); 
-  --on-tertiary-color: var(--on-tertiary-color-dark); 
-  --tertiary-container-color: var(--tertiary-container-color-dark); 
-  --on-tertiary-container-color: var(--on-tertiary-container-color-dark);  
-  --tertiary-fixed-color: var(--tertiary-fixed-color-dark);
-  --on-tertiary-fixed-color: var(--on-tertiary-fixed-color-dark);
-  --on-tertiary-fixed-variant-color: var(--on-tertiary-fixed-variant-color-dark);
-  --tertiary-fixed-dim-color: var(--tertiary-fixed-dim-color-dark);
+  /* Dark Tertiary Colors */
+  --tertiary-color: var(--md-sys-color-tertiary); 
+  --on-tertiary-color: var(--md-sys-color-on-tertiary); 
+  --tertiary-container-color: var(--md-sys-color-tertiary-container); 
+  --on-tertiary-container-color: var(--md-sys-color-on-tertiary-container);  
+  --tertiary-fixed-color: var(--md-sys-color-tertiary-fixed);
+  --on-tertiary-fixed-color: var(--md-sys-color-on-tertiary-fixed);
+  --on-tertiary-fixed-variant-color: var(--md-sys-color-on-tertiary-fixed-variant);
+  --tertiary-fixed-dim-color: var(--md-sys-color-tertiary-fixed-dim);
 
-  /* Dark Error Colors 
-  --error-color: var(--error-color-dark); 
-  --error-container-color: var(--error-container-color-dark); 
-  --on-error-color: var(--on-error-color-dark); 
-  --on-error-container-color: var(--on-error-container-color-dark); 
+  /* Dark Error Colors */
+  --error-color: var(--md-sys-color-error); 
+  --error-container-color: var(--md-sys-color-error-container); 
+  --on-error-color: var(--md-sys-color-on-error); 
+  --on-error-container-color: var(--md-sys-color-on-error-container); 
   
-  /* Dark Background Colors
-  --background-color: var(--background-color-dark); 
-  --on-background-color: var(--on-background-color-dark); 
+  /* Dark Background Colors */
+  --background-color: var(--md-sys-color-background); 
+  --on-background-color: var(--md-sys-color-on-background); 
   
-  /* Dark Surface Colors 
-  --surface-color: var(--surface-color-dark); 
-  --on-surface-color: var(--on-surface-color-dark);  
-  --surface-variant-color: var(--surface-variant-color-dark);
-  --on-surface-variant-color: var(--on-surface-variant-color-dark); 
-  --surface-dim-color: var(--surface-dim-color-dark);
-  --surface-bright-color: var(--surface-bright-color-dark);
-  --surface-tint-color: var(--surface-tint-color-dark);
-  --surface-container-color: var(--surface-container-color-dark);
-  --surface-container-highest-color: var(--surface-container-highest-color-dark);
-  --surface-container-high-color: var(--surface-container-high-color-dark);
-  --surface-container-low-color: var(--surface-container-low-color-dark);
-  --surface-container-lowest-color: var(--surface-container-lowest-color-dark);
+  /* Dark Surface Colors */
+  --surface-color: var(--md-sys-color-surface); 
+  --on-surface-color: var(--md-sys-color-on-surface);  
+  --surface-variant-color: var(--md-sys-color-surface-variant);
+  --on-surface-variant-color: var(--md-sys-color-on-surface-variant); 
+  --surface-dim-color: var(--md-sys-color-surface-dim);
+  --surface-bright-color: var(--md-sys-color-surface-bright);
+  --surface-tint-color: var(--md-sys-color-surface-tint);
+  --surface-container-color: var(--md-sys-color-surface-container);
+  --surface-container-highest-color: var(--md-sys-color-surface-container-highest);
+  --surface-container-high-color: var(--md-sys-color-surface-container-high);
+  --surface-container-low-color: var(--md-sys-color-surface-container-low);
+  --surface-container-lowest-color: var(--md-sys-color-surface-container-lowest);
 
-  /* Dark Outline Colors
-  --outline-color: var(--outline-color-dark);
-  --outline-variant-color: var(--outline-variant-color-dark);
+  /* Dark Outline Colors */
+  --outline-color: var(--md-sys-color-outline);
+  --outline-variant-color: var(--md-sys-color-outline-variant);
+  --inverse-on-surface-color: var(--md-sys-color-inverse-on-surface);
+  --inverse-surface-color: var(--md-sys-color-inverse-surface);
+  --primary-inverse-color: var(--md-sys-color-inverse-primary); 
 
-  --inverse-on-surface-color: var(--inverse-on-surface-color-dark);
-  --inverse-surface-color: var(--inverse-surface-color-dark);
-  --primary-inverse-color: var(--primary-inverse-color-dark); 
-
-  /* Other Dark Colors
-  --shadow-color: var(--shadow-color-dark);
-  --scrim-color: var(--scrim-color-dark);
-  */
+  /* Other Dark Colors */
+  --shadow-color: var(--md-sys-color-shadow);
+  --scrim-color: var(--md-sys-color-scrim);
 
 
   /* Icon Opacity for Dark Theme */

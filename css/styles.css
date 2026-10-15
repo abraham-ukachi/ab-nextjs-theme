@@ -558,7 +558,9 @@ header.is-sticky > .app-bar.sticky {
 }
 
 /* ASIDE part of App Layout */
-#appLayout > aside, aside {
+
+/* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
   display: none;
   position: relative;
   width: var(--aside-width, 50%);
@@ -962,9 +964,16 @@ form[disabled="true"], form[disabled] {
 
 
 /* All the children of form */
-form > * {
-  opacity: 0;
-  animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) forwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s);
+
+/* ♿ Visible by default: the entrance (hidden → fade + slide in) only runs when the user has NOT asked
+ *    for reduced motion. Reduced-motion users (and browsers that never run the animation) see the form. */
+@media (prefers-reduced-motion: no-preference) {
+  /* 👀 no hard `opacity: 0`: `backwards` applies the first keyframe (opacity 0) during the delay, so the
+   *    staggered entrance looks the same, but if the keyframes aren't loaded (fadeIn / slideFromDown live in
+   *    the OPTIONAL ab-nextjs-animations peer) the children simply stay visible instead of hidden forever. */
+  form > * {
+    animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) backwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s) backwards;
+  }
 }
 
 
@@ -2289,7 +2298,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* ASIDE part of App Layout */
-  #appLayout > aside, aside {
+
+  /* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
     display: flex;
   }
 
@@ -2457,7 +2468,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* ASIDE */
-  aside {
+
+  /* 🎯 Ab layout aside only: a plain <aside> is no longer absolute-positioned */
+  aside.AbAsideLayout, aside[data-ab-part="aside"] {
     display: flex;
     position: absolute;
     inset: 0;
@@ -2474,19 +2487,19 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* Not [data-opened="true"] ASIDE */
-  aside:not([data-opened="true"]) {
+  aside.AbAsideLayout:not([data-opened="true"]), aside[data-ab-part="aside"]:not([data-opened="true"]) {
     /* display: none; */
   }
 
   /* [data-opened="true"] ASIDE */
-  aside[data-opened="true"] {
+  aside.AbAsideLayout[data-opened="true"], aside[data-ab-part="aside"][data-opened="true"] {
     /* -webkit-animation: slideFromRight 0.3s ease-in-out forwards;
     -moz-animation: slideFromRight 0.3s ease-in-out forwards;
     animation: slideFromRight 0.3s ease-in-out forwards; */
   }
 
   /* [data-closing] ASIDE */
-  aside[data-closing] {
+  aside.AbAsideLayout[data-closing], aside[data-ab-part="aside"][data-closing] {
     /* -webkit-animation: slideRight 0.3s ease-in-out forwards !important;
     -moz-animation: slideRight 0.3s ease-in-out forwards !important;
     animation: slideRight 0.3s ease-in-out forwards !important; */
@@ -2512,7 +2525,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
  */
 @media (width >= 1024px) and (width <= 2560px) {
   /* ASIDE part of App Layout */
-  #appLayout > aside, aside {
+
+  /* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
     width: 60%;
   }
 
