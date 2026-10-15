@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.3](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.2...v0.3.3) (2026-10-16)
+
+* 🌐 **Menus are no longer hidden behind content:** the layout `main` rule (`position: relative; z-index: 99`) matched every `<main>`, so any `<main>` became a stacking context painted over popovers outside it, like the globe/language menu. It now targets only the Ab layout main: `#appLayout > main`, `main.AbMainLayout` and `main[data-ab-part="main"]`
+* 🥉 **New bronze filled button:** `button[data-type="filled"]` / `a[role="button"][data-type="filled"]` paints a solid `--md-sys-color-primary` background with `--md-sys-color-on-primary` label and icon (6.47:1 light, 7.74:1 dark, measured in WebKit). Hover and focus add an 8% / 12% on-primary state layer (focus also draws a 2px `--ab-focus-ring` outline); disabled uses Material's on-surface 12% / 38%. Every colour can still be overridden with the `--ab-button-*` variables
+* 🎨 **Button icons follow the label colour:** `--material-icon-color` on contained, outlined and text buttons (and their hover / focus states) read the `--ab-button-background-color*` overrides, so an app that set a custom background got an icon the same colour as the background. They now read the matching `--ab-button-text-color*` (label) variables
+* 👻 **Text-button focus reads a real variable:** the text-button focus rule read `--ab-button-color-focus`, which nothing defines, for both its label and icon. Both now read `--ab-button-text-color-focus`, like the other button types
+* 📱 **Filled follows the mobile size:** the 20px / `8px 16px` mobile button rule now includes `button[data-type="filled"]` (it rendered at 18px)
+* Tests: no bare `main` with z-index, the scoped main selectors, the filled base / hover / focus / disabled rules, on-primary-on-primary contrast ≥ 4.5:1 in light and dark, every button `--material-icon-color` reads a `--ab-button-text-color*` variable (disabled excepted), no `--ab-button-color-focus`, filled in the mobile size rule
+
 ## [0.3.2](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.1...v0.3.2) (2026-10-15)
 
 * 🩹 **Legacy colour aliases are live again:** the section comments in the `[data-theme="light"], .light` and `[data-theme="dark"], .dark` blocks of `css/colors.css` were never closed, so `--primary-container-color` and the other 48 aliases in each block were swallowed and AbButton `contained` rendered **transparent**. The comments are closed, and each alias now points at the live Material token (`--md-sys-color-*` from `light.css` / `dark.css`). The old `--*-color-light` / `--*-color-dark` source values were themselves commented out (an old green palette), so the aliases had nothing to point at
