@@ -1351,11 +1351,11 @@ button[data-type="text"]:hover, a[role="button"][data-type="text"]:hover {
 
 /* Whenever a text button gains focus */
 button[data-type="text"]:focus-visible, a[role="button"][data-type="text"]:focus-visible {
-  --material-icon-color: var(--ab-button-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
+  --material-icon-color: var(--ab-button-text-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, var(--tertiary-color));
 
   outline: none;
-  color: var(--ab-button-color-focus, var(--tertiary-color));
+  color: var(--ab-button-text-color-focus, var(--tertiary-color));
 }
 
 
@@ -2400,7 +2400,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* Contained Button */
-  button[data-type="contained"], button[data-type="outlined"], button[data-type="text"] {
+
+  /* 📱 0.3.3: filled shares the mobile size (was 18px) */
+  button[data-type="contained"], button[data-type="filled"], button[data-type="outlined"], button[data-type="text"] {
     font-size: 20px;
     padding: 8px 16px; /* b4: 12px 16px */
   }
