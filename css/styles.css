@@ -558,7 +558,9 @@ header.is-sticky > .app-bar.sticky {
 }
 
 /* ASIDE part of App Layout */
-#appLayout > aside, aside {
+
+/* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
   display: none;
   position: relative;
   width: var(--aside-width, 50%);
@@ -2296,7 +2298,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* ASIDE part of App Layout */
-  #appLayout > aside, aside {
+
+  /* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
     display: flex;
   }
 
@@ -2464,7 +2468,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* ASIDE */
-  aside {
+
+  /* 🎯 Ab layout aside only: a plain <aside> is no longer absolute-positioned */
+  aside.AbAsideLayout, aside[data-ab-part="aside"] {
     display: flex;
     position: absolute;
     inset: 0;
@@ -2481,19 +2487,19 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* Not [data-opened="true"] ASIDE */
-  aside:not([data-opened="true"]) {
+  aside.AbAsideLayout:not([data-opened="true"]), aside[data-ab-part="aside"]:not([data-opened="true"]) {
     /* display: none; */
   }
 
   /* [data-opened="true"] ASIDE */
-  aside[data-opened="true"] {
+  aside.AbAsideLayout[data-opened="true"], aside[data-ab-part="aside"][data-opened="true"] {
     /* -webkit-animation: slideFromRight 0.3s ease-in-out forwards;
     -moz-animation: slideFromRight 0.3s ease-in-out forwards;
     animation: slideFromRight 0.3s ease-in-out forwards; */
   }
 
   /* [data-closing] ASIDE */
-  aside[data-closing] {
+  aside.AbAsideLayout[data-closing], aside[data-ab-part="aside"][data-closing] {
     /* -webkit-animation: slideRight 0.3s ease-in-out forwards !important;
     -moz-animation: slideRight 0.3s ease-in-out forwards !important;
     animation: slideRight 0.3s ease-in-out forwards !important; */
@@ -2519,7 +2525,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
  */
 @media (width >= 1024px) and (width <= 2560px) {
   /* ASIDE part of App Layout */
-  #appLayout > aside, aside {
+
+  /* 🎯 Ab layout aside only (not every <aside>) */
+#appLayout > aside, aside.AbAsideLayout, aside[data-ab-part="aside"] {
     width: 60%;
   }
 
