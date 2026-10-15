@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased (planned 0.3.2)
+
+* 🩹 **Legacy colour aliases are live again:** the section comments in the `[data-theme="light"], .light` and `[data-theme="dark"], .dark` blocks of `css/colors.css` were never closed, so `--primary-container-color` and the other 48 aliases in each block were swallowed and AbButton `contained` rendered **transparent**. The comments are closed, and each alias now points at the live Material token (`--md-sys-color-*` from `light.css` / `dark.css`). The old `--*-color-light` / `--*-color-dark` source values were themselves commented out (an old green palette), so the aliases had nothing to point at
+* ♿ **Form entrance respects reduced motion:** the staggered `form > *` fade/slide-in only runs inside `@media (prefers-reduced-motion: no-preference)`, and it no longer hard-sets `opacity: 0` (`backwards` fill instead). Children are visible by default, including when the `fadeIn` / `slideFromDown` keyframes (from the optional `ab-nextjs-animations` peer) aren't loaded
+* 🧱 **Only the Ab layout aside is laid out:** the layout `aside` rules (hidden by default, `position: absolute` on phones, 60% width on laptops, `data-opened` / `data-closing`) now target `#appLayout > aside`, `aside.AbAsideLayout` and `aside[data-ab-part="aside"]`, so a plain `<aside>` in content is no longer hidden or absolute-positioned
+* ⬆️ **`ab-nextjs-icons ^0.2.3`** (was `^0.1.4`): removes the duplicate icons 0.1.x copy apps got next to the components' 0.2.3. `css/typography.css` still imports `ab-nextjs-icons/css/material-icons.css`, which 0.2.3 ships
+* Tests: comment balance + every alias resolves (light + dark), form entrance gated + no hard opacity 0, no bare `aside` layout selector, one icons version in the lockfile. Checked in WebKit: contained button `rgb(255, 220, 189)` light / `rgb(105, 60, 0)` dark (was transparent), form visible under reduced motion and without keyframes, plain `<aside>` static
+
 ## [0.3.1](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.0...v0.3.1) (2026-10-14)
 
 * **New `css/ab-tokens.css`** (imported by `colors.css`): `--ab-*` tokens for abElements components ≥ 0.1.10
