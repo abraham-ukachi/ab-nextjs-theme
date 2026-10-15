@@ -93,6 +93,27 @@ describe('0.3.3 (b): bronze filled button 🥉', () => {
 })
 
 describe('0.3.3 (c): button icons follow the label colour, not the background 🎨', () => {
+  it('every --material-icon-color in a button rule reads a --ab-button-text-color* variable', () => {
+    const buttonRules = ruleFor((s) => /data-type="(contained|filled|outlined|text)"/.test(s))
+    let checked = 0 // 🔢 guard against a vacuous pass
+    for (const [sel, body] of buttonRules) {
+      for (const [, value] of body.matchAll(/--material-icon-color:\s*([^;]+);/g)) {
+        checked++
+        // ✅ disabled is the only exception: it uses the Material on-surface 38% grey
+        if (/:disabled|aria-disabled/.test(sel)) { expect(value, sel).toMatch(/--md-sys-color-on-surface/); continue }
+        expect(value, `${sel}: ${value}`).toMatch(/^var\(--ab-button-text-color(-hover|-focus)?,/)
+      }
+    }
+    expect(checked).toBeGreaterThanOrEqual(8)
+  })
+  it('no rule reads the non-existent --ab-button-color-focus', () => {
+    expect(styles).not.toMatch(/--ab-button-color-focus/) // 👻
+  })
+  it('filled shares the 20px mobile button size', () => {
+    const mobile = ruleFor((s) => s.includes('button[data-type="contained"], button[data-type="filled"]'))
+    expect(mobile.length).toBe(1)
+    expect(mobile[0][1]).toMatch(/font-size:\s*20px/)
+  })
   it('no --material-icon-color reads a --ab-button-background-color* variable', () => {
     expect(styles).not.toMatch(/--material-icon-color:\s*var\(--ab-button-background-color/)
   })
