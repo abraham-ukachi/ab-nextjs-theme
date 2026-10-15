@@ -549,7 +549,11 @@ header.is-sticky > .app-bar.sticky {
 
 
 /* MAIN part of App Layout */
-#appLayout > main, main {
+
+/* 🎯 0.3.3: Ab layout main only (not every <main>). A bare `main` with
+ * `position: relative; z-index: 99` made every <main> a stacking context
+ * that painted over popovers outside it, like the globe/language menu 🌐 */
+#appLayout > main, main.AbMainLayout, main[data-ab-part="main"] {
   position: relative;
   flex: 1;
   width: 100%;
