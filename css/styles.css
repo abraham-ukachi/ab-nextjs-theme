@@ -1149,7 +1149,7 @@ input[data-type="submit"]:hover {
 /* Whenever a outlined button gains focus */
 button[data-type="outlined"]:focus-visible, a[role="button"][data-type="outlined"]:focus-visible,
 input[data-type="submit"]:focus, input[data-type="submit"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--tertiary-color));
+  --material-icon-color: var(--ab-button-text-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, transparent);
   --ab-button-text-color: var(--ab-button-text-color-focus, var(--tertiary-color));
   --ab-button-outline-color: var(--ab-button-outline-color-focus, var(--tertiary-color));
@@ -1168,7 +1168,8 @@ input[data-type="submit"][data-type="contained"] {
 
 /* Contained Button */
 button[data-type="contained"], a[role="button"][data-type="contained"] {
-  --material-icon-color: var(--ab-button-background-color, var(--on-primary-container-color));
+  /* 🎨 0.3.3: the icon follows the label (on-colour), not the background variable */
+  --material-icon-color: var(--ab-button-text-color, var(--on-primary-container-color));
 
   background: var(--ab-button-background-color, var(--primary-container-color));
   color: var(--ab-button-text-color, var(--on-primary-container-color));
@@ -1208,7 +1209,7 @@ button.icon-button[data-shrinks="true"]:active {
 
 /* Contained Button on hover */
 button[data-type="contained"]:hover, a[role="button"][data-type="contained"]:hover {
-  --material-icon-color: var(--ab-button-background-color-hover, var(--on-primary-color));
+  --material-icon-color: var(--ab-button-text-color-hover, var(--on-primary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-hover, var(--primary-color));
   --ab-button-text-color: var(--ab-button-text-color-hover, var(--on-primary-color));
 
@@ -1217,7 +1218,7 @@ button[data-type="contained"]:hover, a[role="button"][data-type="contained"]:hov
 
 /* Whenever a contained button gains focus */
 button[data-type="contained"]:focus-visible, a[role="button"][data-type="contained"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--on-tertiary-color));
+  --material-icon-color: var(--ab-button-text-color-focus, var(--on-tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, var(--tertiary-color));
   --ab-button-text-color: var(--ab-button-text-color-focus, var(--on-tertiary-color));
 
@@ -1279,7 +1280,7 @@ button.icon-button[data-shrinks="true"]:active {
 
 /* Text Button on hover */
 button[data-type="text"]:hover, a[role="button"][data-type="text"]:hover {
-  --material-icon-color: var(--ab-button-background-color-hover, var(--primary-color));
+  --material-icon-color: var(--ab-button-text-color-hover, var(--primary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-hover, var(--primary-color));
 
   text-decoration: none;
@@ -1288,7 +1289,7 @@ button[data-type="text"]:hover, a[role="button"][data-type="text"]:hover {
 
 /* Whenever a text button gains focus */
 button[data-type="text"]:focus-visible, a[role="button"][data-type="text"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--tertiary-color));
+  --material-icon-color: var(--ab-button-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, var(--tertiary-color));
 
   outline: none;
