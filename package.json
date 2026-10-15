@@ -78,7 +78,7 @@
     }
   },
   "dependencies": {
-    "ab-nextjs-icons": "^0.1.4"
+    "ab-nextjs-icons": "^0.2.3"
   },
   "devDependencies": {
     "@types/node": "^20",
