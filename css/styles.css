@@ -962,9 +962,16 @@ form[disabled="true"], form[disabled] {
 
 
 /* All the children of form */
-form > * {
-  opacity: 0;
-  animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) forwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s);
+
+/* ♿ Visible by default: the entrance (hidden → fade + slide in) only runs when the user has NOT asked
+ *    for reduced motion. Reduced-motion users (and browsers that never run the animation) see the form. */
+@media (prefers-reduced-motion: no-preference) {
+  /* 👀 no hard `opacity: 0`: `backwards` applies the first keyframe (opacity 0) during the delay, so the
+   *    staggered entrance looks the same, but if the keyframes aren't loaded (fadeIn / slideFromDown live in
+   *    the OPTIONAL ab-nextjs-animations peer) the children simply stay visible instead of hidden forever. */
+  form > * {
+    animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) backwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s) backwards;
+  }
 }
 
 
