@@ -1227,6 +1227,68 @@ button[data-type="contained"]:focus-visible, a[role="button"][data-type="contain
 
 
 
+/* ---------------------------------------------------------------- */
+
+/* 🥉 Filled Button (0.3.3): solid bronze, Material "filled" style   */
+
+/* Background = --md-sys-color-primary, label + icon = on-primary.   */
+
+/* Every colour can be overridden with the same --ab-button-* vars.  */
+
+/* ---------------------------------------------------------------- */
+button[data-type="filled"], a[role="button"][data-type="filled"] {
+  --material-icon-color: var(--ab-button-text-color, var(--md-sys-color-on-primary)); /* 🎨 icon = label */
+
+  background: var(--ab-button-background-color, var(--md-sys-color-primary));
+  color: var(--ab-button-text-color, var(--md-sys-color-on-primary));
+  padding: var(--ab-button-padding, 6px 16px);
+  border-radius: var(--ab-button-radius, 999px);
+  font-size: 18px;
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
+  border: 0;
+  outline: none;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* 🖱️ Filled on hover: an 8% on-primary state layer over the bronze */
+button[data-type="filled"]:not(:disabled, [aria-disabled="true"]):hover,
+a[role="button"][data-type="filled"]:not([aria-disabled="true"]):hover {
+  background: var(--ab-button-background-color-hover, color-mix(in srgb, var(--md-sys-color-on-primary) 8%, var(--md-sys-color-primary)));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 24%);
+  text-decoration: none;
+}
+
+/* ⌨️ Filled on keyboard focus: 12% state layer + a visible ring */
+button[data-type="filled"]:focus-visible, a[role="button"][data-type="filled"]:focus-visible {
+  background: var(--ab-button-background-color-focus, color-mix(in srgb, var(--md-sys-color-on-primary) 12%, var(--md-sys-color-primary)));
+  outline: 2px solid var(--ab-focus-ring, var(--md-sys-color-primary));
+  outline-offset: 2px;
+}
+
+/* 🚫 Filled when disabled: Material on-surface 12% / 38% */
+button[data-type="filled"]:disabled, button[data-type="filled"][aria-disabled="true"],
+a[role="button"][data-type="filled"][aria-disabled="true"] {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+
+  --material-icon-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+
 /* Contained [text] */
 button[data-type="text"], a[role="button"][data-type="text"] {
   --material-icon-color: var(--ab-button-text-color, var(--on-background-color));
