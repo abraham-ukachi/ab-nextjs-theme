@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## Unreleased (planned 0.3.2)
+## [0.3.2](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.1...v0.3.2) (2026-10-15)
 
 * 🩹 **Legacy colour aliases are live again:** the section comments in the `[data-theme="light"], .light` and `[data-theme="dark"], .dark` blocks of `css/colors.css` were never closed, so `--primary-container-color` and the other 48 aliases in each block were swallowed and AbButton `contained` rendered **transparent**. The comments are closed, and each alias now points at the live Material token (`--md-sys-color-*` from `light.css` / `dark.css`). The old `--*-color-light` / `--*-color-dark` source values were themselves commented out (an old green palette), so the aliases had nothing to point at
 * ♿ **Form entrance respects reduced motion:** the staggered `form > *` fade/slide-in only runs inside `@media (prefers-reduced-motion: no-preference)`, and it no longer hard-sets `opacity: 0` (`backwards` fill instead). Children are visible by default, including when the `fadeIn` / `slideFromDown` keyframes (from the optional `ab-nextjs-animations` peer) aren't loaded
