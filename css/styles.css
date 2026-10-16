@@ -949,7 +949,10 @@ aside .pages-wrapper {
 /* ===<<< Form ..+.. Input Default Styles >>>=== */
 
 /* Form Styles */
-form {
+
+/* 🎯 0.3.4: Ab forms only (form.AbForm / form[data-ab-part="form"]), so a plain <form> in content
+ *    (search box, newsletter, …) keeps the browser layout and no entrance animation 📝 */
+:is(form.AbForm, form[data-ab-part="form"]) {
   --icon-button-size: 30px;
   --icon-button-padding: 4px;
 
@@ -962,7 +965,7 @@ form {
 }
 
 
-form[disabled="true"], form[disabled] {
+:is(form.AbForm, form[data-ab-part="form"])[disabled="true"], :is(form.AbForm, form[data-ab-part="form"])[disabled] {
   opacity: 0.9;
 }
 
@@ -975,7 +978,7 @@ form[disabled="true"], form[disabled] {
   /* 👀 no hard `opacity: 0`: `backwards` applies the first keyframe (opacity 0) during the delay, so the
    *    staggered entrance looks the same, but if the keyframes aren't loaded (fadeIn / slideFromDown live in
    *    the OPTIONAL ab-nextjs-animations peer) the children simply stay visible instead of hidden forever. */
-  form > * {
+  :is(form.AbForm, form[data-ab-part="form"]) > * {
     animation: fadeIn 0.5s ease var(--form-animation-delay, 0.2s) backwards, slideFromDown 0.5s ease var(--form-animation-delay, 0.2s) backwards;
   }
 }
@@ -986,57 +989,57 @@ form[disabled="true"], form[disabled] {
 /* TODO: Find a better way to do this :) */
 
 /* First child of form */
-form > *:nth-child(1) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(1) {
   --form-animation-delay: 0.2s;
 }
 
 /* Second child of form */
-form > *:nth-child(2) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(2) {
   --form-animation-delay: 0.3s; /* 0.2 + 0.1 */
 }
 
 
 /* Third child of form */
-form > *:nth-child(3) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(3) {
   --form-animation-delay: 0.4s; /* 0.3 + */
 }
 
 /* Fourth child of form */
-form > *:nth-child(4) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(4) {
   --form-animation-delay: 0.5s;
 }
 
 
 /* Fifth child of form */
-form > *:nth-child(5) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(5) {
   --form-animation-delay: 0.6s;
 }
 
 
 /* First child of form */
-form > *:nth-child(6) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(6) {
   --form-animation-delay: 0.7s;
 }
 
 /* Second child of form */
-form > *:nth-child(7) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(7) {
   --form-animation-delay: 0.8s;
 }
 
 
 /* Third child of form */
-form > *:nth-child(8) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(8) {
   --form-animation-delay: 0.9s;
 }
 
 /* Fourth child of form */
-form > *:nth-child(9) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(9) {
   --form-animation-delay: 1s;
 }
 
 
 /* Fifth child of form */
-form > *:nth-child(10) {
+:is(form.AbForm, form[data-ab-part="form"]) > *:nth-child(10) {
   --form-animation-delay: 1.1s;
 }
 

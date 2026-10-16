@@ -187,7 +187,9 @@ span {
 
 
 /* Form */
-form {
+
+/* 🎯 0.3.4: Ab forms only */
+:is(form.AbForm, form[data-ab-part="form"]) {
   font-size: 16px;
   letter-spacing: 1.2px;
 }

@@ -87,15 +87,15 @@ describe('0.3.2 (b): form children are visible unless motion is allowed ♿', ()
     const at = css.indexOf('@media (prefers-reduced-motion: no-preference)') // 📍
     expect(at).toBeGreaterThan(-1)
     const media = css.slice(at, css.indexOf('\n}', at) + 2) // 📦 the media block
-    expect(media).toMatch(/form > \*\s*\{[^}]*animation:\s*fadeIn[^;]*backwards,\s*slideFromDown[^;]*backwards;/) // 🎬 backwards fill
+    expect(media).toMatch(/form\[data-ab-part="form"\]\) > \*\s*\{[^}]*animation:\s*fadeIn[^;]*backwards,\s*slideFromDown[^;]*backwards;/) // 🎬 backwards fill
     // 🚫 no `form > *` rule anywhere hides the children with a hard opacity 0 (keyframes may be missing)
-    for (const [, body] of css.matchAll(/form > \*\s*\{([^}]*)\}/g)) {
+    for (const [, body] of css.matchAll(/form\[data-ab-part="form"\]\) > \*\s*\{([^}]*)\}/g)) {
       expect(body).not.toMatch(/opacity:\s*0\b/)
       expect(body).not.toMatch(/\bforwards\b/) // 🙅 `forwards` is what kept them hidden after a run
     }
     // 🚫 and the entrance never runs outside the no-preference block
     const outside = css.replace(media, '') // ✂️
-    for (const [, body] of outside.matchAll(/form > \*\s*\{([^}]*)\}/g)) expect(body).not.toMatch(/animation:/)
+    for (const [, body] of outside.matchAll(/form\[data-ab-part="form"\]\) > \*\s*\{([^}]*)\}/g)) expect(body).not.toMatch(/animation:/)
   })
 })
 
@@ -123,7 +123,7 @@ describe('0.3.2 (c): only the Ab layout aside is laid out 🧱', () => {
 describe('0.3.2 (d): one ab-nextjs-icons (^0.2.3) 🔣', () => {
   it('depends on ab-nextjs-icons ^0.2.3 and the lockfile has no 0.1.x copy', () => {
     const pkg = JSON.parse(read('package.json')) // 📦
-    expect(pkg.dependencies['ab-nextjs-icons']).toBe('^0.2.3')
+    expect(pkg.peerDependencies['ab-nextjs-icons']).toBe('^0.2.3') // 🤝 0.3.4: peer (G20)
     const versions = [...read('pnpm-lock.yaml').matchAll(/^ {2}ab-nextjs-icons@([\d.]+):/gm)].map((m) => m[1]) // 🔒
     expect(versions).toEqual(['0.2.3'])
   })
