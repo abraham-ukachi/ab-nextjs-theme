@@ -53,8 +53,24 @@ npm i ab-nextjs-theme
 #### pnpm
 
 ```bash
-pnpm install ab-nextjs-theme 
+pnpm install ab-nextjs-theme ab-nextjs-icons
 ```
+
+> ⚠️ Since **0.3.4**, `ab-nextjs-icons` is a **required peer** (not a dependency): `css/typography.css` imports its `material-icons.css`, so install it next to the theme. This keeps a single icons copy in your app.
+
+### Docs-shell tokens (0.3.4)
+
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--ab-focus-ring` / `-width` / `-offset` | primary · 2px · 2px | primary | focus outlines (≥ 3:1) |
+| `--ab-pane-gap` / `--ab-pane-radius` | 12px / 16px | same | gapped panes (≥ 1440px) |
+| `--ab-color-divider` / `--ab-divider-hairline` | outline-variant / `1px solid` | same | joined panes, app bar |
+| `--ab-color-code-surface` / `--ab-color-on-code-surface` | `rgb(35 28 23)` / `rgb(240 223 215)` | `rgb(20 13 8)` / same | code blocks, install snippet (dark in both) |
+| `--ab-font-code` | system mono stack (`--ab-font-mono`) | same | code + `ab-nextjs-*` names |
+
+### Forms
+
+The form layout and entrance animation only apply to **Ab forms**: `<form class="AbForm">` or `<form data-ab-part="form">`. A plain `<form>` keeps the browser defaults.
 
 ---
 
