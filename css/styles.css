@@ -549,7 +549,11 @@ header.is-sticky > .app-bar.sticky {
 
 
 /* MAIN part of App Layout */
-#appLayout > main, main {
+
+/* 🎯 0.3.3: Ab layout main only (not every <main>). A bare `main` with
+ * `position: relative; z-index: 99` made every <main> a stacking context
+ * that painted over popovers outside it, like the globe/language menu 🌐 */
+#appLayout > main, main.AbMainLayout, main[data-ab-part="main"] {
   position: relative;
   flex: 1;
   width: 100%;
@@ -1145,7 +1149,7 @@ input[data-type="submit"]:hover {
 /* Whenever a outlined button gains focus */
 button[data-type="outlined"]:focus-visible, a[role="button"][data-type="outlined"]:focus-visible,
 input[data-type="submit"]:focus, input[data-type="submit"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--tertiary-color));
+  --material-icon-color: var(--ab-button-text-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, transparent);
   --ab-button-text-color: var(--ab-button-text-color-focus, var(--tertiary-color));
   --ab-button-outline-color: var(--ab-button-outline-color-focus, var(--tertiary-color));
@@ -1164,7 +1168,8 @@ input[data-type="submit"][data-type="contained"] {
 
 /* Contained Button */
 button[data-type="contained"], a[role="button"][data-type="contained"] {
-  --material-icon-color: var(--ab-button-background-color, var(--on-primary-container-color));
+  /* 🎨 0.3.3: the icon follows the label (on-colour), not the background variable */
+  --material-icon-color: var(--ab-button-text-color, var(--on-primary-container-color));
 
   background: var(--ab-button-background-color, var(--primary-container-color));
   color: var(--ab-button-text-color, var(--on-primary-container-color));
@@ -1204,7 +1209,7 @@ button.icon-button[data-shrinks="true"]:active {
 
 /* Contained Button on hover */
 button[data-type="contained"]:hover, a[role="button"][data-type="contained"]:hover {
-  --material-icon-color: var(--ab-button-background-color-hover, var(--on-primary-color));
+  --material-icon-color: var(--ab-button-text-color-hover, var(--on-primary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-hover, var(--primary-color));
   --ab-button-text-color: var(--ab-button-text-color-hover, var(--on-primary-color));
 
@@ -1213,11 +1218,73 @@ button[data-type="contained"]:hover, a[role="button"][data-type="contained"]:hov
 
 /* Whenever a contained button gains focus */
 button[data-type="contained"]:focus-visible, a[role="button"][data-type="contained"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--on-tertiary-color));
+  --material-icon-color: var(--ab-button-text-color-focus, var(--on-tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, var(--tertiary-color));
   --ab-button-text-color: var(--ab-button-text-color-focus, var(--on-tertiary-color));
 
   outline: none;
+}
+
+
+
+/* ---------------------------------------------------------------- */
+
+/* 🥉 Filled Button (0.3.3): solid bronze, Material "filled" style   */
+
+/* Background = --md-sys-color-primary, label + icon = on-primary.   */
+
+/* Every colour can be overridden with the same --ab-button-* vars.  */
+
+/* ---------------------------------------------------------------- */
+button[data-type="filled"], a[role="button"][data-type="filled"] {
+  --material-icon-color: var(--ab-button-text-color, var(--md-sys-color-on-primary)); /* 🎨 icon = label */
+
+  background: var(--ab-button-background-color, var(--md-sys-color-primary));
+  color: var(--ab-button-text-color, var(--md-sys-color-on-primary));
+  padding: var(--ab-button-padding, 6px 16px);
+  border-radius: var(--ab-button-radius, 999px);
+  font-size: 18px;
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
+  border: 0;
+  outline: none;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* 🖱️ Filled on hover: an 8% on-primary state layer over the bronze */
+button[data-type="filled"]:not(:disabled, [aria-disabled="true"]):hover,
+a[role="button"][data-type="filled"]:not([aria-disabled="true"]):hover {
+  background: var(--ab-button-background-color-hover, color-mix(in srgb, var(--md-sys-color-on-primary) 8%, var(--md-sys-color-primary)));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 24%);
+  text-decoration: none;
+}
+
+/* ⌨️ Filled on keyboard focus: 12% state layer + a visible ring */
+button[data-type="filled"]:focus-visible, a[role="button"][data-type="filled"]:focus-visible {
+  background: var(--ab-button-background-color-focus, color-mix(in srgb, var(--md-sys-color-on-primary) 12%, var(--md-sys-color-primary)));
+  outline: 2px solid var(--ab-focus-ring, var(--md-sys-color-primary));
+  outline-offset: 2px;
+}
+
+/* 🚫 Filled when disabled: Material on-surface 12% / 38% */
+button[data-type="filled"]:disabled, button[data-type="filled"][aria-disabled="true"],
+a[role="button"][data-type="filled"][aria-disabled="true"] {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+  color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+
+  --material-icon-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 
@@ -1275,7 +1342,7 @@ button.icon-button[data-shrinks="true"]:active {
 
 /* Text Button on hover */
 button[data-type="text"]:hover, a[role="button"][data-type="text"]:hover {
-  --material-icon-color: var(--ab-button-background-color-hover, var(--primary-color));
+  --material-icon-color: var(--ab-button-text-color-hover, var(--primary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-hover, var(--primary-color));
 
   text-decoration: none;
@@ -1284,11 +1351,11 @@ button[data-type="text"]:hover, a[role="button"][data-type="text"]:hover {
 
 /* Whenever a text button gains focus */
 button[data-type="text"]:focus-visible, a[role="button"][data-type="text"]:focus-visible {
-  --material-icon-color: var(--ab-button-background-color-focus, var(--tertiary-color));
+  --material-icon-color: var(--ab-button-text-color-focus, var(--tertiary-color)); /* 🎨 icon follows the label */
   --ab-button-background-color: var(--ab-button-background-color-focus, var(--tertiary-color));
 
   outline: none;
-  color: var(--ab-button-color-focus, var(--tertiary-color));
+  color: var(--ab-button-text-color-focus, var(--tertiary-color));
 }
 
 
@@ -2333,7 +2400,9 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   }
 
   /* Contained Button */
-  button[data-type="contained"], button[data-type="outlined"], button[data-type="text"] {
+
+  /* 📱 0.3.3: filled shares the mobile size (was 18px) */
+  button[data-type="contained"], button[data-type="filled"], button[data-type="outlined"], button[data-type="text"] {
     font-size: 20px;
     padding: 8px 16px; /* b4: 12px 16px */
   }
