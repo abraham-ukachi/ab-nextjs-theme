@@ -60,7 +60,7 @@ describe("ab-nextjs-theme package smoke", () => {
         expect(spec, `${section}.${name}`).not.toMatch(/^(file|link|workspace|portal):/);
       }
     }
-    expect(Object.keys(pkg.dependencies).sort()).toEqual(["ab-nextjs-icons"]); // 🔣 still a dependency: css/typography.css @imports its material-icons.css (fonts + animations are optional peers now)
+    expect(pkg.dependencies ?? {}).toEqual({}); // 🔣 0.3.4 (G20): no runtime deps; ab-nextjs-icons is a required peer (css/typography.css @imports its material-icons.css)
   });
 
   it("ships CSS entrypoints", () => {
