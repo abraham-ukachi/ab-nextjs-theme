@@ -27,7 +27,7 @@
 * @name: Theme - abElements
 * @file: index.ts
 * @type: TypeScript 
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> // Import the colors, typography and global styles from the ab-nextjs-theme  

@@ -27,7 +27,7 @@
 * @name: Colors - Theme - abElements
 * @file: colors.js
 * @type: Javascript
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> 
