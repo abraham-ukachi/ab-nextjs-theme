@@ -1,4 +1,4 @@
-## 0.3.5 (Unreleased)
+## [0.3.5](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.4...v0.3.5) (2026-10-20)
 
 * 🏠 **Home palette (P15/P16, spec §2):** new `--ab-color-*` tokens with the exact approved mock values for light and the warm-brown dark: `bg`, `pane-main`, `card`, `card2`, `border`, `div`, `text`, `muted`, `faint`, `accent`, `accent-text`, `tint`, `btn`, `btn-text`, `code`, `code-text`, `kbd`, `hover` and `sage-accent`, plus `--ab-shadow-card`. Existing tokens are unchanged.
 * 🌿 **Sage beta-chip text (John, 20:57):** light `--ab-color-sage-accent` #778d79 (3.2:1) → #566a58, ≥ 4.72:1 on the sage tint over bg/card/card2. John's #5f7461 measured 4.46:1 on card, so it is one step darker. Dark #8fa491 already ≥ 5.03:1, unchanged. Tint unchanged. Tested.
