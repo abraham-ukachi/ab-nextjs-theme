@@ -76,7 +76,7 @@ describe("ab-nextjs-theme package smoke", () => {
   });
 
   it("exports default theme with colors", async () => {
-    const mod = await import("../index.ts");
+    const mod = await import("../index");
     expect(mod.default).toBeTruthy();
     expect(mod.default.colors).toBeTruthy();
   });
