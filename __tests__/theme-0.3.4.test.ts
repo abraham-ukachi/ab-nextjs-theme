@@ -99,3 +99,14 @@ describe('0.3.4 (c): G20 ab-nextjs-icons is a required peer 🔣', () => {
     expect(pkg.devDependencies['ab-nextjs-icons']).toBe(pkg.peerDependencies['ab-nextjs-icons']) // 🧪 same caret
   })
 })
+
+// ↕️ Joseph: legacy form-button margins made the AbButton app bar 105px tall
+describe('legacy button margins skip AbButton ↕️', () => {
+  const css = read('css/styles.css')
+  it('every outlined / text margin rule excludes .AbButton', () => {
+    const rules = [...css.matchAll(/([^{}]*)\{[^}]*margin-top: (?:24|32)px;[^}]*margin-bottom: (?:16|24)px;[^}]*\}/g)].map((m) => m[1])
+    const hits = rules.filter((sel) => /data-type="(outlined|text)"/.test(sel))
+    expect(hits.length).toBe(2) // 🎯 the base rule + the ≥ 460px rule
+    for (const sel of hits) for (const part of sel.split(',').filter((p) => /data-type="(outlined|text)"/.test(p))) expect(part, part).toMatch(/:not\(\.AbButton\)/) // 🚫 AbButton
+  })
+})

@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## [0.3.4](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.3...v0.3.4) (2026-10-16)
 
 * 🧭 **Docs-shell tokens (G18 slice):** `--ab-focus-ring-width` / `--ab-focus-ring-offset` (the primary ring is ≥ 3:1 on background and surface-container in both themes), `--ab-pane-gap` / `--ab-pane-radius`, `--ab-color-divider` / `--ab-divider-hairline`, and `--ab-color-code-surface` / `--ab-color-on-code-surface` (dark in both themes, ≥ 4.5:1)
+* ↕️ **Legacy button margins skip AbButton (Joseph):** the `margin-top/bottom` (24/16px, 32/24px from 460px) on outlined / text buttons now use `:not(.AbButton)`, so an AbButton in the app bar no longer makes it 105px tall
 * ⌨️ **`--ab-font-code`** = `'Roboto Mono'` (ab-nextjs-fonts 0.2.6, D29 a / G30) first, then the system mono stack (`--ab-font-mono`) as the fallback. The fonts peer and devDependency move to `^0.2.6`, and `css/typography.css` imports `ab-nextjs-fonts/roboto-mono/styles.css`
 * 🔧 npm author email is abrahamukachi@gmail.com
 * 📝 **Only Ab forms are styled:** the form layout, disabled opacity, typography and staggered entrance now target `:is(form.AbForm, form[data-ab-part="form"])`. A plain `<form>` (search box, newsletter, …) keeps the browser layout

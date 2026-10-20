@@ -1099,6 +1099,13 @@ input, textarea {
 /* Password Input */
 input[data-type="password"] {}
 
+/* ↕️ 0.3.4 (Joseph): the legacy form-button margins skip AbButton (`.AbButton`, components), which lays
+   itself out; they made the app bar 105px tall (48px button + 24px/16px, then 32px/24px from 460px) */
+input[data-type="submit"], button[data-type="outlined"]:not(.AbButton), a[role="button"][data-type="outlined"]:not(.AbButton) {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
 /* Submit Button / Inputs & Outlined Buttons */
 input[data-type="submit"], button[data-type="outlined"], a[role="button"][data-type="outlined"] {
   --material-icon-color: var(--ab-button-text-color, inherit);
@@ -1112,8 +1119,6 @@ input[data-type="submit"], button[data-type="outlined"], a[role="button"][data-t
   height: var(--ab-button-height, fit-content);
   opacity: var(--opacity-text-inactive);
   cursor: pointer;
-  margin-top: 24px;
-  margin-bottom: 16px;
   background: var(--ab-button-background-color, transparent);
   color: var(--ab-button-text-color, inherit);
   white-space: nowrap;
@@ -2392,7 +2397,8 @@ ul.chips > li.chip[data-selected="true"]:hover span {
     height: var(--app-bar-size, 60px);
   }
 
-  input[data-type="submit"], button[data-type="outlined"], a[role="button"][data-type="outlined"], button[data-type="text"] {
+  /* ↕️ 0.3.4 (Joseph): not on AbButton (see above) */
+  input[data-type="submit"], button[data-type="outlined"]:not(.AbButton), a[role="button"][data-type="outlined"]:not(.AbButton), button[data-type="text"]:not(.AbButton) {
     margin-top: 32px;
     margin-bottom: 24px;
   }
