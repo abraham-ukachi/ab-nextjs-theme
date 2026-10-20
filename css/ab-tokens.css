@@ -161,6 +161,18 @@
   --ab-breakpoint-gapped: 1920px;
 }
 
+/* 🖥️ 0.3.6 (God 00:37): gapped desktop (≥ 1920px) in light, mock 05 `.gapped`: the floating panes turn white and the
+ *    cards go a touch warmer so they still read on white. Placed BEFORE the dark block so `.dark` (same specificity,
+ *    later) always wins, even with both classes on <html>. Dark has no gapped mock, so its tokens stay as they are. */
+@media (width >= 1920px) {
+  :root,
+  .light,
+  [data-theme='light'] {
+    --ab-color-pane-main: #fff; /* 📄 mock 05 --pane-main #FFFFFF */
+    --ab-color-card: #fffcfa; /* 🃏 mock 05 --card #FFFCFA (card2 #FBF3EC is unchanged) */
+  }
+}
+
 /* 🌙 dark */
 .dark,
 [data-theme='dark'] {
