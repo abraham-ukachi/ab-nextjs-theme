@@ -1649,6 +1649,8 @@ button.fab:focus-visible {
 
 
 
+/* 🧅 0.3.5: bare link rules in `@layer base` (Tailwind utilities + app CSS win) */
+@layer base {
 /* Default Links - A */
 a {
   color: var(--link-color, var(--primary-color));
@@ -1659,6 +1661,7 @@ a {
 /* Hover over default links - A */
 a:hover {
   text-decoration: underline;
+}
 }
 
 
