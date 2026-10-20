@@ -72,3 +72,18 @@ describe('--ab-color-pane (sidebar + aside panes) 🪟', () => {
     expect(dark).toMatch(/--ab-color-pane: initial;/)
   })
 })
+
+// 🛡️ James P2 (round 3): --ab-color-accent (#a67c52 light) is a decoration colour (rings, dots), never text: it fails AA
+describe('guard: --ab-color-accent is never a text colour', () => {
+  const files = ['ab-tokens.css', 'colors.css', 'dark-hc.css', 'dark-mc.css', 'dark.css', 'light-hc.css', 'light-mc.css', 'light.css', 'styles.css', 'typography.css']
+  for (const f of files) {
+    it(`${f}: no color / text token reads var(--ab-color-accent)`, () => {
+      const src = readFileSync(join(root, 'css', f), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '') // 🧹
+      expect(src).not.toMatch(/(?:^|[;{\s])color:\s*var\(--ab-color-accent[,)]/m) // 🚫 color: var(--ab-color-accent)
+      expect(src).not.toMatch(/--[\w-]*(?:text|fg|foreground)[\w-]*:\s*var\(--ab-color-accent[,)]/) // 🚫 a text token aliased to it
+    })
+  }
+  it('the text-safe partner --ab-color-accent-text is still defined (light + dark)', () => {
+    expect(css.match(/--ab-color-accent-text:/g)?.length).toBeGreaterThanOrEqual(2) // 🖋️
+  })
+})

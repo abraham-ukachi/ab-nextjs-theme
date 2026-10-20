@@ -2,6 +2,7 @@
 
 * 🖥️ **Gapped light panes (mock 05):** at ≥ 1920px in light, `--ab-color-pane-main` is **#fff** and `--ab-color-card` is **#fffcfa**, matching the mock's `.gapped` values. The floating main pane turns white on the #fff8f5 background. Dark has no gapped mock and is unchanged. The block sits before the dark block, so `.dark` always wins.
 * 🪟 **New `--ab-color-pane`:** **#fff** at ≥ 1920px in light (mock 05 `--pane`), for the sidebar and TOC/aside panes. Core ≥ 0.2.1 reads it. It isn't set anywhere else, and dark sets it to `initial`, so every other width and dark keep their current colours.
+* 🛡️ **Guard test:** `--ab-color-accent` is never used as a text colour (use `--ab-color-accent-text`).
 
 ## [0.3.5](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.4...v0.3.5) (2026-10-20)
 
