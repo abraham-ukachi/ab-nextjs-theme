@@ -52,13 +52,39 @@ const lum = (c: number[]): number => { const [r, g, b] = c.map((x) => { const s 
 const ratio = (a: string, b: string): number => { const [x, y] = [lum(hex(a)), lum(hex(b))].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05) }
 
 describe('0.3.5: Home palette (spec §2, P15/P16) 🏠', () => {
-  // 🎯 exact mock values (home.css .light / .dark)
-  const L = { bg: '#fff8f5', card: '#fff', card2: '#fbf3ec', text: '#211a16', muted: '#6b5b50', faint: '#9c8c80', accent: '#a67c52', 'accent-text': '#8b6340', tint: '#f4e7db', btn: '#a67c52', 'btn-text': '#fff', code: '#231a14' }
-  const D = { bg: '#19120c', 'pane-main': '#1d150f', card: '#241a12', card2: '#2c2118', text: '#f4ece5', muted: '#b5a597', faint: '#86776b', accent: '#c29a6f', 'accent-text': '#d8b085', btn: '#8b6340', 'btn-text': '#fff8f5', code: '#110b07' }
+  // 🎯 mock values (home.css .light / .dark), except the four AA nudges God approved at 20:26
+  const L = { bg: '#fff8f5', card: '#fff', card2: '#fbf3ec', text: '#211a16', muted: '#6b5b50', faint: '#807062', accent: '#a67c52', 'accent-text': '#88603d', tint: '#f4e7db', btn: '#8b6340', 'btn-text': '#fff', code: '#231a14' }
+  const D = { bg: '#19120c', 'pane-main': '#1d150f', card: '#241a12', card2: '#2c2118', text: '#f4ece5', muted: '#b5a597', faint: '#9a8a7d', accent: '#c29a6f', 'accent-text': '#d8b085', btn: '#8b6340', 'btn-text': '#fff8f5', code: '#110b07' }
   it.each(Object.entries(L))('light --ab-color-%s = %s', (k, v) => expect(decl(light, `--ab-color-${k}`)).toBe(v))
   it.each(Object.entries(D))('dark --ab-color-%s = %s', (k, v) => expect(decl(dark, `--ab-color-${k}`)).toBe(v))
   it('no neutral black / bright orange in dark (spec checklist)', () => {
     expect(dark).not.toMatch(/#0a0a0a/i); expect(dark).not.toMatch(/#fcb975/i)
+  })
+  it('AA nudges (God 20:26): each ratio ≥ 4.5:1 where the token is used', () => {
+    const v = (b: string, k: string) => decl(b, `--ab-color-${k}`)
+    // 🌞 faint text on the pane bg + cards
+    expect(ratio(v(light, 'faint'), '#fff8f5')).toBeGreaterThanOrEqual(4.5)
+    expect(ratio(v(light, 'faint'), '#ffffff')).toBeGreaterThanOrEqual(4.5)
+    // 🌞 accent text on bg, card and the active-nav tint
+    for (const bg of ['#fff8f5', '#ffffff', v(light, 'tint')]) expect(ratio(v(light, 'accent-text'), bg), bg).toBeGreaterThanOrEqual(4.5)
+    // 🌞 white on the primary button / New badge
+    expect(ratio(v(light, 'btn-text') === '#fff' ? '#ffffff' : v(light, 'btn-text'), v(light, 'btn'))).toBeGreaterThanOrEqual(4.5)
+    // 🌙 faint text on bg, main pane, card and card2
+    for (const bg of ['#19120c', '#1d150f', '#241a12', '#2c2118']) expect(ratio(v(dark, 'faint'), bg), bg).toBeGreaterThanOrEqual(4.5)
+    // 📏 still close to the mock (each channel within 0x20)
+    const near = (a: string, b: string) => hex(a).every((c, i) => Math.abs(c - hex(b)[i]) <= 0x20)
+    expect(near(v(light, 'faint'), '#9c8c80')).toBe(true); expect(near(v(dark, 'faint'), '#86776b')).toBe(true); expect(near(v(light, 'accent-text'), '#8b6340')).toBe(true)
+  })
+  it('dark accent is warm: --ab-color-primary / --ab-focus-ring = #c29a6f (not #fcb975), ≥ 3:1 on dark surfaces', () => {
+    expect(decl(dark, '--ab-color-primary')).toBe('#c29a6f'); expect(decl(dark, '--ab-focus-ring')).toBe('#c29a6f')
+    expect(ratio('#c29a6f', '#19120c')).toBeGreaterThan(3); expect(ratio('#c29a6f', '#241a12')).toBeGreaterThan(3)
+  })
+  it('shapes (P16) + shadows: radii 5/6/8/9/10/12/14/999, button 40/44, chip 20; pane shadow none in dark', () => {
+    const want = { kbd: '5px', chip: '6px', row: '8px', tile: '9px', button: '10px', code: '12px', card: '14px', pill: '999px' }
+    for (const [k, px] of Object.entries(want)) expect(decl(light, `--ab-radius-${k}`), k).toBe(px)
+    expect(decl(light, '--ab-button-height')).toBe('40px'); expect(decl(light, '--ab-button-height-touch')).toBe('44px'); expect(decl(light, '--ab-chip-height')).toBe('20px')
+    expect(decl(light, '--ab-pane-shadow')).toMatch(/^0 1px 2px/); expect(decl(dark, '--ab-pane-shadow')).toBe('none')
+    expect(decl(light, '--ab-scrim-color')).toBe('rgb(25 18 12 / 40%)'); expect(decl(dark, '--ab-scrim-color')).toBe('rgb(25 18 12 / 60%)')
   })
   it('text + accent text stay AA on cards (light + dark)', () => {
     expect(ratio('#211a16', '#ffffff')).toBeGreaterThan(7) // 🖋️
