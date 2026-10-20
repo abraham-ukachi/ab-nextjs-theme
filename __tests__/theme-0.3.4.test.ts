@@ -72,7 +72,7 @@ describe('0.3.4 (a): G18 shell tokens 🧭', () => {
     expect(ratio(fg, bg)).toBeGreaterThanOrEqual(4.5) // ♿
   })
   it('D29 (b): the code font is the system mono stack (no font files)', () => {
-    expect(decl(lightBlock, '--ab-font-code')).toBe('var(--ab-font-mono)')
+    expect(decl(lightBlock, '--ab-font-code')).toBe("'Roboto Mono', var(--ab-font-mono)") // ⌨️ D29a: Roboto Mono first, system mono fallback
     expect(decl(lightBlock, '--ab-font-mono')).toMatch(/^ui-monospace,.*monospace$/) // 🔤
   })
 })
