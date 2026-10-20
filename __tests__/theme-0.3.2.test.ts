@@ -123,9 +123,9 @@ describe('0.3.2 (c): only the Ab layout aside is laid out 🧱', () => {
 describe('0.3.2 (d): one ab-nextjs-icons (^0.2.3) 🔣', () => {
   it('depends on ab-nextjs-icons ^0.2.3 and the lockfile has no 0.1.x copy', () => {
     const pkg = JSON.parse(read('package.json')) // 📦
-    expect(pkg.peerDependencies['ab-nextjs-icons']).toBe('^0.2.3') // 🤝 0.3.4: peer (G20)
+    expect(pkg.peerDependencies['ab-nextjs-icons']).toBe('^0.2.4') // 🤝 0.3.4: peer (G20), ^0.2.4 once it was on npm
     const versions = [...read('pnpm-lock.yaml').matchAll(/^ {2}ab-nextjs-icons@([\d.]+):/gm)].map((m) => m[1]) // 🔒
-    expect(versions).toEqual(['0.2.3'])
+    expect(versions).toEqual(['0.2.4']) // 🔒 one copy
   })
 
   it('still imports the material-icons stylesheet icons 0.2.3 ships', () => {

@@ -50,8 +50,8 @@ const read = (rel: string) => readFileSync(join(root, rel), 'utf8')
 const pkg = JSON.parse(read('package.json')) // 📦
 
 describe('James review 🧐', () => {
-  it('ab-nextjs-fonts ^0.2.5 is an optional peer', () => {
-    expect(pkg.peerDependencies['ab-nextjs-fonts']).toBe('^0.2.5') // 🤝
+  it('ab-nextjs-fonts ^0.2.6 is an optional peer', () => {
+    expect(pkg.peerDependencies['ab-nextjs-fonts']).toBe('^0.2.6') // 🤝 0.3.4: Roboto Mono (D29 a)
     expect(pkg.peerDependenciesMeta['ab-nextjs-fonts']).toEqual({ optional: true }) // 🫥
   })
 

@@ -11,6 +11,8 @@ All notable changes to this project will be documented in this file. See [standa
 * 📝 **Only Ab forms are styled:** the form layout, disabled opacity, typography and staggered entrance now target `:is(form.AbForm, form[data-ab-part="form"])`. A plain `<form>` (search box, newsletter, …) keeps the browser layout
 * ➖ **`ab-nextjs-icons` is a required peer (G20)**, no longer a runtime dependency, so apps get one icons copy. Install it next to the theme (`^0.2.3`, satisfied by 0.2.4)
 * 📝 Code file headers use the house `@authors` email
+* 🔣 **icons peer `^0.2.4`** (peer + dev; was `^0.2.3`)
+* ⏳ **D33:** `pnpm-workspace.yaml` turns on `minimumReleaseAgeStrict` and exempts exactly `ab-nextjs-fonts@0.2.6` and `ab-nextjs-icons@0.2.4` until 24h after their publish (2026-10-21 17:06 / 17:15 UTC); `__tests__/release-age.test.ts` fails after that and only accepts exact versions
 * Tests: tokens declared, focus-ring and code-surface contrast, D29a Roboto Mono + mono fallback, no bare `form` selector, icons as a non-optional peer
 
 ## [0.3.3](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.2...v0.3.3) (2026-10-16)

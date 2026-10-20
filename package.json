@@ -57,9 +57,9 @@
     "next": "^16.3.4",
     "react": "^19",
     "react-dom": "^19",
-    "ab-nextjs-fonts": "^0.2.5",
+    "ab-nextjs-fonts": "^0.2.6",
     "ab-nextjs-animations": "^0.2.1",
-    "ab-nextjs-icons": "^0.2.3"
+    "ab-nextjs-icons": "^0.2.4"
   },
   "peerDependenciesMeta": {
     "next": {
@@ -81,8 +81,8 @@
   "devDependencies": {
     "@types/node": "^20",
     "ab-nextjs-animations": "^0.2.1",
-    "ab-nextjs-fonts": "^0.2.4",
-    "ab-nextjs-icons": "^0.2.3",
+    "ab-nextjs-fonts": "^0.2.6",
+    "ab-nextjs-icons": "^0.2.4",
     "eslint": "^9.39.0",
     "eslint-config-next": "16.3.4",
     "next": "16.3.4",

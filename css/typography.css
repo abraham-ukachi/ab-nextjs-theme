@@ -68,6 +68,9 @@
 /* Import the quicksand - Font */
 @import 'ab-nextjs-fonts/quicksand/styles.css';
 
+/* ⌨️ Roboto Mono (ab-nextjs-fonts >= 0.2.6): the --ab-font-code family */
+@import 'ab-nextjs-fonts/roboto-mono/styles.css';
+
 
 
 /* Import material-icons from `ab-nextjs-icons` */
