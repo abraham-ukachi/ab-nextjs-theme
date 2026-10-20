@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.4](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.3...v0.3.4) (2026-10-16)
+
+* 🧭 **Docs-shell tokens (G18 slice):** `--ab-focus-ring-width` / `--ab-focus-ring-offset` (the primary ring is ≥ 3:1 on background and surface-container in both themes), `--ab-pane-gap` / `--ab-pane-radius`, `--ab-color-divider` / `--ab-divider-hairline`, and `--ab-color-code-surface` / `--ab-color-on-code-surface` (dark in both themes, ≥ 4.5:1)
+* ⌨️ **`--ab-font-code`** = `'Roboto Mono'` (ab-nextjs-fonts 0.2.6, D29 a / G30) first, then the system mono stack (`--ab-font-mono`) as the fallback. The fonts peer and devDependency move to `^0.2.6`, and `css/typography.css` imports `ab-nextjs-fonts/roboto-mono/styles.css`
+* 🔧 npm author email is abrahamukachi@gmail.com
+* 📝 **Only Ab forms are styled:** the form layout, disabled opacity, typography and staggered entrance now target `:is(form.AbForm, form[data-ab-part="form"])`. A plain `<form>` (search box, newsletter, …) keeps the browser layout
+* ➖ **`ab-nextjs-icons` is a required peer (G20)**, no longer a runtime dependency, so apps get one icons copy. Install it next to the theme (`^0.2.3`, satisfied by 0.2.4)
+* 📝 Code file headers use the house `@authors` email
+* Tests: tokens declared, focus-ring and code-surface contrast, D29a Roboto Mono + mono fallback, no bare `form` selector, icons as a non-optional peer
+
 ## [0.3.3](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.2...v0.3.3) (2026-10-16)
 
 * 🌐 **Menus are no longer hidden behind content:** the layout `main` rule (`position: relative; z-index: 99`) matched every `<main>`, so any `<main>` became a stacking context painted over popovers outside it, like the globe/language menu. It now targets only the Ab layout main: `#appLayout > main`, `main.AbMainLayout` and `main[data-ab-part="main"]`

@@ -66,7 +66,7 @@ pnpm install ab-nextjs-theme ab-nextjs-icons
 | `--ab-pane-gap` / `--ab-pane-radius` | 12px / 16px | same | gapped panes (≥ 1440px) |
 | `--ab-color-divider` / `--ab-divider-hairline` | outline-variant / `1px solid` | same | joined panes, app bar |
 | `--ab-color-code-surface` / `--ab-color-on-code-surface` | `rgb(35 28 23)` / `rgb(240 223 215)` | `rgb(20 13 8)` / same | code blocks, install snippet (dark in both) |
-| `--ab-font-code` | system mono stack (`--ab-font-mono`) | same | code + `ab-nextjs-*` names |
+| `--ab-font-code` | `'Roboto Mono'`, then the system mono stack (`--ab-font-mono`) | same | code + `ab-nextjs-*` names |
 
 ### Forms
 
