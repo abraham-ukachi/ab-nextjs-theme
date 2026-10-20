@@ -129,7 +129,7 @@
   --ab-color-code-text: #ede0d4; /* 💻 */
   --ab-color-kbd: #fff; /* ⌨️ */
   --ab-color-hover: rgb(166 124 82 / 8%); /* 🖱️ */
-  --ab-color-sage-accent: #778d79; /* 🌿 beta chip */
+  --ab-color-sage-accent: #566a58; /* 🌿 beta chip ♿ AA (John 20:57): mock #778d79 was 3.2:1; John's #5f7461 is 4.46:1 on card → #566a58 = 5.15 card / 4.92 bg / 4.72 card2 on the sage tint */
   --ab-shadow-card: 0 1px 2px rgb(33 26 22 / 5%); /* 🌗 */
   --ab-pane-shadow: 0 1px 2px rgb(33 26 22 / 4%), 0 8px 28px rgb(92 64 48 / 6%); /* 🪟 gapped panes (mock 05) */
   --ab-shadow-button: 0 1px 0 rgb(255 255 255 / 20%) inset, 0 4px 12px rgb(139 99 64 / 25%); /* 🔘 primary */
@@ -203,7 +203,7 @@
   --ab-color-code-text: #e8dacc;
   --ab-color-kbd: #2a1f16;
   --ab-color-hover: rgb(166 124 82 / 12%);
-  --ab-color-sage-accent: #8fa491;
+  --ab-color-sage-accent: #8fa491; /* 🌿 ♿ already ≥ 5:1 on the sage tint over every dark surface (John: lighten only if needed) */
   --ab-shadow-card: none;
   --ab-pane-shadow: none; /* 🪟 dark panes sit flat */
   --ab-shadow-button: 0 1px 0 rgb(255 255 255 / 8%) inset;

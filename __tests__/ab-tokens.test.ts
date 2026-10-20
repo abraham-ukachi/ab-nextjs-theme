@@ -100,3 +100,17 @@ describe('ab-tokens.css (theme 0.3.1)', () => {
     expect(contrast(T.light['--ab-color-bronze'], MD.light['--md-sys-color-background'])).toBeLessThan(4.5) // 📉 3.55
   })
 })
+
+// 🌿 John 20:57: the sage beta-chip text must be AA (≥ 4.5:1) on its tint (rgb(119 141 121 / 12%)) over every Home surface
+describe('sage chip text AA 🌿', () => {
+  const over = (bg: string) => { const b = rgb(bg); return '#' + [119, 141, 121].map((t, i) => Math.round(t * 0.12 + b[i] * 0.88).toString(16).padStart(2, '0')).join('') } // 🎨 flatten the tint
+  for (const mode of ['light', 'dark'] as const) {
+    it(`${mode}: --ab-color-sage-accent ≥ 4.5:1 on the tint over bg, pane-main, card and card2`, () => {
+      const fg = T[mode]['--ab-color-sage-accent'] // 🖋️
+      for (const s of ['--ab-color-bg', '--ab-color-pane-main', '--ab-color-card', '--ab-color-card2']) {
+        const bg = T[mode][s] === '#fff' ? '#ffffff' : T[mode][s] // 🧱
+        expect(contrast(fg, over(bg)), `${mode} ${s}`).toBeGreaterThanOrEqual(4.5) // ♿
+      }
+    })
+  }
+})
