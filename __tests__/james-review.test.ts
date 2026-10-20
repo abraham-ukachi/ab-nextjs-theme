@@ -50,8 +50,8 @@ const read = (rel: string) => readFileSync(join(root, rel), 'utf8')
 const pkg = JSON.parse(read('package.json')) // 📦
 
 describe('James review 🧐', () => {
-  it('ab-nextjs-fonts ^0.2.5 is an optional peer', () => {
-    expect(pkg.peerDependencies['ab-nextjs-fonts']).toBe('^0.2.5') // 🤝
+  it('ab-nextjs-fonts ^0.2.6 is an optional peer', () => {
+    expect(pkg.peerDependencies['ab-nextjs-fonts']).toBe('^0.2.6') // 🤝 0.3.4: Roboto Mono (D29 a)
     expect(pkg.peerDependenciesMeta['ab-nextjs-fonts']).toEqual({ optional: true }) // 🫥
   })
 
@@ -72,12 +72,12 @@ describe('James review 🧐', () => {
     expect(pkg.scripts.typecheck).toBe('tsc -p tsconfig.typecheck.json') // 🧪
   })
 
-  it('release prep: fonts + animations are optional peers only; icons stays a dependency (CSS @import)', () => {
-    expect(pkg.dependencies['ab-nextjs-fonts']).toBeUndefined() // 🚫 no longer a dependency
-    expect(pkg.dependencies['ab-nextjs-animations']).toBeUndefined() // 🚫
+  it('release prep: fonts + animations are optional peers only; icons is a required peer (CSS @import, 0.3.4)', () => {
+    expect(pkg.dependencies?.['ab-nextjs-fonts']).toBeUndefined() // 🚫 no longer a dependency
+    expect(pkg.dependencies?.['ab-nextjs-animations']).toBeUndefined() // 🚫
     expect(pkg.peerDependenciesMeta['ab-nextjs-animations']).toEqual({ optional: true }) // 🫥 unused by theme code / CSS
     expect(pkg.devDependencies['ab-nextjs-fonts']).toBeDefined() // 🧪 for tests + css checks
-    expect(pkg.dependencies['ab-nextjs-icons']).toBeDefined() // 🔣 css/typography.css @imports it
+    expect(pkg.peerDependencies['ab-nextjs-icons']).toBeDefined() // 🔣 css/typography.css @imports it
     expect(read('css/typography.css')).toContain("@import 'ab-nextjs-icons/css/material-icons.css';") // 🔗 why
     expect(read('README.md')).toContain('**must** install `ab-nextjs-fonts` itself') // ⚠️ documented
   })

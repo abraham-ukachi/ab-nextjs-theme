@@ -3,7 +3,7 @@
 * ~~~~~~~~~~~~
 * ab-nextjs-theme
 * ~~~~~~~~~~~~
-* Copyright (c) 2026 Abraham Ukachi. The abElements Contributors.
+* Copyright (c) 2026 Abraham Ukachi. The abElements Project.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the 'Software'), to deal
@@ -27,7 +27,7 @@
 * @name: Typography - Theme - abElements
 * @file: typography.ts
 * @type: Javascript
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> 

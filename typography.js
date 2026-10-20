@@ -27,7 +27,7 @@
 * @name: Typography - Theme
 * @file: typography.js
 * @type: JavaScript File
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> 

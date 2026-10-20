@@ -85,6 +85,28 @@
   /* 🔤 body + mono stacks (same as the theme's global body font) */
   --ab-font-body: inter, 'Inter-Regular', system-ui, blinkmacsystemfont, roboto, helvetica, arial, sans-serif;
   --ab-font-mono: ui-monospace, sfmono-regular, menlo, consolas, 'Liberation Mono', monospace;
+
+  /* 🧭 NEW 0.3.4 (G18 shell slice): docs-shell tokens */
+
+  /* 💍 focus ring geometry (the colour above is ≥ 3:1 on background + surface-container, tested) */
+  --ab-focus-ring-width: 2px;
+  --ab-focus-ring-offset: 2px;
+
+  /* 🪟 panes: gapped with radii at ≥ 1440px, joined with hairlines at 1024–1439px (core 0.1.6) */
+  --ab-pane-gap: 12px;
+  --ab-pane-radius: 16px;
+
+  /* ➖ hairline divider between joined panes / app bar */
+  --ab-color-divider: var(--md-sys-color-outline-variant);
+  --ab-divider-hairline: 1px solid var(--ab-color-divider);
+
+  /* 💻 code surface: DARK in both themes (install snippet, code blocks) */
+  --ab-color-code-surface: rgb(35 28 23);
+  --ab-color-on-code-surface: rgb(240 223 215);
+
+  /* ⌨️ D29 (a) / G30: Roboto Mono (ab-nextjs-fonts >= 0.2.6, roboto-mono/styles.css) for code +
+   *    `ab-nextjs-*` names, then the system mono stack as the fallback while it loads or if it is absent */
+  --ab-font-code: 'Roboto Mono', var(--ab-font-mono);
 }
 
 /* 🌙 dark */
@@ -107,6 +129,11 @@
   --ab-color-outline: var(--md-sys-color-outline);
   --ab-color-outline-variant: var(--md-sys-color-outline-variant);
   --ab-focus-ring: var(--md-sys-color-primary);
+
+  /* 🧭 0.3.4 shell tokens that differ in dark */
+  --ab-color-divider: var(--md-sys-color-outline-variant);
+  --ab-color-code-surface: rgb(20 13 8); /* 💻 darker than the dark background, still "dark code" */
+  --ab-color-on-code-surface: rgb(240 223 215);
 }
 
 /* 🔤 opt-in title utility (global h1–h3 stay Inter; changing every app's headings is God's call) */

@@ -27,7 +27,7 @@
 * @name: Typography - Theme
 * @file: typography.css
 * @type: CSS Stylesheet
-* @authors: Abraham Ukachi <abraham.ukachi@laplateforme.io>
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
 *
 * Example usage:
 *   1+|> // Import the typography in a CSS file (e.g. `globals.css`)
@@ -67,6 +67,9 @@
 
 /* Import the quicksand - Font */
 @import 'ab-nextjs-fonts/quicksand/styles.css';
+
+/* ⌨️ Roboto Mono (ab-nextjs-fonts >= 0.2.6): the --ab-font-code family */
+@import 'ab-nextjs-fonts/roboto-mono/styles.css';
 
 
 
@@ -187,7 +190,9 @@ span {
 
 
 /* Form */
-form {
+
+/* 🎯 0.3.4: Ab forms only */
+:is(form.AbForm, form[data-ab-part="form"]) {
   font-size: 16px;
   letter-spacing: 1.2px;
 }
