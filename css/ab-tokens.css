@@ -104,8 +104,9 @@
   --ab-color-code-surface: rgb(35 28 23);
   --ab-color-on-code-surface: rgb(240 223 215);
 
-  /* 🔤 D29 (b): system mono stack for code + `ab-nextjs-*` names (no font bytes; fonts stays 0.2.5) */
-  --ab-font-code: var(--ab-font-mono);
+  /* ⌨️ D29 (a) / G30: Roboto Mono (ab-nextjs-fonts >= 0.2.6, roboto-mono/styles.css) for code +
+   *    `ab-nextjs-*` names, then the system mono stack as the fallback while it loads or if it is absent */
+  --ab-font-code: 'Roboto Mono', var(--ab-font-mono);
 }
 
 /* 🌙 dark */
