@@ -1,3 +1,8 @@
+## 0.3.5 (Unreleased)
+
+* 🏠 **Home palette (P15/P16, spec §2):** new `--ab-color-*` tokens with the exact approved mock values for light and the warm-brown dark: `bg`, `pane-main`, `card`, `card2`, `border`, `div`, `text`, `muted`, `faint`, `accent`, `accent-text`, `tint`, `btn`, `btn-text`, `code`, `code-text`, `kbd`, `hover` and `sage-accent`, plus `--ab-shadow-card`. Existing tokens are unchanged.
+* 📐 **Breakpoints (Decision 6):** mobile <768, tablet 768–1179, joined panes 1180–1919, gapped panes ≥1920. They're declared as `--ab-breakpoint-tablet` / `-joined` / `-gapped` for reference (core ≥ 0.1.7 owns the media queries). The gapped panes now use the desktop mock geometry: `--ab-pane-gap: 16px`, `--ab-pane-radius: 20px`.
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
