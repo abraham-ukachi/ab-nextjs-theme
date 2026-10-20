@@ -13,6 +13,7 @@
   * sizes: `--ab-button-height` 40 (`-touch` 44), `--ab-button-padding-inline` 16, `--ab-chip-height` 20, `--ab-chip-padding-inline` 7
   * shadows and colours: `--ab-shadow-button`, `--ab-shadow-thumb`, `--ab-color-thumb`, `--ab-scrim-color` (40% / 60%), `--ab-color-handle`, `--ab-color-sheet-edge`
 * 🧅 **Cascade layer:** the bare element rules (`body`, `h1`–`h3`, `p`, `button`, `span`, `a`, …) in `css/typography.css` and `css/styles.css` now sit in `@layer base` (Tailwind v4's base layer). Tailwind utilities and any unlayered app CSS now win over them. ⚠️ An app that relied on those defaults beating its own unlayered rules will see its own rules apply.
+  * ⚠️ **Heads-up for consumers:** any layered CSS in your app (Tailwind's `utilities` and `components` layers, or a third-party library's `@layer`) now beats the theme's `body`, `h1`–`h3`, `p`, `a` and `button` defaults. Before this change those defaults were unlayered and beat every layered rule. Only unlayered app CSS is unaffected.
 * 📐 **Breakpoints (Decision 6):** mobile <768, tablet 768–1179, joined panes 1180–1919, gapped panes ≥1920. They're declared as `--ab-breakpoint-tablet` / `-joined` / `-gapped` for reference (core ≥ 0.1.7 owns the media queries). The gapped panes now use the desktop mock geometry: ⚠️ `--ab-pane-gap` **12px → 16px** and `--ab-pane-radius` **16px → 20px**. `--ab-pane-shadow` is new: the mock shadow in light, `none` in dark.
 
 # Changelog
