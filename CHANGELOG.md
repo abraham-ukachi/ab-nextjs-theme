@@ -1,3 +1,21 @@
+## [0.3.5](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.4...v0.3.5) (2026-10-20)
+
+* 🏠 **Home palette (P15/P16, spec §2):** new `--ab-color-*` tokens with the exact approved mock values for light and the warm-brown dark: `bg`, `pane-main`, `card`, `card2`, `border`, `div`, `text`, `muted`, `faint`, `accent`, `accent-text`, `tint`, `btn`, `btn-text`, `code`, `code-text`, `kbd`, `hover` and `sage-accent`, plus `--ab-shadow-card`. Existing tokens are unchanged.
+* 🌿 **Sage beta-chip text (John, 20:57):** light `--ab-color-sage-accent` #778d79 (3.2:1) → #566a58, ≥ 4.72:1 on the sage tint over bg/card/card2. John's #5f7461 measured 4.46:1 on card, so it is one step darker. Dark #8fa491 already ≥ 5.03:1, unchanged. Tint unchanged. Tested.
+* ♿ **AA nudges (God, 2026-10-20 20:26):** a few mock colours moved just enough to reach 4.5:1, each ratio tested:
+  * light `--ab-color-faint` `#9c8c80 → #807062`
+  * light `--ab-color-accent-text` `#8b6340 → #88603d` (4.5:1 on `--tint`)
+  * light `--ab-color-btn` `#a67c52 → #8b6340` (white text 5.31:1; also the New badge)
+  * dark `--ab-color-faint` `#86776b → #9a8a7d`
+* 🥉 **Warm dark accent (P15):** in dark, `--ab-color-primary` / `--ab-focus-ring` = `#c29a6f` (with `--ab-color-on-primary: #19120c`) instead of the Material `#fcb975`. Every component that reads them turns warm bronze.
+* 🔷 **Shapes (P16):**
+  * radii: `--ab-radius-kbd` 5, `-chip` 6, `-row` 8, `-tile` 9, `-button` 10, `-code` 12, `-card` 14, `-pill` 999
+  * sizes: `--ab-button-height` 40 (`-touch` 44), `--ab-button-padding-inline` 16, `--ab-chip-height` 20, `--ab-chip-padding-inline` 7
+  * shadows and colours: `--ab-shadow-button`, `--ab-shadow-thumb`, `--ab-color-thumb`, `--ab-scrim-color` (40% / 60%), `--ab-color-handle`, `--ab-color-sheet-edge`
+* 🧅 **Cascade layer:** the bare element rules (`body`, `h1`–`h3`, `p`, `button`, `span`, `a`, …) in `css/typography.css` and `css/styles.css` now sit in `@layer base` (Tailwind v4's base layer). Tailwind utilities and any unlayered app CSS now win over them. ⚠️ An app that relied on those defaults beating its own unlayered rules will see its own rules apply.
+  * ⚠️ **Heads-up for consumers:** any layered CSS in your app (Tailwind's `utilities` and `components` layers, or a third-party library's `@layer`) now beats the theme's `body`, `h1`–`h3`, `p`, `a` and `button` defaults. Before this change those defaults were unlayered and beat every layered rule. Only unlayered app CSS is unaffected.
+* 📐 **Breakpoints (Decision 6):** mobile <768, tablet 768–1179, joined panes 1180–1919, gapped panes ≥1920. They're declared as `--ab-breakpoint-tablet` / `-joined` / `-gapped` for reference (core ≥ 0.1.7 owns the media queries). The gapped panes now use the desktop mock geometry: ⚠️ `--ab-pane-gap` **12px → 16px** and `--ab-pane-radius` **16px → 20px**. `--ab-pane-shadow` is new: the mock shadow in light, `none` in dark.
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

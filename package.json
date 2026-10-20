@@ -1,6 +1,6 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
   "type": "module",
   "main": "index.ts",

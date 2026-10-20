@@ -97,6 +97,10 @@
  * ***************************************
  */
 
+/* 🧅 0.3.5: every bare element rule below (body, h1–h3, p, button, span, …) sits in the cascade layer
+   `base`, the same layer Tailwind v4 calls `base`. Layered rules lose to unlayered ones and to the
+   `utilities` layer, so `text-sm`, `font-bold`, `leading-*` and app CSS always win over these defaults. */
+@layer base {
 /* Applying the Inter, 'Inter-Regular', system-ui, etc
  * font to all key elements by default... */
 body, h1, h2, h3, p, button, span, input, textarea {
@@ -392,3 +396,4 @@ a[role="button"] {
 @media (width >= 1024px) and (width <= 2560px) {}
 
 /* ==== END of TYPOGRAPHY - THEME STYLES ==== */
+}

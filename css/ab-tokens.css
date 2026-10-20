@@ -92,9 +92,10 @@
   --ab-focus-ring-width: 2px;
   --ab-focus-ring-offset: 2px;
 
-  /* 🪟 panes: gapped with radii at ≥ 1440px, joined with hairlines at 1024–1439px (core 0.1.6) */
-  --ab-pane-gap: 12px;
-  --ab-pane-radius: 16px;
+  /* 🪟 panes: gapped with radii at ≥ 1920px, joined with hairlines at 1180–1919px (core ≥ 0.1.7, Decision 6);
+     0.3.5: gap 16 + radius 20 = the approved desktop mock (05) */
+  --ab-pane-gap: 16px;
+  --ab-pane-radius: 20px;
 
   /* ➖ hairline divider between joined panes / app bar */
   --ab-color-divider: var(--md-sys-color-outline-variant);
@@ -107,6 +108,57 @@
   /* ⌨️ D29 (a) / G30: Roboto Mono (ab-nextjs-fonts >= 0.2.6, roboto-mono/styles.css) for code +
    *    `ab-nextjs-*` names, then the system mono stack as the fallback while it loads or if it is absent */
   --ab-font-code: 'Roboto Mono', var(--ab-font-mono);
+
+  /* 🏠 NEW 0.3.5 (P15/P16, Home fidelity spec §2, approved by God 2026-10-20): the Home palette.
+   *    Components ≥ 0.1.14 read these (AbList, AbBreadcrumbs, AbVersionSwitcher, AbBottomDrawer). */
+  --ab-color-bg: #fff8f5; /* 🧱 app bg, panes when joined */
+  --ab-color-pane-main: #fff8f5; /* 📄 main pane (joined) */
+  --ab-color-card: #fff; /* 🃏 cards, lists, fields */
+  --ab-color-card2: #fbf3ec; /* 🖼️ preview + icon tiles */
+  --ab-color-border: rgb(92 64 48 / 13%); /* ➖ card / field border */
+  --ab-color-div: rgb(92 64 48 / 11%); /* ➖ pane dividers, list rows */
+  --ab-color-text: #211a16; /* 🖋️ */
+  --ab-color-muted: #6b5b50; /* 🖋️ */
+  --ab-color-faint: #807062; /* 🖋️ ♿ AA nudge (God 20:26): mock #9c8c80 → 4.53:1 on bg, 4.76:1 on card */
+  --ab-color-accent: #a67c52; /* 🥉 brand bronze (rings, dots) */
+  --ab-color-accent-text: #88603d; /* 🖋️ ♿ AA nudge: mock #8b6340 was 4.37:1 on --tint → ≥ 4.5:1 */
+  --ab-color-tint: #f4e7db; /* 🎨 active nav, chips */
+  --ab-color-btn: #8b6340; /* 🔘 primary button + New badge ♿ AA nudge: white on mock #a67c52 is 3.6:1 → 5.31:1 */
+  --ab-color-btn-text: #fff; /* 🔘 */
+  --ab-color-code: #231a14; /* 💻 terminal */
+  --ab-color-code-text: #ede0d4; /* 💻 */
+  --ab-color-kbd: #fff; /* ⌨️ */
+  --ab-color-hover: rgb(166 124 82 / 8%); /* 🖱️ */
+  --ab-color-sage-accent: #566a58; /* 🌿 beta chip ♿ AA (John 20:57): mock #778d79 was 3.2:1; John's #5f7461 is 4.46:1 on card → #566a58 = 5.15 card / 4.92 bg / 4.72 card2 on the sage tint */
+  --ab-shadow-card: 0 1px 2px rgb(33 26 22 / 5%); /* 🌗 */
+  --ab-pane-shadow: 0 1px 2px rgb(33 26 22 / 4%), 0 8px 28px rgb(92 64 48 / 6%); /* 🪟 gapped panes (mock 05) */
+  --ab-shadow-button: 0 1px 0 rgb(255 255 255 / 20%) inset, 0 4px 12px rgb(139 99 64 / 25%); /* 🔘 primary */
+  --ab-shadow-thumb: 0 1px 3px rgb(33 26 22 / 12%); /* 🌗 theme-toggle thumb */
+  --ab-color-thumb: #fff; /* 🌗 active theme segment (= card) */
+  --ab-scrim-color: rgb(25 18 12 / 40%); /* 🌫️ drawers (John) */
+  --ab-color-handle: rgb(25 18 12 / 18%); /* ➖ bottom-drawer grab handle (John) */
+  --ab-color-sheet-edge: transparent; /* ➖ no top border on the light sheet (John) */
+
+  /* 🔷 NEW 0.3.5 (P16): shapes, spec §2 radii */
+  --ab-radius-kbd: 5px;
+  --ab-radius-chip: 6px;
+  --ab-radius-row: 8px; /* nav rows, icon tiles, sidebar buttons */
+  --ab-radius-tile: 9px; /* preview tile */
+  --ab-radius-button: 10px; /* buttons, search, icon buttons */
+  --ab-radius-code: 12px; /* code, toc card */
+  --ab-radius-card: 14px; /* cards, lists (mobile card 13) */
+  --ab-radius-pill: 999px; /* eyebrow, count, theme pill */
+  --ab-button-height: 40px;
+  --ab-button-height-touch: 44px; /* mobile CTAs */
+  --ab-button-padding-inline: 16px;
+  --ab-chip-height: 20px;
+  --ab-chip-padding-inline: 7px;
+
+  /* 📐 NEW 0.3.5 (Decision 6): breakpoints, for reference in JS / docs (CSS @media can't read vars):
+   *    mobile < 768 · tablet 768–1179 · joined panes 1180–1919 · gapped panes ≥ 1920 (core ≥ 0.1.7) */
+  --ab-breakpoint-tablet: 768px;
+  --ab-breakpoint-joined: 1180px;
+  --ab-breakpoint-gapped: 1920px;
 }
 
 /* 🌙 dark */
@@ -117,8 +169,6 @@
   --ab-color-bronze-text: #d9ab7f;
 
   /* 🎨 aliases re-resolve against the dark Material tokens */
-  --ab-color-primary: var(--md-sys-color-primary);
-  --ab-color-on-primary: var(--md-sys-color-on-primary);
   --ab-color-background: var(--md-sys-color-background);
   --ab-color-on-background: var(--md-sys-color-on-background);
   --ab-color-surface: var(--md-sys-color-surface);
@@ -128,12 +178,46 @@
   --ab-color-surface-variant: var(--md-sys-color-surface-variant);
   --ab-color-outline: var(--md-sys-color-outline);
   --ab-color-outline-variant: var(--md-sys-color-outline-variant);
-  --ab-focus-ring: var(--md-sys-color-primary);
 
   /* 🧭 0.3.4 shell tokens that differ in dark */
   --ab-color-divider: var(--md-sys-color-outline-variant);
   --ab-color-code-surface: rgb(20 13 8); /* 💻 darker than the dark background, still "dark code" */
   --ab-color-on-code-surface: rgb(240 223 215);
+
+  /* 🏠 0.3.5 Home palette, dark (warm brown, §2) */
+  --ab-color-bg: #19120c;
+  --ab-color-pane-main: #1d150f;
+  --ab-color-card: #241a12;
+  --ab-color-card2: #2c2118;
+  --ab-color-border: rgb(255 232 210 / 9%);
+  --ab-color-div: rgb(255 232 210 / 8%);
+  --ab-color-text: #f4ece5;
+  --ab-color-muted: #b5a597;
+  --ab-color-faint: #9a8a7d; /* ♿ AA nudge: mock #86776b → 5.12:1 on card, 4.71:1 on card2 */
+  --ab-color-accent: #c29a6f;
+  --ab-color-accent-text: #d8b085;
+  --ab-color-tint: rgb(166 124 82 / 20%);
+  --ab-color-btn: #8b6340;
+  --ab-color-btn-text: #fff8f5;
+  --ab-color-code: #110b07;
+  --ab-color-code-text: #e8dacc;
+  --ab-color-kbd: #2a1f16;
+  --ab-color-hover: rgb(166 124 82 / 12%);
+  --ab-color-sage-accent: #8fa491; /* 🌿 ♿ already ≥ 5:1 on the sage tint over every dark surface (John: lighten only if needed) */
+  --ab-shadow-card: none;
+  --ab-pane-shadow: none; /* 🪟 dark panes sit flat */
+  --ab-shadow-button: 0 1px 0 rgb(255 255 255 / 8%) inset;
+  --ab-shadow-thumb: 0 1px 3px rgb(0 0 0 / 30%);
+  --ab-color-thumb: #3a2b1f; /* 🌗 mock .dark .tt .on */
+  --ab-scrim-color: rgb(25 18 12 / 60%); /* 🌫️ John */
+  --ab-color-handle: rgb(255 248 245 / 18%); /* ➖ John */
+  --ab-color-sheet-edge: rgb(255 248 245 / 8%); /* ➖ bottom-drawer top border in dark (John) */
+
+  /* 🥉 0.3.5 warm dark accent (P15): every component that reads --ab-color-primary / --ab-focus-ring gets
+     the mock's warm bronze instead of the Material primary (#fcb975, bright orange) */
+  --ab-color-primary: #c29a6f;
+  --ab-color-on-primary: #19120c;
+  --ab-focus-ring: #c29a6f;
 }
 
 /* 🔤 opt-in title utility (global h1–h3 stay Inter; changing every app's headings is God's call) */
