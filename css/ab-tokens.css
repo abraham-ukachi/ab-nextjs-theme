@@ -161,6 +161,19 @@
   --ab-breakpoint-gapped: 1920px;
 }
 
+/* 🖥️ 0.3.6 (God 00:37): gapped desktop (≥ 1920px) in light, mock 05 `.gapped`: the floating panes turn white and the
+ *    cards go a touch warmer so they still read on white. Placed BEFORE the dark block so `.dark` (same specificity,
+ *    later) always wins, even with both classes on <html>. Dark has no gapped mock, so its tokens stay as they are. */
+@media (width >= 1920px) {
+  :root,
+  .light,
+  [data-theme='light'] {
+    --ab-color-pane-main: #fff; /* 📄 mock 05 --pane-main #FFFFFF */
+    --ab-color-card: #fffcfa; /* 🃏 mock 05 --card #FFFCFA (card2 #FBF3EC is unchanged) */
+    --ab-color-pane: #fff; /* 🪟 0.3.6: mock 05 --pane #FFFFFF, the sidebar + TOC/aside panes (core ≥ 0.2.1 reads it) */
+  }
+}
+
 /* 🌙 dark */
 .dark,
 [data-theme='dark'] {
@@ -203,6 +216,7 @@
   --ab-color-code-text: #e8dacc;
   --ab-color-kbd: #2a1f16;
   --ab-color-hover: rgb(166 124 82 / 12%);
+  --ab-color-pane: initial; /* 🪟 0.3.6: unset in dark (guaranteed-invalid → core's fallbacks), so the gapped light value never leaks */
   --ab-color-sage-accent: #8fa491; /* 🌿 ♿ already ≥ 5:1 on the sage tint over every dark surface (John: lighten only if needed) */
   --ab-shadow-card: none;
   --ab-pane-shadow: none; /* 🪟 dark panes sit flat */
