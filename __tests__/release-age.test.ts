@@ -60,8 +60,6 @@ const WANT: Record<string, string> = {
  * so nobody forgets to remove it.
  */
 const ALLOWED_EXCLUDES: Record<string, string> = {
-  'ab-nextjs-fonts@0.2.6': '2026-10-21T17:06:38.319Z', // ⏰ TODO(remove after expiry): published 2026-10-20T17:06:38.319Z
-  'ab-nextjs-icons@0.2.4': '2026-10-21T17:15:19.993Z', // ⏰ TODO(remove after expiry): published 2026-10-20T17:15:19.993Z
 }
 
 /** ⏰ an exclude is expired once `now` is past its expiry (publish + 24h) */

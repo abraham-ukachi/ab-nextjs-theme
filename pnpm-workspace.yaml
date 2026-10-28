@@ -7,7 +7,3 @@ minimumReleaseAgeStrict: true
 #    Expiries live in __tests__/release-age.test.ts ALLOWED_EXCLUDES (publish time + 24h, UTC);
 #    the suite fails after them.
 minimumReleaseAgeExclude:
-  # TODO(remove after 2026-10-21T17:06:38Z): ab-nextjs-fonts 0.2.6 published 2026-10-20T17:06:38Z
-  - ab-nextjs-fonts@0.2.6
-  # TODO(remove after 2026-10-21T17:15:19Z): ab-nextjs-icons 0.2.4 published 2026-10-20T17:15:19Z
-  - ab-nextjs-icons@0.2.4
