@@ -95,3 +95,10 @@ describe('🎠 0.3.7 data-ab-surface="page"', () => {
   })
 })
 
+describe('🥉 0.3.7 --ab-color-on-bronze (God 04:12, v6 .btn.p)', () => {
+  it('is #fff8f5 in the shared/light block and dark does not override it (v6 uses the same fg)', () => {
+    const light = css.slice(0, css.indexOf('.dark,'))
+    expect(light).toMatch(/--ab-color-on-bronze: #fff8f5;/) // ✅
+    expect(css.slice(css.indexOf('.dark,'))).not.toContain('--ab-color-on-bronze') // 🌙 inherits
+  })
+})

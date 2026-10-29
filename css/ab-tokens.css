@@ -56,6 +56,8 @@
 [data-theme='light'] {
   /* 🥉 bronze brand accent: large text + UI only (3.55:1 on #fff8f5) */
   --ab-color-bronze: #a67c52;
+  /* 🥉 0.3.7 (God 04:12): text/icons ON bronze (v6 mock .btn.p #FFF8F5, same in dark) */
+  --ab-color-on-bronze: #fff8f5;
 
   /* ♿ NEW: darker bronze for SMALL text in light mode (God, §8): 5.03:1 on #fff8f5, 4.56:1 on surface-container */
   --ab-color-bronze-text: #8a6440;
