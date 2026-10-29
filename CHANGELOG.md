@@ -1,4 +1,15 @@
-## 0.3.6 (Unreleased)
+## 0.3.7 (Unreleased)
+
+* 🟤 **Dotted surface tokens** for the Welcome playground (dot colours in their percent form).
+* 🎠 **Welcome surface tokens** from the v6 mock: pane (light **#fffcfa**), main, card and a new node token. Add `data-ab-surface="page"` to keep a pane on the page colour.
+* 🥉 **`--ab-color-on-bronze`** (#fff8f5, the same in dark): text on bronze, for the v6 Get Started button.
+* ➖ **`--ab-color-line`** (v6 `--line`): light `rgb(107 79 53 / 16%)`, dark `rgb(255 232 210 / 10%)`.
+* 🔗 **Links:** `--ab-link-color`, applied through a low-specificity `@layer base { :where(a) }` rule so components can override it.
+* 🔘 **Button sizing:** the legacy `[data-type]` button size rules now skip `.AbButton` (`:not(.AbButton)`). AbButton sizes itself (components ≥ 0.2.3). Colours and state layers are unchanged.
+* 🧹 **Release-age pins:** removed the expired D33 `minimumReleaseAgeExclude` entries (fonts 0.2.6, icons 0.2.4).
+* 🛡️ **Pack guard:** a test checks that shipped relative imports resolve inside the package `files`.
+
+## 0.3.6 (2026-10-28)
 
 * 🖥️ **Gapped light panes (mock 05):** at ≥ 1920px in light, `--ab-color-pane-main` is **#fff** and `--ab-color-card` is **#fffcfa**, matching the mock's `.gapped` values. The floating main pane turns white on the #fff8f5 background. Dark has no gapped mock and is unchanged. The block sits before the dark block, so `.dark` always wins.
 * 🪟 **New `--ab-color-pane`:** **#fff** at ≥ 1920px in light (mock 05 `--pane`), for the sidebar and TOC/aside panes. Core ≥ 0.2.1 reads it. It isn't set anywhere else, and dark sets it to `initial`, so every other width and dark keep their current colours.
