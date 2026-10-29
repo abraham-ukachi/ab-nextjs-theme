@@ -62,3 +62,20 @@ describe('🟤 0.3.7 dotted surface tokens (Welcome v6 mock)', () => {
     expect(light).toMatch(/--ab-color-card: #fff;/); expect(dark).toMatch(/--ab-color-card: #241a12;/) // 🃏
   })
 })
+
+// 🎠 God 02:26: the Welcome background is v6's original surface (welcome-v6/_src/scenes.py), never white
+describe('🎠 0.3.7 Welcome surface tokens (v6 --pane / --main / --card)', () => {
+  const gapped = css.slice(css.indexOf('@media (width >= 1920px)'), css.indexOf(".dark,\n[data-theme='dark']")) // 🖥️
+  it('light: pane + main #fff8f5, card #fff', () => {
+    expect(light).toMatch(/--ab-color-welcome-pane: #fff8f5;/); expect(light).toMatch(/--ab-color-welcome-main: #fff8f5;/) // 🪟 📄
+    expect(light).toMatch(/--ab-color-welcome-card: #fff;/) // 🃏
+  })
+  it('dark: pane #19120c, main #1d150f, card #241a12', () => {
+    expect(dark).toMatch(/--ab-color-welcome-pane: #19120c;/); expect(dark).toMatch(/--ab-color-welcome-main: #1d150f;/) // 🌙
+    expect(dark).toMatch(/--ab-color-welcome-card: #241a12;/) // 🃏
+  })
+  it('the white gapped desktop block never touches them (≥ 1920px stays v6)', () => {
+    expect(gapped).toContain('--ab-color-pane: #fff') // ✅ the block is there
+    expect(gapped).not.toMatch(/--ab-color-welcome-/) // 🚫 no white Welcome
+  })
+})

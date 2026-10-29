@@ -165,6 +165,13 @@
   --ab-breakpoint-tablet: 768px;
   --ab-breakpoint-joined: 1180px;
   --ab-breakpoint-gapped: 1920px;
+
+  /* 🎠 NEW 0.3.7 (God 02:26): the Welcome surface = welcome-v6's ORIGINAL colours (_src/scenes.py --pane / --main /
+   *    --card), never the white gapped panes. Deliberately NOT overridden in the ≥ 1920px block below.
+   *    ⚠️ John is still confirming the exact colours: these are the v6 mock values. */
+  --ab-color-welcome-pane: #fff8f5; /* 🪟 v6 --pane: the Welcome aside (the playground's backdrop) */
+  --ab-color-welcome-main: #fff8f5; /* 📄 v6 --main: the Welcome main pane */
+  --ab-color-welcome-card: #fff; /* 🃏 v6 --card: the Live Playground card */
 }
 
 /* 🖥️ 0.3.6 (God 00:37): gapped desktop (≥ 1920px) in light, mock 05 `.gapped`: the floating panes turn white and the
@@ -208,6 +215,9 @@
   --ab-color-pane-main: #1d150f;
   --ab-color-card: #241a12;
   --ab-color-card2: #2c2118;
+  --ab-color-welcome-pane: #19120c; /* 🎠 0.3.7 v6 dark --pane */
+  --ab-color-welcome-main: #1d150f; /* 🎠 0.3.7 v6 dark --main */
+  --ab-color-welcome-card: #241a12; /* 🎠 0.3.7 v6 dark --card */
   --ab-color-border: rgb(255 232 210 / 9%);
   --ab-color-div: rgb(255 232 210 / 8%);
   --ab-color-text: #f4ece5;
