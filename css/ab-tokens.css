@@ -121,6 +121,12 @@
   --ab-color-muted: #6b5b50; /* 🖋️ */
   --ab-color-faint: #807062; /* 🖋️ ♿ AA nudge (God 20:26): mock #9c8c80 → 4.53:1 on bg, 4.76:1 on card */
   --ab-color-accent: #a67c52; /* 🥉 brand bronze (rings, dots) */
+
+  /* 🟤 NEW 0.3.7 (Welcome v6 playground, John's mock `.dots`): the dotted surface. Core's AbDottedSurface and
+   *    components' AbFlowDiagram read these (each with the same fallbacks, so they work on an older theme too). */
+  --ab-dot-color: rgb(107 79 53 / 16%); /* 🟤 light dots */
+  --ab-dot-size: 1.3px; /* ⚫ dot radius */
+  --ab-dot-gap: 20px; /* 📏 grid step */
   --ab-color-accent-text: #88603d; /* 🖋️ ♿ AA nudge: mock #8b6340 was 4.37:1 on --tint → ≥ 4.5:1 */
   --ab-color-tint: #f4e7db; /* 🎨 active nav, chips */
   --ab-color-btn: #8b6340; /* 🔘 primary button + New badge ♿ AA nudge: white on mock #a67c52 is 3.6:1 → 5.31:1 */
@@ -208,6 +214,7 @@
   --ab-color-muted: #b5a597;
   --ab-color-faint: #9a8a7d; /* ♿ AA nudge: mock #86776b → 5.12:1 on card, 4.71:1 on card2 */
   --ab-color-accent: #c29a6f;
+  --ab-dot-color: rgb(245 235 225 / 10%); /* 🟤 0.3.7 dark dots (mock grid rgba(245,235,225,.10)) */
   --ab-color-accent-text: #d8b085;
   --ab-color-tint: rgb(166 124 82 / 20%);
   --ab-color-btn: #8b6340;
