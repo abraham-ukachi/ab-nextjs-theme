@@ -66,8 +66,8 @@ describe('🟤 0.3.7 dotted surface tokens (Welcome v6 mock)', () => {
 // 🎠 God 02:26: the Welcome background is v6's original surface (welcome-v6/_src/scenes.py), never white
 describe('🎠 0.3.7 Welcome surface tokens (v6 --pane / --main / --card)', () => {
   const gapped = css.slice(css.indexOf('@media (width >= 1920px)'), css.indexOf(".dark,\n[data-theme='dark']")) // 🖥️
-  it('light: pane + main #fff8f5, card #fff', () => {
-    expect(light).toMatch(/--ab-color-welcome-pane: #fff8f5;/); expect(light).toMatch(/--ab-color-welcome-main: #fff8f5;/) // 🪟 📄
+  it('light (God 02:45): pane #fff, main #fff8f5, card #fff', () => {
+    expect(light).toMatch(/--ab-color-welcome-pane: #fff;/); expect(light).toMatch(/--ab-color-welcome-main: #fff8f5;/) // 🪟 📄
     expect(light).toMatch(/--ab-color-welcome-card: #fff;/) // 🃏
   })
   it('dark: pane #19120c, main #1d150f, card #241a12', () => {

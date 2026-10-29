@@ -169,7 +169,7 @@
   /* 🎠 NEW 0.3.7 (God 02:26): the Welcome surface = welcome-v6's ORIGINAL colours (_src/scenes.py --pane / --main /
    *    --card), never the white gapped panes. Deliberately NOT overridden in the ≥ 1920px block below.
    *    ⚠️ John is still confirming the exact colours: these are the v6 mock values. */
-  --ab-color-welcome-pane: #fff8f5; /* 🪟 v6 --pane: the Welcome aside (the playground's backdrop) */
+  --ab-color-welcome-pane: #fff; /* 🪟 God 02:45: the Welcome aside is white in light (main stays #fff8f5) */
   --ab-color-welcome-main: #fff8f5; /* 📄 v6 --main: the Welcome main pane */
   --ab-color-welcome-card: #fff; /* 🃏 v6 --card: the Live Playground card */
 }
