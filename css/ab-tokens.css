@@ -56,6 +56,8 @@
 [data-theme='light'] {
   /* 🥉 bronze brand accent: large text + UI only (3.55:1 on #fff8f5) */
   --ab-color-bronze: #a67c52;
+  /* 🥉 0.3.7 (God 04:12): text/icons ON bronze (v6 mock .btn.p #FFF8F5, same in dark) */
+  --ab-color-on-bronze: #fff8f5;
 
   /* ♿ NEW: darker bronze for SMALL text in light mode (God, §8): 5.03:1 on #fff8f5, 4.56:1 on surface-container */
   --ab-color-bronze-text: #8a6440;
@@ -116,11 +118,18 @@
   --ab-color-card: #fff; /* 🃏 cards, lists, fields */
   --ab-color-card2: #fbf3ec; /* 🖼️ preview + icon tiles */
   --ab-color-border: rgb(92 64 48 / 13%); /* ➖ card / field border */
+  --ab-color-line: rgb(107 79 53 / 16%); /* ➖ 0.3.7 (God 04:16): v6 --line (button / chip outlines) */
   --ab-color-div: rgb(92 64 48 / 11%); /* ➖ pane dividers, list rows */
   --ab-color-text: #211a16; /* 🖋️ */
   --ab-color-muted: #6b5b50; /* 🖋️ */
   --ab-color-faint: #807062; /* 🖋️ ♿ AA nudge (God 20:26): mock #9c8c80 → 4.53:1 on bg, 4.76:1 on card */
   --ab-color-accent: #a67c52; /* 🥉 brand bronze (rings, dots) */
+
+  /* 🟤 NEW 0.3.7 (Welcome v6 playground, John's mock `.dots`): the dotted surface. Core's AbDottedSurface and
+   *    components' AbFlowDiagram read these (each with the same fallbacks, so they work on an older theme too). */
+  --ab-dot-color: rgb(107 79 53 / 16%); /* 🟤 light dots */
+  --ab-dot-size: 1.3px; /* ⚫ dot radius */
+  --ab-dot-gap: 20px; /* 📏 grid step */
   --ab-color-accent-text: #88603d; /* 🖋️ ♿ AA nudge: mock #8b6340 was 4.37:1 on --tint → ≥ 4.5:1 */
   --ab-color-tint: #f4e7db; /* 🎨 active nav, chips */
   --ab-color-btn: #8b6340; /* 🔘 primary button + New badge ♿ AA nudge: white on mock #a67c52 is 3.6:1 → 5.31:1 */
@@ -159,6 +168,14 @@
   --ab-breakpoint-tablet: 768px;
   --ab-breakpoint-joined: 1180px;
   --ab-breakpoint-gapped: 1920px;
+
+  /* 🎠 NEW 0.3.7 (God 02:26): the Welcome surface = welcome-v6's ORIGINAL colours (_src/scenes.py --pane / --main /
+   *    --card), never the white gapped panes. Deliberately NOT overridden in the ≥ 1920px block below.
+   *    ⚠️ John is still confirming the exact colours: these are the v6 mock values. */
+  --ab-color-welcome-pane: #fffcfa; /* 🪟 God 03:05: the light Welcome aside is a warm near-white, lighter than main (#fff8f5) yet not the #fff card, so the card edge reads */
+  --ab-color-welcome-main: #fff8f5; /* 📄 v6 --main: the Welcome main pane */
+  --ab-color-welcome-card: #fff; /* 🃏 v6 --card: the Live Playground card */
+  --ab-color-welcome-node: #fff; /* 🔵 0.3.7 (spec rev 2 §0): v6 --node, the playground scene nodes */
 }
 
 /* 🖥️ 0.3.6 (God 00:37): gapped desktop (≥ 1920px) in light, mock 05 `.gapped`: the floating panes turn white and the
@@ -202,12 +219,18 @@
   --ab-color-pane-main: #1d150f;
   --ab-color-card: #241a12;
   --ab-color-card2: #2c2118;
+  --ab-color-welcome-pane: #19120c; /* 🎠 0.3.7 v6 dark --pane */
+  --ab-color-welcome-main: #1d150f; /* 🎠 0.3.7 v6 dark --main */
+  --ab-color-welcome-card: #241a12; /* 🎠 0.3.7 v6 dark --card */
+  --ab-color-welcome-node: #2a1f17; /* 🔵 0.3.7 v6 dark --node (a step above the card) */
   --ab-color-border: rgb(255 232 210 / 9%);
+  --ab-color-line: rgb(255 232 210 / 10%); /* ➖ 0.3.7: v6 dark --line */
   --ab-color-div: rgb(255 232 210 / 8%);
   --ab-color-text: #f4ece5;
   --ab-color-muted: #b5a597;
   --ab-color-faint: #9a8a7d; /* ♿ AA nudge: mock #86776b → 5.12:1 on card, 4.71:1 on card2 */
   --ab-color-accent: #c29a6f;
+  --ab-dot-color: rgb(245 235 225 / 10%); /* 🟤 0.3.7 dark dots (mock grid rgba(245,235,225,.10)) */
   --ab-color-accent-text: #d8b085;
   --ab-color-tint: rgb(166 124 82 / 20%);
   --ab-color-btn: #8b6340;
@@ -246,3 +269,14 @@
 .text-bronze {
   color: var(--ab-color-bronze-text);
 }
+
+/* 🎠 NEW 0.3.7 (Joseph 02:35): `data-ab-surface="page"` opt-out. Put it on the Welcome layout (or any ancestor) and its
+ *    panes paint v6's page surface instead of the white gapped-desktop panes (≥ 1920px light) or any other pane tint:
+ *    core reads --ab-color-pane / --ab-color-pane-main, so we just point both at the Welcome surface tokens above.
+ *    Dark gets v6's dark --pane / --main the same way (the tokens already switch with .dark). */
+[data-ab-surface='page'] {
+  --ab-color-pane: var(--ab-color-welcome-pane); /* 🪟 aside + sidebar panes */
+  --ab-color-pane-main: var(--ab-color-welcome-main); /* 📄 main pane */
+  background-color: var(--ab-color-welcome-pane); /* 🧱 the page behind the panes */
+}
+

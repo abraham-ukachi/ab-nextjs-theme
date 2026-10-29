@@ -65,7 +65,7 @@ describe('--ab-color-pane (sidebar + aside panes) 🪟', () => {
   it('only the gapped light block sets it (#fff); not in the base light block', () => {
     const m = /@media \(width >= 1920px\) \{\s*:root,\s*\.light,\s*\[data-theme='light'\] \{([^}]*)\}/.exec(css)! // 🔍
     expect(m[1]).toMatch(/--ab-color-pane: #fff;/) // 🪟
-    expect(css.match(/--ab-color-pane:/g)).toHaveLength(2) // 🎯 gapped light + the dark unset, nothing else
+    expect(css.match(/--ab-color-pane:/g)).toHaveLength(3) // 🎯 gapped light + the dark unset + 0.3.7 [data-ab-surface='page'] opt-out
   })
   it('dark unsets it with `initial`, so core falls back to today\'s dark colours', () => {
     const dark = /\.dark,\s*\[data-theme='dark'\] \{([^}]*)\}/.exec(css)![1] // 🌙

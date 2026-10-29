@@ -1111,13 +1111,6 @@ input[data-type="submit"], button[data-type="outlined"], a[role="button"][data-t
   --material-icon-color: var(--ab-button-text-color, inherit);
 
   border: 2px solid var(--ab-button-outline-color, var(--outline-color));
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 18px; /* b4: 16px */
-  line-height: 32px;
-  width: var(--ab-button-width, fit-content);
-  height: var(--ab-button-height, fit-content);
-  opacity: var(--opacity-text-inactive);
   cursor: pointer;
   background: var(--ab-button-background-color, transparent);
   color: var(--ab-button-text-color, inherit);
@@ -1125,6 +1118,17 @@ input[data-type="submit"], button[data-type="outlined"], a[role="button"][data-t
   text-overflow: ellipsis;
   overflow: hidden;
   transition: all .2s ease;
+}
+/* 📏 0.3.7 (Joseph): box metrics only on legacy buttons. AbButton (components) sizes itself, so these
+ *    unlayered 18px / 32px / padding / fit-content / radius rules no longer override it app-wide */
+input[data-type="submit"], button[data-type="outlined"]:not(.AbButton), a[role="button"][data-type="outlined"]:not(.AbButton) {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 18px; /* b4: 16px */
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
+  opacity: var(--opacity-text-inactive);
 }
 
 
@@ -1181,12 +1185,6 @@ button[data-type="contained"], a[role="button"][data-type="contained"] {
 
   background: var(--ab-button-background-color, var(--primary-container-color));
   color: var(--ab-button-text-color, var(--on-primary-container-color));
-  padding: var(--ab-button-padding, 6px 12px);
-  border-radius: 8px;
-  font-size: 18px; /* b4: 16px */
-  line-height: 32px;
-  width: var(--ab-button-width, fit-content);
-  height: var(--ab-button-height, fit-content);
   border: 0;
   outline: none;
   font-weight: bold;
@@ -1198,6 +1196,16 @@ button[data-type="contained"], a[role="button"][data-type="contained"] {
   -webkit-tap-highlight-color: transparent;
   transform: scale(1);
   transition: all 0.2s ease;
+}
+/* 📏 0.3.7 (Joseph): box metrics only on legacy buttons. AbButton (components) sizes itself, so these
+ *    unlayered 18px / 32px / padding / fit-content / radius rules no longer override it app-wide */
+button[data-type="contained"]:not(.AbButton), a[role="button"][data-type="contained"]:not(.AbButton) {
+  padding: var(--ab-button-padding, 6px 12px);
+  border-radius: 8px;
+  font-size: 18px; /* b4: 16px */
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
 }
 
 /* Whenever a button that expands is hovered and/or gains focus */
@@ -1249,12 +1257,6 @@ button[data-type="filled"], a[role="button"][data-type="filled"] {
 
   background: var(--ab-button-background-color, var(--md-sys-color-primary));
   color: var(--ab-button-text-color, var(--md-sys-color-on-primary));
-  padding: var(--ab-button-padding, 6px 16px);
-  border-radius: var(--ab-button-radius, 999px);
-  font-size: 18px;
-  line-height: 32px;
-  width: var(--ab-button-width, fit-content);
-  height: var(--ab-button-height, fit-content);
   border: 0;
   outline: none;
   font-weight: bold;
@@ -1265,6 +1267,16 @@ button[data-type="filled"], a[role="button"][data-type="filled"] {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+/* 📏 0.3.7 (Joseph): box metrics only on legacy buttons. AbButton (components) sizes itself, so these
+ *    unlayered 18px / 32px / padding / fit-content / radius rules no longer override it app-wide */
+button[data-type="filled"]:not(.AbButton), a[role="button"][data-type="filled"]:not(.AbButton) {
+  padding: var(--ab-button-padding, 6px 16px);
+  border-radius: var(--ab-button-radius, 999px);
+  font-size: 18px;
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
 }
 
 /* 🖱️ Filled on hover: an 8% on-primary state layer over the bronze */
@@ -1303,12 +1315,6 @@ button[data-type="text"], a[role="button"][data-type="text"] {
 
   background: none;
   color: var(--ab-button-text-color, var(--on-background-color));
-  padding: var(--ab-button-padding, 6px 12px);
-  border-radius: 8px;
-  font-size: 18px; /* b4: 16px */
-  line-height: 32px;
-  width: var(--ab-button-width, fit-content);
-  height: var(--ab-button-height, fit-content);
   border: 0;
   outline: none;
   font-weight: bold;
@@ -1320,6 +1326,16 @@ button[data-type="text"], a[role="button"][data-type="text"] {
   -webkit-tap-highlight-color: transparent;
   transform: scale(1);
   transition: all 0.2s ease;
+}
+/* 📏 0.3.7 (Joseph): box metrics only on legacy buttons. AbButton (components) sizes itself, so these
+ *    unlayered 18px / 32px / padding / fit-content / radius rules no longer override it app-wide */
+button[data-type="text"]:not(.AbButton), a[role="button"][data-type="text"]:not(.AbButton) {
+  padding: var(--ab-button-padding, 6px 12px);
+  border-radius: 8px;
+  font-size: 18px; /* b4: 16px */
+  line-height: 32px;
+  width: var(--ab-button-width, fit-content);
+  height: var(--ab-button-height, fit-content);
 }
 
 button[data-type="text"]::before, a[role="button"][data-type="text"]::before {
@@ -1649,17 +1665,20 @@ button.fab:focus-visible {
 
 
 
-/* 🧅 0.3.5: bare link rules in `@layer base` (Tailwind utilities + app CSS win) */
+/* 🧅 0.3.5: bare link rules in `@layer base` (Tailwind utilities + app CSS win)
+ * 🔗 0.3.7 (Joseph): zero specificity (`:where`), so ANY other rule wins: Tailwind preflight's `a { color: inherit }`,
+ *    a component's own link colour, a utility. A plain page with no other link CSS (the docs) keeps the theme look.
+ *    `--ab-link-color` sets it once for the app (e.g. `inherit` to opt out, or a brand colour) */
 @layer base {
 /* Default Links - A */
-a {
-  color: var(--link-color, var(--primary-color));
+:where(a) {
+  color: var(--ab-link-color, var(--link-color, var(--primary-color)));
   text-decoration: none;
   cursor: pointer;
 }
 
 /* Hover over default links - A */
-a:hover {
+:where(a):hover {
   text-decoration: underline;
 }
 }
@@ -2414,7 +2433,8 @@ ul.chips > li.chip[data-selected="true"]:hover span {
   /* Contained Button */
 
   /* 📱 0.3.3: filled shares the mobile size (was 18px) */
-  button[data-type="contained"], button[data-type="filled"], button[data-type="outlined"], button[data-type="text"] {
+  /* 📏 0.3.7 (Joseph): not on AbButton (it sizes itself) */
+  button[data-type="contained"]:not(.AbButton), button[data-type="filled"]:not(.AbButton), button[data-type="outlined"]:not(.AbButton), button[data-type="text"]:not(.AbButton) {
     font-size: 20px;
     padding: 8px 16px; /* b4: 12px 16px */
   }

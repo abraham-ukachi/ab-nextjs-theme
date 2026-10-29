@@ -109,8 +109,8 @@ describe('0.3.3 (c): button icons follow the label colour, not the background ðŸ
   it('no rule reads the non-existent --ab-button-color-focus', () => {
     expect(styles).not.toMatch(/--ab-button-color-focus/) // ðŸ‘»
   })
-  it('filled shares the 20px mobile button size', () => {
-    const mobile = ruleFor((s) => s.includes('button[data-type="contained"], button[data-type="filled"]'))
+  it('filled shares the 20px mobile button size (0.3.7: legacy buttons only, not AbButton)', () => {
+    const mobile = ruleFor((s) => s.includes('button[data-type="contained"]:not(.AbButton), button[data-type="filled"]:not(.AbButton)'))
     expect(mobile.length).toBe(1)
     expect(mobile[0][1]).toMatch(/font-size:\s*20px/)
   })
