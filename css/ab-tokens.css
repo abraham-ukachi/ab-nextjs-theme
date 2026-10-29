@@ -263,3 +263,14 @@
 .text-bronze {
   color: var(--ab-color-bronze-text);
 }
+
+/* 🎠 NEW 0.3.7 (Joseph 02:35): `data-ab-surface="page"` opt-out. Put it on the Welcome layout (or any ancestor) and its
+ *    panes paint v6's page surface instead of the white gapped-desktop panes (≥ 1920px light) or any other pane tint:
+ *    core reads --ab-color-pane / --ab-color-pane-main, so we just point both at the Welcome surface tokens above.
+ *    Dark gets v6's dark --pane / --main the same way (the tokens already switch with .dark). */
+[data-ab-surface='page'] {
+  --ab-color-pane: var(--ab-color-welcome-pane); /* 🪟 aside + sidebar panes */
+  --ab-color-pane-main: var(--ab-color-welcome-main); /* 📄 main pane */
+  background-color: var(--ab-color-welcome-pane); /* 🧱 the page behind the panes */
+}
+

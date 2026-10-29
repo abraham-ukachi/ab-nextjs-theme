@@ -79,3 +79,17 @@ describe('🎠 0.3.7 Welcome surface tokens (v6 --pane / --main / --card)', () =
     expect(gapped).not.toMatch(/--ab-color-welcome-/) // 🚫 no white Welcome
   })
 })
+
+// 🎠 Joseph 02:35: the page-surface opt-out
+describe('🎠 0.3.7 data-ab-surface="page"', () => {
+  const rule = css.slice(css.indexOf("[data-ab-surface='page']")) // 🔍
+  it('points the pane tokens core reads at the v6 Welcome surface', () => {
+    expect(rule).toMatch(/--ab-color-pane: var\(--ab-color-welcome-pane\);/) // 🪟
+    expect(rule).toMatch(/--ab-color-pane-main: var\(--ab-color-welcome-main\);/) // 📄
+    expect(rule).toMatch(/background-color: var\(--ab-color-welcome-pane\);/) // 🧱
+  })
+  it('lives outside every media query, so it also wins at ≥ 1920px', () => {
+    expect(css.lastIndexOf('@media')).toBeLessThan(css.indexOf("[data-ab-surface='page']")) // 🖥️
+  })
+})
+
