@@ -102,3 +102,10 @@ describe('🥉 0.3.7 --ab-color-on-bronze (God 04:12, v6 .btn.p)', () => {
     expect(css.slice(css.indexOf('.dark,'))).not.toContain('--ab-color-on-bronze') // 🌙 inherits
   })
 })
+describe('➖ 0.3.7 --ab-color-line (v6 --line, God 04:16)', () => {
+  it('light rgb(107 79 53 / 16%), dark rgb(255 232 210 / 10%)', () => {
+    const i = css.indexOf('.dark,')
+    expect(css.slice(0, i)).toContain('--ab-color-line: rgb(107 79 53 / 16%);')
+    expect(css.slice(i)).toContain('--ab-color-line: rgb(255 232 210 / 10%);')
+  })
+})

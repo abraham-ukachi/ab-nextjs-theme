@@ -118,6 +118,7 @@
   --ab-color-card: #fff; /* 🃏 cards, lists, fields */
   --ab-color-card2: #fbf3ec; /* 🖼️ preview + icon tiles */
   --ab-color-border: rgb(92 64 48 / 13%); /* ➖ card / field border */
+  --ab-color-line: rgb(107 79 53 / 16%); /* ➖ 0.3.7 (God 04:16): v6 --line (button / chip outlines) */
   --ab-color-div: rgb(92 64 48 / 11%); /* ➖ pane dividers, list rows */
   --ab-color-text: #211a16; /* 🖋️ */
   --ab-color-muted: #6b5b50; /* 🖋️ */
@@ -223,6 +224,7 @@
   --ab-color-welcome-card: #241a12; /* 🎠 0.3.7 v6 dark --card */
   --ab-color-welcome-node: #2a1f17; /* 🔵 0.3.7 v6 dark --node (a step above the card) */
   --ab-color-border: rgb(255 232 210 / 9%);
+  --ab-color-line: rgb(255 232 210 / 10%); /* ➖ 0.3.7: v6 dark --line */
   --ab-color-div: rgb(255 232 210 / 8%);
   --ab-color-text: #f4ece5;
   --ab-color-muted: #b5a597;
