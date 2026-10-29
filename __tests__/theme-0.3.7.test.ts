@@ -50,12 +50,12 @@ const dark = css.slice(css.indexOf(".dark,\n[data-theme='dark']")) // 🌙
 // 🟤 John's Welcome v6 playground `.dots`: radial-gradient(var(--grid) 1.3px, transparent 1.4px) / 20px
 describe('🟤 0.3.7 dotted surface tokens (Welcome v6 mock)', () => {
   it('light: --ab-dot-color rgb(107 79 53 / 0.16), --ab-dot-size 1.3px, --ab-dot-gap 20px', () => {
-    expect(light).toMatch(/--ab-dot-color: rgb\(107 79 53 \/ 0\.16\);/) // 🟤
+    expect(light).toMatch(/--ab-dot-color: rgb\(107 79 53 \/ 16%\);/) // 🟤
     expect(light).toMatch(/--ab-dot-size: 1\.3px;/) // ⚫
     expect(light).toMatch(/--ab-dot-gap: 20px;/) // 📏
   })
   it('dark: only the colour changes, rgb(245 235 225 / 0.10)', () => {
-    expect(dark).toMatch(/--ab-dot-color: rgb\(245 235 225 \/ 0\.10\);/) // 🌙
+    expect(dark).toMatch(/--ab-dot-color: rgb\(245 235 225 \/ 10%\);/) // 🌙
     expect(dark).not.toMatch(/--ab-dot-size|--ab-dot-gap/) // 📏 same geometry
   })
   it('--ab-color-card is white in light and #241a12 in dark (the playground card)', () => {
