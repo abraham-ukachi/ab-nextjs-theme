@@ -1,0 +1,193 @@
+/* 
+* @license MIT
+* ~~~~~~~~~~~~
+* ab-nextjs-theme
+* ~~~~~~~~~~~~ 
+* Copyright (c) 2026 Abraham Ukachi. The abElements Project.
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the 'Software'), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions: 
+*  
+* The above copyright notice and this permission notice shall be included in all 
+* copies or substantial portions of the Software. 
+*
+* THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @project: ab-nextjs-theme
+* @name: Theme - .ab-prose (MDX long-form typography)
+* @file: css/prose.css
+* @type: CSS Stylesheet (0.3.8, Joseph 0.2.24 MDX docs)
+* @authors: Abraham Ukachi <abrahamukachi@gmail.com>
+*
+* Example usage:
+*   1+|> <article className="ab-prose"><MDXContent /></article>
+*
+* 📌 Only theme tokens (--ab-*), each with a light fallback. Everything sits in `@layer components` and the element
+*    selectors are wrapped in :where(), so a Tailwind utility or any component class on a child still wins.
+*    `.ab-prose-none` opts a subtree (e.g. an AbCodeBlock or a live demo) out.
+*/
+
+/*
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* MOTTO: We'll always do more 😜!!!
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+@layer components {
+  /* 📄 the container: body font, reading size + line height, readable measure */
+  .ab-prose {
+    max-width: var(--ab-prose-max-width, 72ch); /* 📏 readable line length */
+    color: var(--ab-color-text, #211a16); /* 🖋️ */
+    font-family: var(--ab-font-body, system-ui, sans-serif); /* 🔤 */
+    font-size: var(--ab-prose-font-size, 16px); /* 🔠 */
+    line-height: 1.7; /* ↕️ long-form rhythm */
+    overflow-wrap: break-word; /* 🧵 long URLs never overflow */
+  }
+
+  /* 🏷️ headings: title font, tighter leading, space above > below (they belong to what follows) */
+  .ab-prose :where(h1, h2, h3, h4, h5, h6):not(:where(.ab-prose-none *)) {
+    margin: 2em 0 0.6em; /* ↕️ */
+    color: var(--ab-color-text, #211a16); /* 🖋️ */
+    font-family: var(--ab-font-title, var(--ab-font-body, inherit)); /* 🔤 */
+    font-weight: 700; /* 💪 */
+    line-height: 1.25; /* ↕️ */
+    scroll-margin-top: var(--ab-prose-scroll-margin, 72px); /* ⚓ #anchor jumps clear a sticky header */
+  }
+
+  .ab-prose :where(h1):not(:where(.ab-prose-none *)) { /* 🏷️ */
+    margin-top: 0; /* ⬆️ */
+    font-size: 2em; /* 🔠 */
+    letter-spacing: -0.02em; /* ↔️ */
+  }
+
+  .ab-prose :where(h2):not(:where(.ab-prose-none *)) { /* 🏷️ + hairline */
+    padding-bottom: 0.3em; /* 📦 */
+    border-bottom: 1px solid var(--ab-color-div, rgb(92 64 48 / 11%)); /* ➖ */
+    font-size: 1.5em; /* 🔠 */
+  }
+  .ab-prose :where(h3):not(:where(.ab-prose-none *)) { font-size: 1.25em; } /* 🏷️ */
+  .ab-prose :where(h4, h5, h6):not(:where(.ab-prose-none *)) { font-size: 1em; } /* 🏷️ */
+  .ab-prose :where(h6):not(:where(.ab-prose-none *)) { color: var(--ab-color-muted, #6b5b50); } /* 🏷️ muted */
+
+  /* 📝 paragraphs */
+  .ab-prose :where(p):not(:where(.ab-prose-none *)) { margin: 0 0 1.1em; } /* ↕️ */
+
+  /* 🔗 links: accent text colour + an underline (not colour alone, WCAG 1.4.1) */
+  .ab-prose :where(a):not(:where(.ab-prose-none *)) {
+    color: var(--ab-color-accent-text, #88603d); /* 🥉 AA on the page */
+    text-decoration: underline; /* ➖ */
+    text-decoration-thickness: 1px; /* ➖ */
+    text-underline-offset: 0.2em; /* ↕️ */
+  }
+
+  .ab-prose :where(a):not(:where(.ab-prose-none *)):hover { text-decoration-thickness: 2px; } /* 🖱️ */
+
+  .ab-prose :where(a):not(:where(.ab-prose-none *)):focus-visible {
+    border-radius: 2px; /* 🟢 */
+    outline: var(--ab-focus-ring-width, 2px) solid var(--ab-color-accent, #a67c52); /* ♿ */
+    outline-offset: var(--ab-focus-ring-offset, 2px); /* ♿ */
+  }
+
+  /* 📋 lists */
+  .ab-prose :where(ul, ol):not(:where(.ab-prose-none *)) { /* ↔️ */
+    margin: 0 0 1.1em; /* ↕️ */
+    padding-inline-start: 1.5em; /* ↔️ */
+  }
+  .ab-prose :where(li):not(:where(.ab-prose-none *)) { margin: 0.3em 0; } /* ↕️ */
+  .ab-prose :where(li)::marker { color: var(--ab-color-faint, #807062); } /* 🔘 */
+  .ab-prose :where(li > ul, li > ol):not(:where(.ab-prose-none *)) { margin: 0.3em 0; } /* 🪆 nested */
+
+  /* ⌨️ inline code (not inside <pre>) */
+  .ab-prose :where(:not(pre) > code):not(:where(.ab-prose-none *)) {
+    padding: 0.15em 0.35em; /* 📦 */
+    border: 1px solid var(--ab-color-border, rgb(92 64 48 / 13%)); /* 🔲 */
+    border-radius: var(--ab-radius-kbd, 5px); /* 🟢 */
+    background: var(--ab-color-card2, #fbf3ec); /* 🎨 */
+    color: var(--ab-color-code-text, var(--ab-color-text, #211a16)); /* 🖋️ */
+    font-family: var(--ab-font-code, ui-monospace, monospace); /* 🔤 */
+    font-size: 0.875em; /* 🔠 */
+  }
+
+  /* 💻 code blocks (raw <pre>, e.g. MDX without AbCodeBlock) */
+  .ab-prose :where(pre):not(:where(.ab-prose-none *)) {
+    margin: 0 0 1.25em; /* ↕️ */
+    padding: 14px 16px; /* 📦 */
+    overflow-x: auto; /* ↔️ scrolls, never wraps */
+    border-radius: var(--ab-radius-code, 12px); /* 🟢 */
+    background: var(--ab-color-code-surface, #231a14); /* 🎨 */
+    color: var(--ab-color-on-code-surface, #f4ece5); /* 🖋️ */
+    font-family: var(--ab-font-code, ui-monospace, monospace); /* 🔤 */
+    font-size: 0.875em; /* 🔠 */
+    line-height: 1.6; /* ↕️ */
+  }
+
+  .ab-prose :where(pre code):not(:where(.ab-prose-none *)) { /* 🧹 */
+    padding: 0; /* 📦 */
+    border: 0; /* 🔲 */
+    background: none; /* 🎨 */
+    color: inherit; /* 🎨 */
+    font-size: inherit; /* 🔠 */
+  }
+
+  /* 💬 blockquotes: accent bar + muted text */
+  .ab-prose :where(blockquote):not(:where(.ab-prose-none *)) {
+    margin: 0 0 1.1em; /* ↕️ */
+    padding: 0.2em 0 0.2em 1em; /* 📦 */
+    border-inline-start: 3px solid var(--ab-color-accent, #a67c52); /* 🥉 */
+    color: var(--ab-color-muted, #6b5b50); /* 🖋️ */
+  }
+
+  .ab-prose :where(blockquote > :last-child):not(:where(.ab-prose-none *)) { margin-bottom: 0; } /* 🧹 */
+
+  /* 📊 tables: full width, scroll on narrow screens, hairline rows */
+  .ab-prose :where(table):not(:where(.ab-prose-none *)) {
+    display: block; /* 📦 lets it scroll */
+    width: max-content; /* ↔️ */
+    max-width: 100%; /* 📏 */
+    margin: 0 0 1.25em; /* ↕️ */
+    overflow-x: auto; /* ↔️ */
+    border-collapse: collapse; /* 🧱 */
+    font-size: 0.9375em; /* 🔠 */
+  }
+
+  .ab-prose :where(th, td):not(:where(.ab-prose-none *)) {
+    padding: 8px 12px; /* 📦 */
+    border-bottom: 1px solid var(--ab-color-div, rgb(92 64 48 / 11%)); /* ➖ */
+    text-align: start; /* ⬅️ RTL-safe */
+    vertical-align: top; /* ⬆️ */
+  }
+
+  .ab-prose :where(th):not(:where(.ab-prose-none *)) { /* 🏷️ */
+    border-bottom-color: var(--ab-color-border, rgb(92 64 48 / 13%)); /* ➖ */
+    font-weight: 600; /* 💪 */
+  }
+
+  /* ➖ horizontal rules */
+  .ab-prose :where(hr):not(:where(.ab-prose-none *)) {
+    height: 0; /* 📏 */
+    margin: 2em 0; /* ↕️ */
+    border: 0; /* 🧹 */
+    border-top: 1px solid var(--ab-color-div, rgb(92 64 48 / 11%)); /* ➖ */
+  }
+
+  /* 🖼️ media never overflows */
+  .ab-prose :where(img, video):not(:where(.ab-prose-none *)) { /* 📏 */
+    max-width: 100%; /* 📏 */
+    height: auto; /* 📏 */
+    border-radius: var(--ab-radius-card, 14px); /* 🟢 */
+  }
+
+  /* 🧹 the first + last child sit flush with the container */
+  .ab-prose > :first-child { margin-top: 0; } /* ⬆️ */
+  .ab-prose > :last-child { margin-bottom: 0; } /* ⬇️ */
+}
