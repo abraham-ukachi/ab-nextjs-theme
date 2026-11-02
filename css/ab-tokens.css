@@ -54,6 +54,9 @@
 :root,
 .light,
 [data-theme='light'] {
+  /* 🌗 0.3.8 (Joseph, 0.2.24 docs): native UI (scrollbars, form controls, <pre> scrollers) follows the theme */
+  color-scheme: light;
+
   /* 🥉 bronze brand accent: large text + UI only (3.55:1 on #fff8f5) */
   --ab-color-bronze: #a67c52;
 
@@ -195,6 +198,9 @@
 /* 🌙 dark */
 .dark,
 [data-theme='dark'] {
+  /* 🌗 0.3.8 (Joseph, 0.2.24 docs): dark scrollbars + form controls inside .dark */
+  color-scheme: dark;
+
   /* ♿ small bronze text in dark: #a67c52 is only 4.39:1 on dark surface-container → use the
      theme's existing a11y light bronze (8.9:1 on #19120c, 7.86:1 on surface-container) */
   --ab-color-bronze-text: #d9ab7f;
