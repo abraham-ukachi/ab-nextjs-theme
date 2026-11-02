@@ -59,3 +59,14 @@ describe('🌗 color-scheme', () => {
     expect(css.indexOf('color-scheme: dark')).toBeGreaterThan(css.indexOf('color-scheme: light')) // ⬇️ cascade order
   })
 })
+
+// 🌗 0.3.8 (God): the Material medium/high contrast classes set it too, AFTER the base blocks (they win on <html>)
+describe('🌗 color-scheme on the contrast schemes', () => {
+  for (const [sel, mode] of [['.light-medium-contrast', 'light'], ['.light-high-contrast', 'light'], ['.dark-medium-contrast', 'dark'], ['.dark-high-contrast', 'dark']] as const) {
+    it(`${sel} → color-scheme: ${mode}`, () => {
+      expect(block(`\n${sel} {`)).toMatch(new RegExp(`color-scheme:\\s*${mode};`)) // 🌗
+      expect(css.indexOf(`\n${sel} {`)).toBeGreaterThan(css.indexOf(".dark,\n[data-theme='dark'] {")) // ⬇️ after the base dark block
+    })
+  }
+})
+
