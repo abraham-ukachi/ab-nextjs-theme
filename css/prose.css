@@ -79,7 +79,16 @@
   .ab-prose :where(h4, h5, h6):not(:where(.ab-prose-none *)) { font-size: 1em; } /* 🏷️ */
   .ab-prose :where(h6):not(:where(.ab-prose-none *)) { color: var(--ab-color-muted, #6b5b50); } /* 🏷️ muted */
 
-  /* 📝 paragraphs */
+  /* 📝 paragraphs
+     🔠 0.3.9 (Joseph 0.2.24, gap 1): typography.css sets `body, p { font-size: 24px }` (wide layout) in @layer base,
+     and an element rule on <p> beats the size it would inherit from .ab-prose. Re-inherit size + leading here. */
+  .ab-prose :where(p, li, span, td, th, blockquote, figcaption, dd, dt):not(:where(.ab-prose-none *)) {
+    font-size: inherit; /* 🔠 the .ab-prose size, not the base 24px */
+    line-height: inherit; /* ↕️ the 1.7 long-form rhythm, not the base 30px */
+    letter-spacing: inherit; /* ↔️ */
+    word-spacing: inherit; /* ↔️ */
+  }
+
   .ab-prose :where(p):not(:where(.ab-prose-none *)) { margin: 0 0 1.1em; } /* ↕️ */
 
   /* 🔗 links: accent text colour + an underline (not colour alone, WCAG 1.4.1) */

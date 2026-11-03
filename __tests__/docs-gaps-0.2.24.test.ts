@@ -57,3 +57,19 @@ describe('⌨️ gap 2: mono font survives inside code', () => {
     expect(typo).not.toMatch(/(^|\n)body, h1, h2, h3, p, button, span, input, textarea \{/) // 🚫
   })
 })
+
+// 🔠 gap 1: the base `body, p { font-size: 24px }` must not reach .ab-prose text
+describe('🔠 gap 1: .ab-prose text re-inherits its size', () => {
+  it('p, li, span + table cells inherit font-size + line-height from .ab-prose', () => {
+    const rule = prose.match(/\.ab-prose :where\(p, li, span[^)]*\):not\(:where\(\.ab-prose-none \*\)\) \{([^}]*)\}/) // 🔍
+    expect(rule, 'rule present').not.toBeNull()
+    expect(rule![1]).toContain('font-size: inherit') // 🔠
+    expect(rule![1]).toContain('line-height: inherit') // ↕️
+  })
+  it('.ab-prose still sets its own 16px default size', () => {
+    expect(prose).toContain('font-size: var(--ab-prose-font-size, 16px)') // 📏
+  })
+  it('consumers outside .ab-prose keep the base 24px wide-layout size', () => {
+    expect(typo).toMatch(/body, p \{\s*font-size: 24px/) // 🧱 untouched
+  })
+})
