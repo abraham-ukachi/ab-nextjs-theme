@@ -54,6 +54,19 @@
 :root,
 .light,
 [data-theme='light'] {
+  /* 🌗 0.3.8 (Joseph, 0.2.24 docs): native UI (scrollbars, form controls, <pre> scrollers) follows the theme */
+  color-scheme: light;
+
+  /* ⚠️🛑 0.3.8 (God, Joseph 0.2.24 docs): status tokens (AbCallout warning/danger) ♿ AA ≥ 4.5:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #8a5300; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #fff; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #ffddb3; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #2b1700; /* 🖋️ text on that fill */
+  --ab-color-danger: #904a43; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #fff; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #ffdad6; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #3b0907; /* 🖋️ text on that fill */
+
   /* 🥉 bronze brand accent: large text + UI only (3.55:1 on #fff8f5) */
   --ab-color-bronze: #a67c52;
 
@@ -195,6 +208,19 @@
 /* 🌙 dark */
 .dark,
 [data-theme='dark'] {
+  /* 🌗 0.3.8 (Joseph, 0.2.24 docs): dark scrollbars + form controls inside .dark */
+  color-scheme: dark;
+
+  /* ⚠️🛑 0.3.8 (God, Joseph 0.2.24 docs): status tokens (AbCallout warning/danger) ♿ AA ≥ 4.5:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #ffb951; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #482900; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #673d00; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #ffddb3; /* 🖋️ text on that fill */
+  --ab-color-danger: #ffb4ab; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #561e19; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #73332d; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #ffdad6; /* 🖋️ text on that fill */
+
   /* ♿ small bronze text in dark: #a67c52 is only 4.39:1 on dark surface-container → use the
      theme's existing a11y light bronze (8.9:1 on #19120c, 7.86:1 on surface-container) */
   --ab-color-bronze-text: #d9ab7f;
@@ -282,3 +308,61 @@
   background-color: var(--ab-color-welcome-pane); /* 🧱 the page behind the panes */
 }
 
+/* 🌗⚠️ 0.3.8 (God): the Material contrast schemes. Declared HERE (after :root / .light / .dark, same specificity)
+ * so they win over the base tokens on the same element, e.g. <html class="dark dark-high-contrast">. */
+
+.light-medium-contrast {
+  color-scheme: light; /* 🌗 native UI follows the scheme */
+
+  /* ⚠️🛑 status tokens ♿ AA ≥ 4.5:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #663c00; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #fff; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #9c6200; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #fff; /* 🖋️ text on that fill */
+  --ab-color-danger: #6e302a; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #fff; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #ae5f56; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #fff; /* 🖋️ text on that fill */
+}
+
+.light-high-contrast {
+  color-scheme: light; /* 🌗 native UI follows the scheme */
+
+  /* ⚠️🛑 status tokens ♿ AAA ≥ 7:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #3d2200; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #fff; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #663c00; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #fff; /* 🖋️ text on that fill */
+  --ab-color-danger: #44100c; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #fff; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #6e302a; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #fff; /* 🖋️ text on that fill */
+}
+
+.dark-medium-contrast {
+  color-scheme: dark; /* 🌗 native UI follows the scheme */
+
+  /* ⚠️🛑 status tokens ♿ AA ≥ 4.5:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #ffc677; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #251300; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #c18324; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #000; /* 🖋️ text on that fill */
+  --ab-color-danger: #ffbab1; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #370302; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #cc7b72; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #000; /* 🖋️ text on that fill */
+}
+
+.dark-high-contrast {
+  color-scheme: dark; /* 🌗 native UI follows the scheme */
+
+  /* ⚠️🛑 status tokens ♿ AAA ≥ 7:1 as text on bg + card and for every on-/container pair */
+  --ab-color-warning: #fed; /* ⚠️ text/icons/bars */
+  --ab-color-on-warning: #000; /* 🖋️ on a warning fill */
+  --ab-color-warning-container: #ffbd5c; /* 🎨 a soft warning fill */
+  --ab-color-on-warning-container: #000; /* 🖋️ text on that fill */
+  --ab-color-danger: #fff9f9; /* 🛑 text/icons/bars */
+  --ab-color-on-danger: #000; /* 🖋️ on a danger fill */
+  --ab-color-danger-container: #ffbab1; /* 🎨 a soft danger fill */
+  --ab-color-on-danger-container: #000; /* 🖋️ text on that fill */
+}

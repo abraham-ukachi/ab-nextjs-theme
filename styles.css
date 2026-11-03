@@ -51,5 +51,6 @@
 @import './css/colors.css';
 @import './css/typography.css';
 @import './css/styles.css';
+@import './css/prose.css'; /* 📄 0.3.8: .ab-prose (MDX long-form typography) */
 
 

@@ -1,6 +1,6 @@
 {
   "name": "ab-nextjs-theme",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "🎨 A lightweight collection of client React components as theme abElements created by Abraham Ukachi, and optimized for Next.js applications 😎.",
   "type": "module",
   "main": "index.ts",
@@ -54,12 +54,12 @@
   },
   "license": "MIT",
   "peerDependencies": {
+    "ab-nextjs-animations": "^0.2.1",
+    "ab-nextjs-fonts": "^0.2.6",
+    "ab-nextjs-icons": "^0.2.4",
     "next": "^16.3.4",
     "react": "^19",
-    "react-dom": "^19",
-    "ab-nextjs-fonts": "^0.2.6",
-    "ab-nextjs-animations": "^0.2.1",
-    "ab-nextjs-icons": "^0.2.4"
+    "react-dom": "^19"
   },
   "peerDependenciesMeta": {
     "next": {
