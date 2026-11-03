@@ -126,8 +126,11 @@
     padding: 0.15em 0.35em; /* 📦 */
     border: 1px solid var(--ab-color-border, rgb(92 64 48 / 13%)); /* 🔲 */
     border-radius: var(--ab-radius-kbd, 5px); /* 🟢 */
-    background: var(--ab-color-card2, #fbf3ec); /* 🎨 */
-    color: var(--ab-color-code-text, var(--ab-color-text, #211a16)); /* 🖋️ */
+
+    /* 🌓 0.3.9 (Joseph 0.2.24, gap 6): was card2 + --ab-color-code-text (a light-on-dark code token) = near-white
+       on white. The M3 surface pair flips with every scheme (light, dark, -mc, -hc), so contrast always holds. */
+    background: var(--ab-color-surface-container, #fcebe2); /* 🎨 */
+    color: var(--ab-color-on-surface, #211a16); /* 🖋️ */
     font-family: var(--ab-font-code, ui-monospace, monospace); /* 🔤 */
     font-size: 0.875em; /* 🔠 */
   }

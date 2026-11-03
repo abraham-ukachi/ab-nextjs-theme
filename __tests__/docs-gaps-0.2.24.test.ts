@@ -82,3 +82,23 @@ describe('🔘 gap 5: .ab-prose list markers', () => {
     expect(prose).toContain('padding-inline-start: 1.5em') // ↔️
   })
 })
+
+// 🌓 gap 6: inline code uses the scheme-aware surface pair
+describe('🌓 gap 6: .ab-prose inline code contrast', () => {
+  const rule = prose.match(/\.ab-prose :where\(:not\(pre\) > code\):not\(:where\(\.ab-prose-none \*\)\) \{([^}]*)\}/)![1] // 🔍
+  it('background is surface-container, text is on-surface', () => {
+    expect(rule).toContain('background: var(--ab-color-surface-container') // 🎨
+    expect(rule).toContain('color: var(--ab-color-on-surface') // 🖋️
+  })
+  it('no longer uses card2 or the code-text token', () => {
+    expect(rule).not.toContain('--ab-color-card2') // 🚫
+    expect(rule).not.toContain('--ab-color-code-text') // 🚫
+  })
+  it('every scheme file defines both M3 tokens', () => {
+    for (const f of ['light', 'light-mc', 'light-hc', 'dark', 'dark-mc', 'dark-hc']) {
+      const c = read(`css/${f}.css`) // 🎨
+      expect(c, f).toContain('--md-sys-color-surface-container:') // ✅
+      expect(c, f).toContain('--md-sys-color-on-surface:') // ✅
+    }
+  })
+})
