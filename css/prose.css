@@ -112,6 +112,11 @@
     margin: 0 0 1.1em; /* ↕️ */
     padding-inline-start: 1.5em; /* ↔️ */
   }
+
+  /* 🔘 0.3.9 (Joseph 0.2.24, gap 5): Tailwind preflight sets `ol, ul { list-style: none }`; bring the markers back */
+  .ab-prose :where(ul):not(:where(.ab-prose-none *)) { list-style-type: disc; } /* ⚫ */
+  .ab-prose :where(ol):not(:where(.ab-prose-none *)) { list-style-type: decimal; } /* 🔢 */
+  .ab-prose :where(ul ul):not(:where(.ab-prose-none *)) { list-style-type: circle; } /* ⚪ nested */
   .ab-prose :where(li):not(:where(.ab-prose-none *)) { margin: 0.3em 0; } /* ↕️ */
   .ab-prose :where(li)::marker { color: var(--ab-color-faint, #807062); } /* 🔘 */
   .ab-prose :where(li > ul, li > ol):not(:where(.ab-prose-none *)) { margin: 0.3em 0; } /* 🪆 nested */

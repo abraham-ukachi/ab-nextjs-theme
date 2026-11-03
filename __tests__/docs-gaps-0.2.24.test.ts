@@ -73,3 +73,12 @@ describe('🔠 gap 1: .ab-prose text re-inherits its size', () => {
     expect(typo).toMatch(/body, p \{\s*font-size: 24px/) // 🧱 untouched
   })
 })
+
+// 🔘 gap 5: .ab-prose lists show their markers again
+describe('🔘 gap 5: .ab-prose list markers', () => {
+  it('ul gets disc, ol gets decimal, both keep their start padding', () => {
+    expect(prose).toMatch(/\.ab-prose :where\(ul\):not\(:where\(\.ab-prose-none \*\)\) \{ list-style-type: disc; \}/) // ⚫
+    expect(prose).toMatch(/\.ab-prose :where\(ol\):not\(:where\(\.ab-prose-none \*\)\) \{ list-style-type: decimal; \}/) // 🔢
+    expect(prose).toContain('padding-inline-start: 1.5em') // ↔️
+  })
+})
