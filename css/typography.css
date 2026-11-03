@@ -103,7 +103,10 @@
 @layer base {
 /* Applying the Inter, 'Inter-Regular', system-ui, etc
  * font to all key elements by default... */
-body, h1, h2, h3, p, button, span, input, textarea {
+
+/* 🔤 0.3.9 (Joseph 0.2.24, gap 2): code, pre, kbd + samp descendants are skipped (zero-specificity :not(:where())),
+   so Shiki's <span>s inside <pre><code> inherit the mono font instead of falling back to Inter. */
+:is(body, h1, h2, h3, p, button, span, input, textarea):not(:where(code *, pre *, kbd *, samp *)) {
   font-family: Inter, Inter-Regular, system-ui, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
