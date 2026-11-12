@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.10](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.9...v0.3.10) (2026-11-12)
+
+* Normalize the changelog format and backfill missing entries.
+
 ## [0.3.9](https://github.com/abraham-ukachi/ab-nextjs-theme/compare/v0.3.8...v0.3.9) (2026-11-03)
 
 * 🔤 Keep the mono font on `code`, `pre` and Shiki spans
